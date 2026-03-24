@@ -345,6 +345,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('from_email').value.trim();
         const message = document.getElementById('message').value.trim();
 
+        // Validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            const errorMsg = document.documentElement.lang === 'fr' 
+                ? 'Veuillez entrer une adresse email valide.' 
+                : 'Please enter a valid email address.';
+            alert(errorMsg);
+            return;
+        }
+
         // Populate preview
         document.getElementById('confirm-name').textContent = name || '—';
         document.getElementById('confirm-email').textContent = email || '—';

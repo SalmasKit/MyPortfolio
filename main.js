@@ -285,6 +285,17 @@ function switchLanguage(lang) {
         }
     });
 
+    // Special Handling: Resume Links
+    const resumeIframe = document.getElementById('resume-iframe');
+    const resumeDownloadBtn = document.querySelector('.resume-download-btn');
+    if (resumeIframe && translations[lang].resume_file) {
+        resumeIframe.src = translations[lang].resume_file;
+    }
+    if (resumeDownloadBtn && translations[lang].resume_file) {
+        resumeDownloadBtn.href = translations[lang].resume_file;
+        resumeDownloadBtn.setAttribute('download', translations[lang].resume_name);
+    }
+
     document.title = (lang === 'fr' ? "Salma Barrak | Ingénieur Informatique" : "Salma Barrak | Software Engineer");
 }
 
@@ -294,10 +305,6 @@ window.switchLanguage = switchLanguage;
 /* ── Resume Modal Logic ─────────────────────────────── */
 function openResumeModal() {
     const modal = document.getElementById('resume-modal');
-    const iframe = document.getElementById('resume-iframe');
-    if (!iframe.src || iframe.src === window.location.href) {
-        iframe.src = 'assets/docs/Resume.pdf';
-    }
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }

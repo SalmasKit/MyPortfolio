@@ -36,7 +36,6 @@ Portfolio/
 - **Cinematic Reveal**: GSAP-powered elements that smoothly transition into view.
 - **Universal Responsiveness**: Fully optimized for mobile, tablet, and desktop displays.
 - **Integrated Contact System**: Direct-to-email communication via EmailJS.
-- **Validated Expertise**: Accredited certifications from freeCodeCamp and HackerRank.
 
 ## 🛠️ Setup
 Simply open `index.html` in any modern browser to view the portfolio. For the contact form to function, a valid EmailJS API key is required (already configured).

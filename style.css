@@ -15,9 +15,9 @@
   --glass-blur: blur(12px);
   --vibrant-glass: rgba(139, 92, 246, 0.05);
 
-  /* Modern Tokens */
-  --shadow-primary: 0 10px 30px rgba(139, 92, 246, 0.2);
   --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  --nav-bg: rgba(5, 5, 16, 0.6);
+  --nav-overlay-bg: rgba(5, 5, 16, 0.98);
 }
 
 /* Light Theme Overrides */
@@ -32,6 +32,8 @@ body.light-mode {
   --glass-bg: rgba(109, 40, 217, 0.03);
   --glass-border: rgba(109, 40, 217, 0.1);
   --shadow-primary: 0 10px 40px rgba(109, 40, 217, 0.1);
+  --nav-bg: rgba(248, 250, 252, 0.6);
+  --nav-overlay-bg: rgba(248, 250, 252, 0.98);
 }
 
 /* Unified Action Capsule */
@@ -190,7 +192,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: rgba(5, 5, 16, 0.6);
+  background: var(--nav-bg);
   backdrop-filter: blur(25px);
   border-bottom: 1px solid var(--glass-border);
 }
@@ -364,7 +366,7 @@ nav {
     inset: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(5, 5, 16, 0.98);
+    background: var(--nav-overlay-bg);
     backdrop-filter: blur(40px);
     display: flex;
     flex-direction: column;

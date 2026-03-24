@@ -341,17 +341,23 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const name = document.getElementById('from_name').value.trim();
-        const email = document.getElementById('from_email').value.trim();
-        const message = document.getElementById('message').value.trim();
+        const nameInput = document.getElementById('from_name');
+        const emailInput = document.getElementById('from_email');
+        const messageInput = document.getElementById('message');
 
-        // Validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+
+        // High-Stakes Regex Validation
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        
+        if (!email || !emailRegex.test(email)) {
             const errorMsg = document.documentElement.lang === 'fr' 
-                ? 'Veuillez entrer une adresse email valide.' 
-                : 'Please enter a valid email address.';
+                ? 'Veuillez entrer une adresse email valide (ex: nom@domaine.com).' 
+                : 'Please enter a valid email address (e.g., name@domain.com).';
             alert(errorMsg);
+            emailInput.focus();
             return;
         }
 
@@ -359,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('confirm-name').textContent = name || '—';
         document.getElementById('confirm-email').textContent = email || '—';
         document.getElementById('confirm-message').textContent =
-            message.length > 120 ? message.slice(0, 120) + '…' : message || '—';
+            message.length > 200 ? message.slice(0, 200) + '…' : message || '—';
 
         // Show modal
         confirmModal.classList.add('active');

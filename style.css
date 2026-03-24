@@ -215,11 +215,12 @@ nav {
   border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: 100px;
   color: var(--accent-2-light);
-  font-size: 0.75rem;
+  font-size: clamp(0.65rem, 2vw, 0.75rem);
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 2rem;
+  max-width: 100%;
 }
 
 .pulse {
@@ -337,33 +338,34 @@ section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: clamp(3rem, 10vh, 10rem) 10%;
+  justify-content: center;
+  padding: clamp(5rem, 15vh, 12rem) 6%;
   position: relative;
 }
 
 .content {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
+  margin: 0 auto;
   z-index: 2;
 }
 
-/* Typography Enhancements */
+/* Fluid Typography */
 h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 9vw, 6.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: clamp(1rem, 3vh, 2rem);
+  letter-spacing: -3px;
 }
 
 h2.section-title {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 300;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: clamp(3px, 1vw, 6px);
   color: var(--accent-2);
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(2rem, 5vh, 4rem);
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -483,10 +485,10 @@ h2.section-title::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 8rem;
+  font-size: clamp(3rem, 15vw, 8rem);
   font-weight: 900;
   color: rgba(255, 255, 255, 0.03);
-  letter-spacing: 20px;
+  letter-spacing: clamp(5px, 2vw, 20px);
   pointer-events: none;
   z-index: -1;
   text-transform: uppercase;
@@ -609,8 +611,14 @@ h2.section-title::after {
 /* Project Gallery Cards */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-card {
@@ -673,7 +681,7 @@ h2.section-title::after {
 }
 
 .project-info {
-  padding: 1.5rem;
+  padding: 1.8rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -681,27 +689,28 @@ h2.section-title::after {
 
 .project-info h3 {
   margin-bottom: 1rem;
+  font-size: 1.3rem;
   color: var(--text-primary);
 }
 
 .project-info p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   margin-bottom: 0.8rem;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .tech-pills {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin: 1rem 0;
+  margin: 1.2rem 0;
 }
 
 .pill {
   padding: 0.3rem 0.8rem;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   color: var(--accent-1-light);
   border-radius: 6px;
   font-size: 0.7rem;
@@ -711,25 +720,26 @@ h2.section-title::after {
 .github-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   text-decoration: none;
   color: var(--text-primary);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-top: auto;
   transition: var(--transition);
 }
 
 .github-link:hover {
   color: var(--accent-1);
+  transform: translateX(5px);
 }
 
-/* Contact Footer */
+/* Contact Footer & Grid Responsivity */
 .glass-vibrant {
   background: var(--vibrant-glass);
   backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: 32px;
-  padding: 4rem;
+  padding: clamp(1.5rem, 5vw, 4rem);
   box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
 }
 
@@ -740,8 +750,20 @@ form {
   margin-bottom: 2.5rem;
 }
 
+@media (max-width: 650px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+}
+
 .form-group:nth-child(3) {
   grid-column: span 2;
+}
+
+@media (max-width: 650px) {
+  .form-group:nth-child(3) {
+    grid-column: span 1;
+  }
 }
 
 input,

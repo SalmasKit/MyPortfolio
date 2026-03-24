@@ -1,0 +1,25 @@
+# Windows / MacOS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables (Sensitive data)
+.env
+.env.local
+
+# Dependency directories (If using npm/yarn in future)
+node_modules/
+dist/
+build/
+.cache/
+
+# Temporary files
+tmp/
+logs/
+*.log

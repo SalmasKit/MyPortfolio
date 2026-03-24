@@ -327,18 +327,33 @@ nav {
 }
 
 .burger-menu.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: translateY(6px) rotate(45deg);
 }
 
 .burger-menu.active span:nth-child(2) {
   opacity: 0;
+  transform: translateX(-20px);
 }
 
 .burger-menu.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Mobile Nav Overlay */
+.burger-menu.active {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-radius: 50%;
+}
+
+.burger-menu.active span {
+  background: #ff4d4d;
+}
+
+/* Navigation Action Capsule Layering */
+.nav-actions {
+  z-index: 1100; /* Ensure this is ALWAYS above the overlay */
+}
+
+/* Mobile Nav Overlay Refined */
 @media (max-width: 768px) {
   .burger-menu {
     display: flex;
@@ -346,29 +361,30 @@ nav {
 
   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
+    inset: 0;
+    width: 100vw;
     height: 100vh;
     background: rgba(5, 5, 16, 0.98);
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(40px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    gap: 2.5rem;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.6s;
+    transform: translateY(-100%);
     z-index: 1000;
     visibility: hidden;
   }
 
   .nav-links.active {
-    right: 0;
+    transform: translateY(0);
     visibility: visible;
   }
 
   .nav-links a {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
   }
 }
 

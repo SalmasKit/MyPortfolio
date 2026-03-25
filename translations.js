@@ -88,7 +88,13 @@ const translations = {
         confirm_send: "Confirm & Send",
         confirm_name: "Name",
         confirm_email: "Email",
-        confirm_msg: "Message"
+        confirm_msg: "Message",
+        soft_communication: "Communication",
+        soft_teamwork: "Teamwork",
+        soft_problem_solving: "Problem Solving",
+        soft_adaptability: "Adaptability",
+        contact_email_label: "Email",
+        contact_phone_label: "Phone"
     },
     fr: {
         nav_intro: "Intro",
@@ -179,6 +185,12 @@ const translations = {
         confirm_send: "Confirmer & Envoyer",
         confirm_name: "Nom",
         confirm_email: "Email",
-        confirm_msg: "Message"
+        confirm_msg: "Message",
+        soft_communication: "Communication",
+        soft_teamwork: "Travail d'équipe",
+        soft_problem_solving: "Résolution de problèmes",
+        soft_adaptability: "Adaptabilité",
+        contact_email_label: "Email",
+        contact_phone_label: "Téléphone"
     }
 };

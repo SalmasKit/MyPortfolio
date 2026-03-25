@@ -140,7 +140,7 @@ class PortfolioScene {
 
         // Theme Switcher Logic
         const themeBtn = document.getElementById('theme-toggle');
-        
+
         const applyTheme = (isLight) => {
             if (isLight) {
                 document.body.classList.add('light-mode');
@@ -247,181 +247,188 @@ class PortfolioScene {
     }
 }
 
+// Global Orchestration
 window.addEventListener('DOMContentLoaded', () => {
-    new PortfolioScene();
-    // Set default language
+    // 1. Initialize Core Engines
+    const scene = new PortfolioScene();
+    const gallery = new ProjectGallery();
+
+    // 2. Localization & Language
     const savedLang = localStorage.getItem('portfolio_lang') || 'en';
-    switchLanguage(savedLang);
+    window.switchLanguage(savedLang);
+
+    // 3. Technical Visuals
+    initTechCylinders();
+
+    // 4. Modal Backdrop Behaviors
+    const resumeModal = document.getElementById('resume-modal');
+    if (resumeModal) {
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) window.closeResumeModal();
+        });
+    }
+
+    // 5. Contact Form Validation & Logic
+    const form = document.getElementById('contact-form');
+    const confirmModal = document.getElementById('confirm-modal');
+    const confirmSendBtn = document.getElementById('confirm-send-btn');
+    
+    if (form && confirmModal && confirmSendBtn) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('from_email');
+            const nameInput = document.getElementById('from_name');
+            const messageInput = document.getElementById('message');
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = messageInput.value.trim();
+
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email || !emailRegex.test(email)) {
+                const errorMsg = document.documentElement.lang === 'fr'
+                    ? 'Veuillez entrer une adresse email valide.'
+                    : 'Please enter a valid email address.';
+                alert(errorMsg);
+                emailInput.focus();
+                return;
+            }
+
+            document.getElementById('confirm-name').textContent = name || '—';
+            document.getElementById('confirm-email').textContent = email || '—';
+            document.getElementById('confirm-message').textContent = message.slice(0, 200) + (message.length > 200 ? '…' : '');
+
+            confirmModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        confirmSendBtn.addEventListener('click', function () {
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            window.closeConfirmModal();
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            const templateParams = {
+                name: document.getElementById('from_name').value,
+                email: document.getElementById('from_email').value,
+                message: document.getElementById('message').value,
+                title: document.getElementById('from_name').value,
+            };
+
+            emailjs.send('service_6g691o8', 'template_d1yl0jh', templateParams)
+                .then(() => {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                    btn.style.background = 'var(--accent-2)';
+                    form.reset();
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                    }, 3500);
+                })
+                .catch((err) => {
+                    btn.innerHTML = '<i class="fas fa-times"></i> Failed';
+                    btn.style.background = '#ef4444';
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                    }, 3500);
+                });
+        });
+
+        confirmModal.addEventListener('click', (e) => {
+            if (e.target === confirmModal) window.closeConfirmModal();
+        });
+    }
+
+    // Escape listener for modals
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (window.closeResumeModal) window.closeResumeModal();
+            if (window.closeConfirmModal) window.closeConfirmModal();
+        }
+    });
 });
 
-/* ── Multilingual Logic ─────────────────────────────── */
+function initTechCylinders() {
+    const contents = document.querySelectorAll('.marquee-content');
+    contents.forEach(content => {
+        const cards = content.querySelectorAll('.tech-card');
+        const numCards = cards.length;
+        const angleStep = 360 / numCards;
+        const radius = Math.round((90) / Math.tan(Math.PI / numCards)) + 60;
+        cards.forEach((card, i) => {
+            const angle = i * angleStep;
+            gsap.set(card, { transform: `rotateY(${angle}deg) translateZ(${radius}px)` });
+        });
+        let currentAngle = 0;
+        const rotationSpeed = 0.3;
+        const animate = () => {
+            currentAngle -= rotationSpeed;
+            content.style.transform = `rotateY(${currentAngle}deg)`;
+            const normalizedAngle = ((currentAngle % 360) + 360) % 360;
+            const activeIndex = Math.round((360 - normalizedAngle) / angleStep) % numCards;
+            cards.forEach((card, idx) => {
+                if (idx === activeIndex) {
+                    card.classList.add('focused');
+                    gsap.to(card, { scale: 1.15, duration: 0.5 });
+                } else {
+                    card.classList.remove('focused');
+                    gsap.to(card, { scale: 0.95, duration: 0.5 });
+                }
+            });
+            requestAnimationFrame(animate);
+        };
+        animate();
+    });
+}
+
 function switchLanguage(lang) {
     if (!translations[lang]) return;
-
-    // Save preference
     localStorage.setItem('portfolio_lang', lang);
-
-    // Update active button state
     document.querySelectorAll('.lang-switcher button').forEach(btn => {
         btn.classList.remove('active');
         if (btn.getAttribute('onclick').includes(`'${lang}'`)) btn.classList.add('active');
     });
-
     document.documentElement.setAttribute('lang', lang);
-
-    // Translate elements
     document.querySelectorAll('[data-i18n]').forEach(elem => {
         const key = elem.getAttribute('data-i18n');
         const translation = translations[lang][key];
-
         if (translation) {
-            if (elem.tagName === 'INPUT' || elem.tagName === 'TEXTAREA') {
-                elem.placeholder = translation;
-            } else if (elem.tagName === 'UL' || elem.tagName === 'P' || elem.tagName === 'SPAN') {
-                elem.innerHTML = translation;
-            } else {
-                elem.textContent = translation;
-            }
+            if (elem.tagName === 'INPUT' || elem.tagName === 'TEXTAREA') elem.placeholder = translation;
+            else if (['UL', 'P', 'SPAN'].includes(elem.tagName)) elem.innerHTML = translation;
+            else elem.textContent = translation;
         }
     });
-
-    // Special Handling: Resume Links
-    const resumeIframe = document.getElementById('resume-iframe');
-    const resumeDownloadBtn = document.querySelector('.resume-download-btn');
-    if (resumeIframe && translations[lang].resume_file) {
-        resumeIframe.src = translations[lang].resume_file;
+    const resIframe = document.getElementById('resume-iframe');
+    const resBtn = document.querySelector('.resume-download-btn');
+    if (resIframe && translations[lang].resume_file) resIframe.src = translations[lang].resume_file;
+    if (resBtn && translations[lang].resume_file) {
+        resBtn.href = translations[lang].resume_file;
+        resBtn.setAttribute('download', translations[lang].resume_name);
     }
-    if (resumeDownloadBtn && translations[lang].resume_file) {
-        resumeDownloadBtn.href = translations[lang].resume_file;
-        resumeDownloadBtn.setAttribute('download', translations[lang].resume_name);
-    }
-
-    document.title = (lang === 'fr' ? "Salma Barrak | Ingénieur Informatique" : "Salma Barrak | Software Engineer");
+    document.title = lang === 'fr' ? "Salma Barrak | Ingénieur Informatique" : "Salma Barrak | Software Engineer";
 }
-
-// Expose to global for onclick
 window.switchLanguage = switchLanguage;
 
-/* ── Resume Modal Logic ─────────────────────────────── */
 function openResumeModal() {
-    const modal = document.getElementById('resume-modal');
-    modal.classList.add('active');
+    const m = document.getElementById('resume-modal');
+    m.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+window.openResumeModal = openResumeModal;
 
 function closeResumeModal() {
-    const modal = document.getElementById('resume-modal');
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// Close on backdrop click
-document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('resume-modal');
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeResumeModal();
-        });
+    const m = document.getElementById('resume-modal');
+    if (m) {
+        m.classList.remove('active');
+        document.body.style.overflow = '';
     }
-});
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeResumeModal();
-});
-
-/* ── Contact Form Handler ───────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('contact-form');
-    const confirmModal = document.getElementById('confirm-modal');
-    const confirmSendBtn = document.getElementById('confirm-send-btn');
-    if (!form || !confirmModal || !confirmSendBtn) return;
-
-    // Step 1: intercept submit → show confirmation modal
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const nameInput = document.getElementById('from_name');
-        const emailInput = document.getElementById('from_email');
-        const messageInput = document.getElementById('message');
-
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-
-        // High-Stakes Regex Validation
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        
-        if (!email || !emailRegex.test(email)) {
-            const errorMsg = document.documentElement.lang === 'fr' 
-                ? 'Veuillez entrer une adresse email valide (ex: nom@domaine.com).' 
-                : 'Please enter a valid email address (e.g., name@domain.com).';
-            alert(errorMsg);
-            emailInput.focus();
-            return;
-        }
-
-        // Populate preview
-        document.getElementById('confirm-name').textContent = name || '—';
-        document.getElementById('confirm-email').textContent = email || '—';
-        document.getElementById('confirm-message').textContent =
-            message.length > 200 ? message.slice(0, 200) + '…' : message || '—';
-
-        // Show modal
-        confirmModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-
-    // Step 2: confirmed → actually send
-    confirmSendBtn.addEventListener('click', function () {
-        const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
-
-        closeConfirmModal();
-
-        // Loading state
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-        const templateParams = {
-            name: document.getElementById('from_name').value,
-            email: document.getElementById('from_email').value,
-            message: document.getElementById('message').value,
-            title: document.getElementById('from_name').value,
-        };
-
-        emailjs.send('service_6g691o8', 'template_d1yl0jh', templateParams)
-            .then(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-                btn.style.background = 'var(--accent-2)';
-                btn.style.borderColor = 'var(--accent-2)';
-                form.reset();
-                setTimeout(() => {
-                    btn.disabled = false;
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                    btn.style.borderColor = '';
-                }, 3500);
-            })
-            .catch((err) => {
-                console.error('EmailJS error:', err);
-                btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed. Try again.';
-                btn.style.background = '#ef4444';
-                btn.style.borderColor = '#ef4444';
-                setTimeout(() => {
-                    btn.disabled = false;
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                    btn.style.borderColor = '';
-                }, 3500);
-            });
-    });
-
-    // Close on backdrop click
-    confirmModal.addEventListener('click', (e) => {
-        if (e.target === confirmModal) closeConfirmModal();
-    });
-});
+}
+window.closeResumeModal = closeResumeModal;
 
 function closeConfirmModal() {
     const modal = document.getElementById('confirm-modal');
@@ -430,3 +437,113 @@ function closeConfirmModal() {
         document.body.style.overflow = '';
     }
 }
+
+// ── Project Gallery Orchestration ─────────────────────────
+class ProjectGallery {
+    constructor() {
+        this.projectsPerPage = 6;
+        this.currentPage = 1;
+        this.currentFilter = 'all';
+        this.projects = Array.from(document.querySelectorAll('.project-card'));
+        this.filterBtns = document.querySelectorAll('.filter-btn');
+        this.pageNumbers = document.getElementById('page-numbers');
+        this.prevBtn = document.getElementById('prev-page');
+        this.nextBtn = document.getElementById('next-page');
+
+        if (this.projects.length > 0) this.init();
+    }
+
+    init() {
+        this.filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.currentFilter = btn.dataset.filter;
+                this.currentPage = 1;
+                this.render();
+            });
+        });
+
+        this.prevBtn.addEventListener('click', () => {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+                this.render();
+                this.scrollToProjects();
+            }
+        });
+
+        this.nextBtn.addEventListener('click', () => {
+            const filtered = this.getFilteredProjects();
+            if (this.currentPage < Math.ceil(filtered.length / this.projectsPerPage)) {
+                this.currentPage++;
+                this.render();
+                this.scrollToProjects();
+            }
+        });
+
+        this.render();
+    }
+
+    getFilteredProjects() {
+        if (this.currentFilter === 'all') return this.projects;
+        return this.projects.filter(p => p.dataset.category === this.currentFilter);
+    }
+
+    scrollToProjects() {
+        gsap.to(window, { duration: 0.8, scrollTo: { y: "#projects", offsetY: 80 }, ease: "power2.inOut" });
+    }
+
+    render() {
+        const filtered = this.getFilteredProjects();
+        const totalPages = Math.ceil(filtered.length / this.projectsPerPage);
+        const start = (this.currentPage - 1) * this.projectsPerPage;
+        const end = start + this.projectsPerPage;
+
+        // Hide all with a slight fade out if they were visible
+        this.projects.forEach(p => {
+            p.classList.add('project-hidden');
+        });
+
+        // Show current page
+        const toShow = filtered.slice(start, end);
+        toShow.forEach((p, idx) => {
+            p.classList.remove('project-hidden');
+            // Re-trigger reveal animation with GSAP for smoothness
+            gsap.fromTo(p, 
+                { opacity: 0, scale: 0.9, y: 20 }, 
+                { opacity: 1, scale: 1, y: 0, duration: 0.5, delay: idx * 0.08, ease: "back.out(1.2)" }
+            );
+        });
+
+        this.renderPagination(totalPages);
+    }
+
+    renderPagination(totalPages) {
+        if (!this.pageNumbers) return;
+        this.pageNumbers.innerHTML = '';
+        
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement('div');
+            btn.className = `page-num ${i === this.currentPage ? 'active' : ''}`;
+            btn.textContent = i;
+            btn.addEventListener('click', () => {
+                if (this.currentPage !== i) {
+                    this.currentPage = i;
+                    this.render();
+                    this.scrollToProjects();
+                }
+            });
+            this.pageNumbers.appendChild(btn);
+        }
+
+        if (this.prevBtn) this.prevBtn.disabled = this.currentPage === 1;
+        if (this.nextBtn) this.nextBtn.disabled = this.currentPage === totalPages || totalPages === 0;
+
+        const controls = document.querySelector('.pagination-controls');
+        if (controls) {
+            controls.style.display = totalPages <= 1 ? 'none' : 'flex';
+        }
+    }
+}
+
+window.ProjectGallery = ProjectGallery;

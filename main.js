@@ -938,39 +938,55 @@ cliFab.addEventListener('click', toggleCLI);
 
 // Command Definitions
 const commands = {
-    help: () => `Available commands: 
-- whoami: A quick introduction
-- status: Check current availability
-- skills: View my technical expertise
-- projects: List featured applications
-- ls <project>: More detail (e.g. 'ls stockify')
-- contact: Get contact info
-- clear: Wipe terminal screen
-- exit: Close terminal session`,
-    whoami: () => "A Software Engineering student specializing in Backend & AI at ENSAO. Currently seeking a 1-2 month PFA internship (from July 1st) to apply my skills in architecture and automation. I write logic that scales and build systems that matter—always a student, even when building.",
-    status: () => "Available for a 1-2 month PFA Internship starting July 1st, 2026. Looking for opportunities in Backend, Full-Stack, or AI Development.",
-    skills: () => "Core: Java, Python, JavaScript, PHP.\\nArchitectural Focus: Spring Boot, Symfony 7, FastAPI, Docker, PostgreSQL, n8n.",
-    projects: () => "Notable work: Jira Clone Pro, Chatbot-mso, Stockify, Soukify Marketplace, Tech Quiz Pro, Vision Security Engine.",
-    ls: (arg) => {
-        const pd = {
-            jira: "Jira Clone Pro | High-performance task management with real-time API integrity.\\n- Stack: Spring Boot, React, PostgreSQL, Mockito/JUnit.",
-            chatbot: "Chatbot-mso | Multilingual Gov RAG System for administrative automation.\\n- Stack: FastAPI, Vite, Hugging Face LLMs, Tesseract OCR.",
-            stockify: "Stockify - Inventory Hub | Sub-second analytical data pipeline for stock volatility.\\n- Stack: Symfony 7, Doctrine, PHP, MySQL, CSS3.",
-            soukify: "Soukify Marketplace | Geolocation-integrated mobile Android app with complex interactions.\\n- Stack: Java, Android SDK, Firebase, MVVM Pattern.",
-            quiz: "Tech Quiz Pro | High-performance IT quiz engine with 350+ tracks & analytics.\\n- Stack: Java, Room Database, MVVM Architecture.",
-            portfolio: "Interactive Portfolio | Custom 3D developer showcase with real-time localization.\\n- Stack: Vanilla JS, Three.js, GSAP, High-End CSS3."
-        };
-        if (!arg) return "Usage: ls <project> (Try: " + Object.keys(pd).join(', ') + ")";
-        return pd[arg.toLowerCase()] || `Project '${arg}' not found in registry.`;
+    help: () => {
+        const lang = document.documentElement.lang || 'en';
+        const c = translations[lang];
+        return `${c.cli_help_title} 
+- whoami: ${c.cli_help_whoami}
+- status: ${c.cli_help_status}
+- skills: ${c.cli_help_skills}
+- projects: ${c.cli_help_projects}
+- ls <project>: ${c.cli_help_ls}
+- contact: ${c.cli_help_contact}
+- clear: ${c.cli_help_clear}
+- exit: ${c.cli_help_exit}`;
     },
-    contact: () => "Email: salmabarrak26@gmail.com | LinkedIn: /in/salma-barrak | location: Morocco",
+    whoami: () => {
+        const lang = document.documentElement.lang || 'en';
+        return translations[lang].cli_whoami;
+    },
+    status: () => {
+        const lang = document.documentElement.lang || 'en';
+        return translations[lang].cli_status;
+    },
+    skills: () => {
+        const lang = document.documentElement.lang || 'en';
+        return translations[lang].cli_skills;
+    },
+    projects: () => {
+        const lang = document.documentElement.lang || 'en';
+        return translations[lang].cli_projects;
+    },
+    ls: (arg) => {
+        const lang = document.documentElement.lang || 'en';
+        const c = translations[lang];
+        if (!arg) return c.cli_ls_usage;
+        
+        const projectKey = `cli_ls_${arg.toLowerCase()}`;
+        return c[projectKey] || c.cli_not_found.replace('{cmd}', arg);
+    },
+    contact: () => {
+        const lang = document.documentElement.lang || 'en';
+        return translations[lang].cli_contact;
+    },
     clear: () => {
         cliOutput.innerHTML = '';
         return '';
     },
     exit: () => {
+        const lang = document.documentElement.lang || 'en';
         toggleCLI();
-        return 'Closing session...';
+        return translations[lang].cli_exit;
     }
 };
 
@@ -992,10 +1008,11 @@ cliInput.addEventListener('keydown', (e) => {
 
         // Process output
         let response = "";
+        const lang = document.documentElement.lang || 'en';
         if (commands[cmd]) {
             response = commands[cmd](arg);
         } else {
-            response = `Command not found: ${cmd}. Type 'help' for options.`;
+            response = translations[lang].cli_not_found.replace('{cmd}', cmd);
         }
         
         if (response) {

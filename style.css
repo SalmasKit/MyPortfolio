@@ -1879,6 +1879,8 @@ footer p {
     padding: 20px;
 }
 
+body.light-mode .cli-overlay { background: rgba(255, 255, 255, 0.6); }
+
 .cli-modal {
     width: 100%;
     max-width: 800px;
@@ -1887,8 +1889,15 @@ footer p {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background: #0a0a1a;
     border: 1px solid var(--glass-border);
     animation: cliIn 0.4s ease-out;
+}
+
+body.light-mode .cli-modal { 
+    background: #ffffff; 
+    border-color: rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes cliIn {
@@ -1905,6 +1914,8 @@ footer p {
     justify-content: space-between;
     padding: 0 15px;
 }
+
+body.light-mode .cli-header { background: rgba(0, 0, 0, 0.02); }
 
 .cli-controls {
     display: flex;
@@ -1949,10 +1960,18 @@ footer p {
     scrollbar-color: var(--accent-1) transparent;
 }
 
+body.light-mode .cli-body { 
+    background: #f8fafc; 
+    color: #0f172a; 
+}
+
 .cli-line { margin-bottom: 8px; line-height: 1.5; }
 .cli-line.user { color: var(--accent-1-light); }
+body.light-mode .cli-line.user { color: var(--accent-1); }
+
 .cli-line.error { color: #ff5f56; }
 .cli-line.intro { color: #00ffca; border-bottom: 1px solid rgba(0, 255, 202, 0.2); padding-bottom: 10px; }
+body.light-mode .cli-line.intro { color: #6D28D9; border-bottom-color: rgba(0,0,0,0.05); }
 
 .cli-input-line {
     display: flex;
@@ -1961,6 +1980,7 @@ footer p {
 }
 
 .cli-prompt { color: #ffbd2e; white-space: nowrap; }
+body.light-mode .cli-prompt { color: var(--accent-1); }
 
 #cli-input {
     background: none;
@@ -1972,6 +1992,8 @@ footer p {
     flex-grow: 1;
     caret-color: #00ffca;
 }
+
+body.light-mode #cli-input { color: #0f172a; caret-color: var(--accent-1); }
 
 /* Mobile adjustments */
 @media (max-width: 600px) {

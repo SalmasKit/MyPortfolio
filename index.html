@@ -134,7 +134,7 @@
         <section id="education">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_edu">Academic Foundation</h2>
-                <div class="timeline">
+                <div class="timeline-tree">
                     <!-- ENSAO -->
                     <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
@@ -172,7 +172,7 @@
         <section id="experience">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_exp">Professional Path</h2>
-                <div class="timeline">
+                <div class="timeline-tree">
                     <!-- Experience 1 -->
                     <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
@@ -190,7 +190,7 @@
                             <div class="timeline-actions"
                                 style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem;">
                                 <a href="#"
-                                    onclick="openPdfViewer('exp_btn_cert', 'assets/docs/Attestation de stage.pdf'); return false;"
+                                    onclick="openPdfViewer('exp_btn_cert', 'assets/docs/Certifs/Attestation de stage.pdf'); return false;"
                                     class="action-link"><i class="fas fa-file-pdf"></i> <span
                                         data-i18n="exp_btn_cert">View Certificate</span></a>
                             </div>
@@ -204,7 +204,7 @@
         <section id="volunteer">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_volunteer">Impact & Volunteering</h2>
-                <div class="timeline">
+                <div class="timeline-tree">
                     <div class="timeline-item reveal">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content glass">
@@ -701,6 +701,30 @@
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_certs">Validated Expertise</h2>
                 <div class="cert-grid">
+                    <!-- Cert 0: Docker -->
+                    <div class="cert-card glass reveal">
+                        <div class="cert-badge">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-org">Simplilearn / Docker</span>
+                            <h3 data-i18n="cert_docker_title">Docker Essentials</h3>
+                            <p data-i18n="cert_docker_desc">In-depth understanding of Docker containers, images, layering, and container orchestration workflows.</p>
+                            <div class="cert-meta">
+                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                <div class="meta-item">ID: 10024321</div>
+                            </div>
+                            <div class="tech-pills">
+                                <span class="pill">Docker</span>
+                                <span class="pill">Containers</span>
+                            </div>
+                            <a href="#"
+                                onclick="openPdfViewer('cert_docker_title', 'assets/docs/Certifs/DockerCertificate.pdf', 'fa-award'); return false;"
+                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                    data-i18n="cert_show">Show
+                                    Credential</span></a>
+                        </div>
+                    </div>
                     <!-- Cert 1 -->
                     <div class="cert-card glass reveal">
                         <div class="cert-badge">
@@ -720,7 +744,7 @@
                                 <span class="pill">PostgreSQL</span>
                             </div>
                             <a href="#"
-                                onclick="openPdfViewer('cert1_title', 'assets/docs/relational-databases-v9.pdf', 'fa-award'); return false;"
+                                onclick="openPdfViewer('cert1_title', 'assets/docs/Certifs/relational-databases-v9.pdf', 'fa-award'); return false;"
                                 class="github-link"><i class="fas fa-external-link-alt"></i> <span
                                     data-i18n="cert_show">Show
                                     Credential</span></a>
@@ -744,7 +768,7 @@
                                 <span class="pill">Java</span>
                             </div>
                             <a href="#"
-                                onclick="openPdfViewer('cert2_title', 'assets/docs/java_basic_certificate.pdf', 'fa-award'); return false;"
+                                onclick="openPdfViewer('cert2_title', 'assets/docs/Certifs/java_basic_certificate.pdf', 'fa-award'); return false;"
                                 class="github-link"><i class="fas fa-external-link-alt"></i> <span
                                     data-i18n="cert_show">Show
                                     Credential</span></a>
@@ -762,13 +786,14 @@
                                 infrastructure operations.</p>
                             <div class="cert-meta">
                                 <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                <div class="meta-item">ID: 9936127</div>
                             </div>
                             <div class="tech-pills">
                                 <span class="pill">DevOps</span>
                                 <span class="pill">CI/CD</span>
                             </div>
                             <a href="#"
-                                onclick="openPdfViewer('cert3_title', 'assets/docs/DevOps 101.pdf', 'fa-award'); return false;"
+                                onclick="openPdfViewer('cert3_title', 'assets/docs/Certifs/DevOps 101.pdf', 'fa-award'); return false;"
                                 class="github-link"><i class="fas fa-external-link-alt"></i> <span
                                     data-i18n="cert_show">Show
                                     Credential</span></a>
@@ -785,12 +810,13 @@
                             <p data-i18n="cert4_desc">Advanced SQL queries, subqueries, and database optimization.</p>
                             <div class="cert-meta">
                                 <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                <div class="meta-item">ID: IDC2DDC0F680B9</div>
                             </div>
                             <div class="tech-pills">
                                 <span class="pill">SQL</span>
                             </div>
                             <a href="#"
-                                onclick="openPdfViewer('cert4_title', 'assets/docs/sql_intermediate certificate.pdf', 'fa-award'); return false;"
+                                onclick="openPdfViewer('cert4_title', 'assets/docs/Certifs/sql_intermediate certificate.pdf', 'fa-award'); return false;"
                                 class="github-link"><i class="fas fa-external-link-alt"></i> <span
                                     data-i18n="cert_show">Show
                                     Credential</span></a>
@@ -880,7 +906,7 @@
                 <span class="resume-modal-title"><i class="fas fa-file-pdf"></i> <span
                         data-i18n="resume_title">Curriculum Vitae</span></span>
                 <div class="resume-modal-actions">
-                    <a href="assets/docs/Resume.pdf" download="Salma_Barrak_Resume.pdf"
+                    <a href="assets/docs/Resumes/Resume_eng.pdf" download="Salma_Barrak_Resume.pdf"
                         class="btn-primary resume-download-btn">
                         <i class="fas fa-download"></i> <span data-i18n="resume_download">Download</span>
                     </a>

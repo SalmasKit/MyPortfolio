@@ -1,7 +1,3 @@
-/**
- * QUANTUM PORTFOLIO - CORE LOGIC v2
- * Structured Full-Stack Portfolio Orchestration
- */
 
 // ── EmailJS Init ────────────────────────────────────────
 (function () {
@@ -112,20 +108,20 @@ class PortfolioScene {
         let currentStatIdx = 0;
         window.carouselTimeline = null;
         const statKeys = ['stat_projects', 'stat_techs', 'stat_certs', 'stat_intern'];
-        
-        window.playStatsCarousel = function() {
+
+        window.playStatsCarousel = function () {
             const textElement = document.getElementById('stat-text-carousel');
             if (!textElement) return;
-            
+
             const lang = document.documentElement.getAttribute('lang') || 'en';
             const t = typeof translations !== 'undefined' && translations[lang] ? translations[lang] : null;
             if (!t) return;
-            
+
             const sentence = t[statKeys[currentStatIdx]];
             if (window.carouselTimeline) window.carouselTimeline.kill();
-            
+
             window.carouselTimeline = gsap.timeline();
-            
+
             // Slide current text out (if there is text)
             if (textElement.innerHTML !== '') {
                 window.carouselTimeline.to(textElement, {
@@ -135,26 +131,26 @@ class PortfolioScene {
                     ease: "power2.in"
                 });
             }
-            
+
             // Swap text and Slide new text in
             window.carouselTimeline.call(() => {
                 textElement.innerHTML = sentence;
             })
-            .fromTo(textElement, 
-                { y: 20, opacity: 0 }, 
-                { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.7)" }
-            )
-            // Wait, then loop
-            .to(textElement, {
-                y: 0, // dummy tween just for the delay
-                duration: 2.5,
-                onComplete: () => {
-                    currentStatIdx = (currentStatIdx + 1) % statKeys.length;
-                    window.playStatsCarousel();
-                }
-            });
+                .fromTo(textElement,
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.7)" }
+                )
+                // Wait, then loop
+                .to(textElement, {
+                    y: 0, // dummy tween just for the delay
+                    duration: 2.5,
+                    onComplete: () => {
+                        currentStatIdx = (currentStatIdx + 1) % statKeys.length;
+                        window.playStatsCarousel();
+                    }
+                });
         };
-        
+
         // Boot Carousel after initial load
         setTimeout(window.playStatsCarousel, 1500);
 
@@ -195,7 +191,7 @@ class PortfolioScene {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-                    
+
                     // Update Top Navbar
                     document.querySelectorAll('.nav-links a').forEach(link => {
                         link.classList.remove('active');
@@ -343,7 +339,7 @@ window.addEventListener('DOMContentLoaded', () => {
             if (e.target === resumeModal) window.closeResumeModal();
         });
     }
-    
+
     const galleryModal = document.getElementById('gallery-modal');
     if (galleryModal) {
         galleryModal.addEventListener('click', (e) => {
@@ -355,7 +351,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
     const confirmModal = document.getElementById('confirm-modal');
     const confirmSendBtn = document.getElementById('confirm-send-btn');
-    
+
     if (form && confirmModal && confirmSendBtn) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -390,8 +386,11 @@ window.addEventListener('DOMContentLoaded', () => {
             const originalText = btn.textContent;
             window.closeConfirmModal();
 
+            const currentLang = document.documentElement.lang || 'en';
+            const sendingText = (translations[currentLang] && translations[currentLang].form_sending) ? translations[currentLang].form_sending : 'Sending...';
+
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${sendingText}`;
 
             const templateParams = {
                 name: document.getElementById('from_name').value,
@@ -402,14 +401,44 @@ window.addEventListener('DOMContentLoaded', () => {
 
             emailjs.send('service_6g691o8', 'template_d1yl0jh', templateParams)
                 .then(() => {
-                    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                    btn.style.background = 'var(--accent-2)';
+                    const currentLang = document.documentElement.lang || 'en';
+                    const successText = translations[currentLang].form_success || 'Mission Accomplished!';
+                    btn.innerHTML = `<i class="fas fa-check-circle"></i> ${successText}`;
+                    btn.style.background = '#27c93f';
+                    btn.style.boxShadow = '0 0 20px rgba(39, 201, 63, 0.4)';
+                    
+                    // Trigger Celebration!
+                    const duration = 3 * 1000;
+                    const end = Date.now() + duration;
+
+                    (function frame() {
+                      confetti({
+                        particleCount: 3,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#8b5cf6', '#00ffca']
+                      });
+                      confetti({
+                        particleCount: 3,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#8b5cf6', '#00ffca']
+                      });
+
+                      if (Date.now() < end) {
+                        requestAnimationFrame(frame);
+                      }
+                    }());
+
                     form.reset();
                     setTimeout(() => {
                         btn.disabled = false;
                         btn.textContent = originalText;
                         btn.style.background = '';
-                    }, 3500);
+                        btn.style.boxShadow = '';
+                    }, 4000);
                 })
                 .catch((err) => {
                     btn.innerHTML = '<i class="fas fa-times"></i> Failed';
@@ -447,18 +476,18 @@ function initTechCylinders() {
         const angleStep = 360 / numCards;
         const cardWidth = cards[0].offsetWidth > 0 ? cards[0].offsetWidth : 180;
         const radius = Math.round((cardWidth / 2) / Math.tan(Math.PI / numCards)) + (cardWidth / 3);
-        
+
         cards.forEach((card, i) => {
             const angle = i * angleStep;
             gsap.set(card, { transform: `rotateY(${angle}deg) translateZ(${radius}px)` });
             gsap.set(card, { scale: 0.95 });
         });
-        
+
         let currentAngle = 0;
         let targetAngle = 0;
         const baseSpeed = 0.25; // Consistent base rotation 
         let lastActiveIndex = -1;
-        
+
         let isDragging = false;
         let previousX = 0;
         let velocity = 0;
@@ -477,7 +506,7 @@ function initTechCylinders() {
             // Normalize swipe by screen width so a phone swipe feels identical to a monitor swipe
             const sensitivity = (360 / window.innerWidth) * 0.8;
             velocity = deltaX * sensitivity;
-            targetAngle += velocity; 
+            targetAngle += velocity;
             previousX = clientX;
         };
 
@@ -487,10 +516,10 @@ function initTechCylinders() {
         };
 
         const track = content.parentNode;
-        track.addEventListener('touchstart', (e) => handleDown(e.touches[0].clientX), {passive: true});
-        track.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientX), {passive: true});
+        track.addEventListener('touchstart', (e) => handleDown(e.touches[0].clientX), { passive: true });
+        track.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientX), { passive: true });
         track.addEventListener('touchend', handleUp);
-        
+
         track.addEventListener('mousedown', (e) => handleDown(e.clientX));
         window.addEventListener('mousemove', (e) => handleMove(e.clientX));
         window.addEventListener('mouseup', handleUp);
@@ -511,24 +540,24 @@ function initTechCylinders() {
                 targetAngle -= baseSpeed * dt;
                 targetAngle += velocity * dt;
             }
-            
+
             // Frame-rate independent lerp
             currentAngle += (targetAngle - currentAngle) * (1 - Math.pow(1 - 0.15, dt));
             content.style.transform = `rotateY(${currentAngle}deg)`;
-            
+
             const normalizedAngle = ((currentAngle % 360) + 360) % 360;
             const activeIndex = Math.round((360 - normalizedAngle) / angleStep) % numCards;
-            
+
             if (activeIndex !== lastActiveIndex) {
-                 if (lastActiveIndex !== -1 && cards[lastActiveIndex]) {
-                     cards[lastActiveIndex].classList.remove('focused');
-                     gsap.to(cards[lastActiveIndex], { scale: 0.95, duration: 0.4 });
-                 }
-                 if (cards[activeIndex]) {
-                     cards[activeIndex].classList.add('focused');
-                     gsap.to(cards[activeIndex], { scale: 1.15, duration: 0.4 });
-                 }
-                 lastActiveIndex = activeIndex;
+                if (lastActiveIndex !== -1 && cards[lastActiveIndex]) {
+                    cards[lastActiveIndex].classList.remove('focused');
+                    gsap.to(cards[lastActiveIndex], { scale: 0.95, duration: 0.4 });
+                }
+                if (cards[activeIndex]) {
+                    cards[activeIndex].classList.add('focused');
+                    gsap.to(cards[activeIndex], { scale: 1.15, duration: 0.4 });
+                }
+                lastActiveIndex = activeIndex;
             }
             requestAnimationFrame(animate);
         };
@@ -595,24 +624,38 @@ function openGallery(type) {
     const modal = document.getElementById('gallery-modal');
     const title = document.getElementById('gallery-title');
     const content = document.getElementById('gallery-content');
-    
+
     if (!modal || !content) return;
-    
+
     content.innerHTML = '';
     const lang = document.documentElement.getAttribute('lang') || 'en';
     const t = typeof translations !== 'undefined' && translations[lang] ? translations[lang] : {
         gallery_n8n_title: "n8n Workflows",
         gallery_n8n_desc: "Here are some of the automated data pipelines and logic flows I engineered using n8n for our workshops:",
         gallery_cert_title: "Volunteer Certificates",
-        gallery_cert_desc: "Certifications of appreciation and achievement from the Oriental Science House."
+        gallery_cert_desc: "Certifications of appreciation and achievement from the Oriental Science House.",
+        gallery_events_title: "Events Gallery",
+        gallery_events_desc: "A showcase of large-scale club events and high-stakes technical competitions I attended or orchestrated."
     };
-    
+
     if (type === 'n8n') {
         title.innerHTML = `<i class="fas fa-project-diagram"></i> <span data-i18n="gallery_n8n_title">${t.gallery_n8n_title}</span>`;
         content.innerHTML = `
             <p style="color: var(--text-secondary); margin-bottom: 1rem;" data-i18n="gallery_n8n_desc">${t.gallery_n8n_desc}</p>
-            <img src="assets/images/Workflow1.png" alt="n8n Workflow 1" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-            <img src="assets/images/workflow2.png" alt="n8n Workflow 2" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-top: 1.5rem;">
+            <img src="assets/images/workflows/Workflow1.png" alt="n8n Workflow 1" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+            <img src="assets/images/workflows/workflow2.png" alt="n8n Workflow 2" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5); margin-top: 1.5rem;">
+        `;
+    } else if (type === 'events') {
+        title.innerHTML = `<i class="fas fa-images"></i> <span data-i18n="gallery_events_title">${t.gallery_events_title || 'Events Gallery'}</span>`;
+        content.innerHTML = `
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;" data-i18n="gallery_events_desc">${t.gallery_events_desc || 'A showcase of large-scale club events and high-stakes technical competitions.'}</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: center;">
+                <img src="assets/images/Events/SEMIA'03.jpg" alt="SEMIA'03" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="assets/images/Events/TechConnect2.png" alt="Tech Connect 2" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="assets/images/Events/TechConnect.png" alt="Tech Connect" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="assets/images/Events/AtelierIdeation.jpg" alt="Atelier Ideation" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="assets/images/Events/JourneeInformatique(e4).png" alt="Journée Informatique" style="width: 100%; max-height: 400px; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5); grid-column: 1 / -1;">
+            </div>
         `;
     } else if (type === 'cert') {
         title.innerHTML = `<i class="fas fa-award"></i> <span data-i18n="gallery_cert_title">${t.gallery_cert_title}</span>`;
@@ -624,7 +667,7 @@ function openGallery(type) {
             </div>
         `;
     }
-    
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -644,21 +687,21 @@ function openPdfViewer(titleKey, pdfUrl, iconClass = 'fa-file-pdf') {
     const modal = document.getElementById('gallery-modal');
     const title = document.getElementById('gallery-title');
     const content = document.getElementById('gallery-content');
-    
+
     if (!modal || !content) return;
-    
+
     const lang = document.documentElement.getAttribute('lang') || 'en';
     const t = typeof translations !== 'undefined' && translations[lang] ? translations[lang] : {};
-    
+
     let displayTitle = titleKey; // fallback
     if (t[titleKey]) {
         displayTitle = t[titleKey];
     }
-    
+
     title.innerHTML = `<i class="fas ${iconClass}"></i> <span data-i18n="${titleKey}">${displayTitle}</span>`;
-    
+
     let downloadText = t['resume_download'] || 'Download';
-    
+
     content.innerHTML = `
         <iframe src="${pdfUrl}" style="width: 100%; height: 70vh; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);"></iframe>
         <div style="margin-top: 1rem;">
@@ -667,7 +710,7 @@ function openPdfViewer(titleKey, pdfUrl, iconClass = 'fa-file-pdf') {
             </a>
         </div>
     `;
-    
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -744,8 +787,8 @@ class ProjectGallery {
         toShow.forEach((p, idx) => {
             p.classList.remove('project-hidden');
             // Re-trigger reveal animation with GSAP for smoothness
-            gsap.fromTo(p, 
-                { opacity: 0, scale: 0.9, y: 20 }, 
+            gsap.fromTo(p,
+                { opacity: 0, scale: 0.9, y: 20 },
                 { opacity: 1, scale: 1, y: 0, duration: 0.5, delay: idx * 0.08, ease: "back.out(1.2)" }
             );
         });
@@ -756,7 +799,7 @@ class ProjectGallery {
     renderPagination(totalPages) {
         if (!this.pageNumbers) return;
         this.pageNumbers.innerHTML = '';
-        
+
         for (let i = 1; i <= totalPages; i++) {
             const btn = document.createElement('div');
             btn.className = `page-num ${i === this.currentPage ? 'active' : ''}`;
@@ -834,8 +877,8 @@ class CertGallery {
         const toShow = this.certs.slice(start, end);
         toShow.forEach((c, idx) => {
             c.style.display = 'flex';
-            gsap.fromTo(c, 
-                { opacity: 0, scale: 0.9, y: 20 }, 
+            gsap.fromTo(c,
+                { opacity: 0, scale: 0.9, y: 20 },
                 { opacity: 1, scale: 1, y: 0, duration: 0.5, delay: idx * 0.08, ease: "back.out(1.2)" }
             );
         });
@@ -846,7 +889,7 @@ class CertGallery {
     renderPagination(totalPages) {
         if (!this.pageNumbers) return;
         this.pageNumbers.innerHTML = '';
-        
+
         for (let i = 1; i <= totalPages; i++) {
             const btn = document.createElement('div');
             btn.className = `page-num ${i === this.currentPage ? 'active' : ''}`;
@@ -872,3 +915,101 @@ class CertGallery {
 
 window.ProjectGallery = ProjectGallery;
 window.CertGallery = CertGallery;
+
+/* --- Terminal (CLI) Logic --- */
+const cliInput = document.getElementById('cli-input');
+const cliOutput = document.getElementById('cli-output');
+const cliOverlay = document.getElementById('cli-overlay');
+const cliFab = document.getElementById('cli-fab');
+
+// Toggle CLI Visibility
+function toggleCLI() {
+    const isVisible = cliOverlay.style.display === 'flex';
+    cliOverlay.style.display = isVisible ? 'none' : 'flex';
+    if (!isVisible) {
+        cliInput.focus();
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+cliFab.addEventListener('click', toggleCLI);
+
+// Command Definitions
+const commands = {
+    help: () => `Available commands: 
+- whoami: A quick introduction
+- status: Check current availability
+- skills: View my technical expertise
+- projects: List featured applications
+- ls <project>: More detail (e.g. 'ls stockify')
+- contact: Get contact info
+- clear: Wipe terminal screen
+- exit: Close terminal session`,
+    whoami: () => "A Software Engineering student specializing in Backend & AI at ENSAO. Currently seeking a 1-2 month PFA internship (from July 1st) to apply my skills in architecture and automation. I write logic that scales and build systems that matter—always a student, even when building.",
+    status: () => "Available for a 1-2 month PFA Internship starting July 1st, 2026. Looking for opportunities in Backend, Full-Stack, or AI Development.",
+    skills: () => "Core: Java, Python, JavaScript, PHP.\\nArchitectural Focus: Spring Boot, Symfony 7, FastAPI, Docker, PostgreSQL, n8n.",
+    projects: () => "Notable work: Jira Clone Pro, Chatbot-mso, Stockify, Soukify Marketplace, Tech Quiz Pro, Vision Security Engine.",
+    ls: (arg) => {
+        const pd = {
+            jira: "Jira Clone Pro | High-performance task management with real-time API integrity.\\n- Stack: Spring Boot, React, PostgreSQL, Mockito/JUnit.",
+            chatbot: "Chatbot-mso | Multilingual Gov RAG System for administrative automation.\\n- Stack: FastAPI, Vite, Hugging Face LLMs, Tesseract OCR.",
+            stockify: "Stockify - Inventory Hub | Sub-second analytical data pipeline for stock volatility.\\n- Stack: Symfony 7, Doctrine, PHP, MySQL, CSS3.",
+            soukify: "Soukify Marketplace | Geolocation-integrated mobile Android app with complex interactions.\\n- Stack: Java, Android SDK, Firebase, MVVM Pattern.",
+            quiz: "Tech Quiz Pro | High-performance IT quiz engine with 350+ tracks & analytics.\\n- Stack: Java, Room Database, MVVM Architecture.",
+            portfolio: "Interactive Portfolio | Custom 3D developer showcase with real-time localization.\\n- Stack: Vanilla JS, Three.js, GSAP, High-End CSS3."
+        };
+        if (!arg) return "Usage: ls <project> (Try: " + Object.keys(pd).join(', ') + ")";
+        return pd[arg.toLowerCase()] || `Project '${arg}' not found in registry.`;
+    },
+    contact: () => "Email: salmabarrak26@gmail.com | LinkedIn: /in/salma-barrak | location: Morocco",
+    clear: () => {
+        cliOutput.innerHTML = '';
+        return '';
+    },
+    exit: () => {
+        toggleCLI();
+        return 'Closing session...';
+    }
+};
+
+// Handle Input
+cliInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        const fullInput = cliInput.value.trim().toLowerCase();
+        const parts = fullInput.split(' ');
+        const cmd = parts[0];
+        const arg = parts[1];
+        
+        if (!fullInput) return;
+
+        // Log the command
+        const line = document.createElement('div');
+        line.className = 'cli-line user';
+        line.innerHTML = `<span class="cli-prompt">visitor@salma-barrak:~$</span> ${fullInput}`;
+        cliOutput.appendChild(line);
+
+        // Process output
+        let response = "";
+        if (commands[cmd]) {
+            response = commands[cmd](arg);
+        } else {
+            response = `Command not found: ${cmd}. Type 'help' for options.`;
+        }
+        
+        if (response) {
+            const outLine = document.createElement('div');
+            outLine.className = 'cli-line';
+            outLine.innerHTML = response.replace(/\\n/g, '<br>');
+            cliOutput.appendChild(outLine);
+        }
+
+        cliInput.value = '';
+        document.getElementById('cli-body').scrollTop = document.getElementById('cli-body').scrollHeight;
+    }
+});
+
+// Double-click canvas to trigger terminal (Easter Egg)
+document.getElementById('canvas3d').addEventListener('dblclick', toggleCLI);
+

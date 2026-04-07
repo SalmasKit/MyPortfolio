@@ -9,8 +9,11 @@ const translations = {
         nav_certs: "Credentials",
         nav_contact: "Contact",
         hero_status: "Seeking 1-2 Month PFA Internship • Starting 01/07",
-        hero_subtitle: "SOFTWARE ENGINEERING STUDENT",
-        hero_desc: "Software Engineering student at <span>ENSA Oujda</span>, passionate about building <span>complete, meaningful applications</span> — from the logic behind the scenes to the interfaces people actually use. I enjoy the full process of creating software: <span>understanding a problem</span>, thinking through a solution, and bringing it to life in a way that feels <span>polished and purposeful</span>. I'm always exploring new technologies and pushing myself to get better, and I look forward to channeling that curiosity into <span>real-world projects</span> that make a difference.",
+        hero_status_p1: "SEEKING A 1-2 MONTH PFA INTERNSHIP",
+        hero_status_p2: "STARTING 01/07",
+        hero_status_ready: "STATUS: READY",
+        hero_subtitle: "Software engineering student at Ensa Oujda",
+        hero_desc: "Passionate about building <span>complete, meaningful applications</span> — from the logic behind the scenes to the interfaces people actually use. I enjoy the full process of creating software: <span>understanding a problem</span>, thinking through a solution, and bringing it to life in a way that feels <span>polished and purposeful</span>. I'm always exploring new technologies and pushing myself to get better, and I look forward to channeling that curiosity into <span>real-world projects</span> that make a difference.",
         hero_cta_projects: "View Projects",
         hero_cta_resume: "Get Resume",
         resume_title: "Curriculum Vitae",
@@ -223,7 +226,8 @@ const translations = {
         cli_ls_stockify: "Stockify - Inventory Hub | Sub-second analytical data pipeline for stock volatility.\\n- Stack: Symfony 7, Doctrine, PHP, MySQL, CSS3.",
         cli_ls_soukify: "Soukify Marketplace | Geolocation-integrated mobile Android app with complex interactions.\\n- Stack: Java, Android SDK, Firebase, MVVM Pattern.",
         cli_ls_quiz: "Tech Quiz Pro | High-performance IT quiz engine with 350+ tracks & analytics.\\n- Stack: Java, Room Database, MVVM Architecture.",
-        cli_ls_portfolio: "Interactive Portfolio | Custom 3D developer showcase with real-time localization.\\n- Stack: Vanilla JS, Three.js, GSAP, High-End CSS3."
+        cli_ls_portfolio: "Interactive Portfolio | Custom 3D developer showcase with real-time localization.\\n- Stack: Vanilla JS, Three.js, GSAP, High-End CSS3.",
+        revolving_text: "BUILD • AUTOMATÉ • LEARN • DEPLOY • SOLVE • INNOVATE • BUILD • AUTOMATÉ • LEARN •"
     },
     fr: {
         nav_intro: "Intro",
@@ -235,8 +239,11 @@ const translations = {
         nav_certs: "Certifs",
         nav_contact: "Contact",
         hero_status: "Recherche de stage PFA 1-2 mois • Début 01/07",
-        hero_subtitle: "ÉTUDIANTE EN GÉNIE INFORMATIQUE",
-        hero_desc: "Étudiante en Génie Informatique à l'<span>ENSA Oujda</span>, passionnée par la création d'<span>applications complètes et stimulantes</span> — de la logique de l'ombre aux interfaces que les gens utilisent réellement. J'aime tout le processus de création de logiciels : <span>comprendre un problème</span>, réfléchir à une solution et lui donner vie de manière <span>soignée et réfléchie</span>. J'explore constamment de <span>nouvelles technologies</span> et je cherche toujours à progresser à travers des <span>projets concrets</span> qui font la différence.",
+        hero_status_p1: "RECHERCHE UN STAGE PFA DE 1-2 MOIS",
+        hero_status_p2: "DÉBUT LE 01/07",
+        hero_status_ready: "STATUT: DISPONIBLE",
+        hero_subtitle: "Étudiante en génie informatique à l'Ensa Oujda",
+        hero_desc: "Passionnée par la création d'<span>applications complètes et stimulantes</span> — de la logique de l'ombre aux interfaces que les gens utilisent réellement. J'aime tout le processus de création de logiciels : <span>comprendre un problème</span>, réfléchir à une solution et lui donner vie de manière <span>soignée et réfléchie</span>. J'explore constamment de <span>nouvelle technologies</span> et je cherche toujours à progresser à travers des <span>projets concrets</span> qui font la différence.",
         hero_cta_projects: "Voir Projets",
         hero_cta_resume: "Mon CV",
         resume_title: "Curriculum Vitae",
@@ -299,7 +306,7 @@ const translations = {
         file_ai: "ia_donnees.json",
         file_dev: "outils_dev.json",
         file_soft: "soft_skills.json",
-        
+
         tech_cat_lan: "Langages",
         tech_cat_fw: "Frameworks & Bibliothèques",
         tech_cat_sys_net: "Systèmes & Réseaux",
@@ -451,6 +458,7 @@ const translations = {
         cli_ls_stockify: "Stockify - Inventory Hub | Pipeline de données analytiques pour la volatilité des stocks.\\n- Stack : Symfony 7, Doctrine, PHP, MySQL, CSS3.",
         cli_ls_soukify: "Soukify Marketplace | Application Android mobile géolocalisée avec interactions complexes.\\n- Stack : Java, Android SDK, Firebase, Pattern MVVM.",
         cli_ls_quiz: "Tech Quiz Pro | Moteur de quiz IT haute performance avec plus de 350 défis.\\n- Stack : Java, Room Database, Architecture MVVM.",
-        cli_ls_portfolio: "Portfolio Interactif | Showcase développeur 3D avec localisation en temps réel.\\n- Stack : Vanilla JS, Three.js, GSAP, CSS3 haut de gamme."
+        cli_ls_portfolio: "Portfolio Interactif | Showcase développeur 3D avec localisation en temps réel.\\n- Stack : Vanilla JS, Three.js, GSAP, CSS3 haut de gamme.",
+        revolving_text: "CONSTRUIRE • AUTOMATISER • APPRENDRE • DÉPLOYER • RÉSOUDRE • INNOVER • CONSTRUIRE • AUTOMATISER •"
     }
 };

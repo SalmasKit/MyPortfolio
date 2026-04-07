@@ -100,55 +100,80 @@
     <main>
         <!-- Hero Section -->
         <section id="hero">
-            <section id="hero">
-                <section id="hero">
-                    <div class="hero-split-console reveal">
-                        <!-- Left Row: Identity -->
-                        <div class="console-left">
-                            <div class="identity-stack">
-                                <h2 class="c-label-mini" data-i18n="hero_subtitle">SOFTWARE_ENGINEERING_STUDENT</h2>
-                                <h1 class="c-name-mini emphasis">SALMA BARRAK</h1>
-                                <div class="c-bio-mini">
-                                    <p data-i18n="hero_desc">Building <span>robust software architectures</span> and
-                                        <span>intelligent systems</span> at ENSAO. Focus: Backend Reliability & AI
-                                        Automation.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Global Anchor Banner (Ticker) -->
+            <div class="hero-ticker-banner">
+                <div class="ticker-content">
+                    <!-- Original Stream -->
+                    <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A 1-2 MONTH PFA INTERNSHIP</span></span>
+                    <span class="ticker-separator"></span>
+                    <span class="ticker-item"><i class="far fa-calendar-check"></i> <span data-i18n="hero_status_p2">STARTING 01/07</span></span>
+                    <span class="ticker-separator"></span>
+                    <span class="ticker-item"><i class="fas fa-satellite-dish"></i> <span data-i18n="hero_status_ready">STATUS: READY</span></span>
+                    <span class="ticker-separator"></span>
 
-                        <!-- Right Row: Status & Actions -->
-                        <div class="console-right">
-                            <div class="action-card-mini glass">
-                                <div class="status-alert-mini">
-                                    <span class="s-pulse-mini"></span>
-                                    <div class="status-stack-mini">
-                                        <p class="s-primary" data-i18n="hero_status_p1">SEEKING 1-2 MONTH PFA INTERNSHIP
-                                        </p>
-                                        <p class="s-secondary" data-i18n="hero_status_p2">AVAILABILITY: STARTING 01/07
-                                        </p>
-                                    </div>
-                                </div>
+                    <!-- Duplicate Stream for Seamless Loop -->
+                    <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A 1-2 MONTH PFA INTERNSHIP</span></span>
+                    <span class="ticker-separator"></span>
+                    <span class="ticker-item"><i class="far fa-calendar-check"></i> <span data-i18n="hero_status_p2">STARTING 01/07</span></span>
+                    <span class="ticker-separator"></span>
+                    <span class="ticker-item"><i class="fas fa-satellite-dish"></i> <span data-i18n="hero_status_ready">STATUS: READY</span></span>
+                    <span class="ticker-separator"></span>
+                </div>
+            </div>
 
-                                <div class="uptime-box-mini">
-                                    <i class="fas fa-microchip"></i>
-                                    <span id="stat-text-carousel">15+ Technologies Mastered</span>
-                                </div>
-
-                                <div class="cta-mini-stack">
-                                    <button class="btn-mini-solid"
-                                        onclick="gsap.to(window, {scrollTo: '#projects', duration: 1})"
-                                        data-i18n="hero_cta_projects">View Projects</button>
-                                    <button class="btn-mini-outline" id="open-resume-btn" onclick="openResumeModal()"
-                                        data-i18n="hero_cta_resume">Get Resume</button>
-                                </div>
-                            </div>
+            <div class="hero-world-split">
+                <!-- Left World: Human (The Person who understands) -->
+                <div class="world-human">
+                    <div class="human-content reveal">
+                        <div class="margin-rule"></div>
+                        <h1 class="hero-name emphasis">Salma Barrak</h1>
+                        <h2 class="hero-subtitle" data-i18n="hero_subtitle">Software engineering student at Ensa Oujda
+                        </h2>
+                        <div class="hero-bio-minimal">
+                            <p data-i18n="hero_desc">Passionate about building <span>robust software
+                                    architectures</span> and <span>intelligent systems</span>. Focus: Backend
+                                Reliability & AI Automation.</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="console-bg-glow"></div>
-                </section>
-            </section>
+                <!-- Right World: Machine (The System that builds) -->
+                <div class="world-machine">
+                    <!-- Particles will be contained here in CSS/JS -->
+                    <div class="machine-content reveal">
+                        <div class="orbit-planet">
+                            <div class="spinning-ring"></div>
+                            <svg class="orbit-text-path" viewBox="0 0 200 200">
+                                <path id="curve" d="M 100, 100 m -85, 0 a 85, 85 0 1, 1 170, 0 a 85, 85 0 1, 1 -170, 0"
+                                    fill="transparent" />
+                                <text width="500">
+                                    <textPath xlink:href="#curve" class="revolving-text" data-i18n="revolving_text">
+                                        &nbsp; BUILD • AUTOMATÉ • LEARN • DEPLOY • SOLVE • INNOVATE • BUILD • AUTOMATÉ • LEARN •
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="planet-core-wrapper">
+                                <img src="assets/images/Portrait.png" alt="Salma Barrak" class="planet-core-image">
+                                <div class="core-glow"></div>
+                            </div>
+                        </div>
+
+                        <div class="machine-stats">
+                            <div class="uptime-box-mini">
+                                <i class="fas fa-microchip"></i>
+                                <span id="stat-text-carousel">15+ Technologies Mastered</span>
+                            </div>
+                        </div>
+
+                        <div class="machine-actions">
+                            <button class="btn-primary" onclick="gsap.to(window, {scrollTo: '#projects', duration: 1})"
+                                data-i18n="hero_cta_projects">View Work</button>
+                            <button class="btn-secondary" onclick="openResumeModal()"
+                                data-i18n="hero_cta_resume">Resume</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Education Section -->

@@ -329,8 +329,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('portfolio_lang') || 'en';
     window.switchLanguage(savedLang);
 
-    // 3. Technical Visuals
-    initTechCylinders();
+
 
     // 4. Modal Backdrop Behaviors
     const resumeModal = document.getElementById('resume-modal');
@@ -406,30 +405,30 @@ window.addEventListener('DOMContentLoaded', () => {
                     btn.innerHTML = `<i class="fas fa-check-circle"></i> ${successText}`;
                     btn.style.background = '#27c93f';
                     btn.style.boxShadow = '0 0 20px rgba(39, 201, 63, 0.4)';
-                    
+
                     // Trigger Celebration!
                     const duration = 3 * 1000;
                     const end = Date.now() + duration;
 
                     (function frame() {
-                      confetti({
-                        particleCount: 3,
-                        angle: 60,
-                        spread: 55,
-                        origin: { x: 0 },
-                        colors: ['#8b5cf6', '#00ffca']
-                      });
-                      confetti({
-                        particleCount: 3,
-                        angle: 120,
-                        spread: 55,
-                        origin: { x: 1 },
-                        colors: ['#8b5cf6', '#00ffca']
-                      });
+                        confetti({
+                            particleCount: 3,
+                            angle: 60,
+                            spread: 55,
+                            origin: { x: 0 },
+                            colors: ['#8b5cf6', '#00ffca']
+                        });
+                        confetti({
+                            particleCount: 3,
+                            angle: 120,
+                            spread: 55,
+                            origin: { x: 1 },
+                            colors: ['#8b5cf6', '#00ffca']
+                        });
 
-                      if (Date.now() < end) {
-                        requestAnimationFrame(frame);
-                      }
+                        if (Date.now() < end) {
+                            requestAnimationFrame(frame);
+                        }
                     }());
 
                     form.reset();
@@ -466,104 +465,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function initTechCylinders() {
-    const contents = document.querySelectorAll('.marquee-content');
-    contents.forEach(content => {
-        const cards = content.querySelectorAll('.tech-card');
-        const numCards = cards.length;
-        if (numCards === 0) return;
 
-        const angleStep = 360 / numCards;
-        const cardWidth = cards[0].offsetWidth > 0 ? cards[0].offsetWidth : 180;
-        const radius = Math.round((cardWidth / 2) / Math.tan(Math.PI / numCards)) + (cardWidth / 3);
-
-        cards.forEach((card, i) => {
-            const angle = i * angleStep;
-            gsap.set(card, { transform: `rotateY(${angle}deg) translateZ(${radius}px)` });
-            gsap.set(card, { scale: 0.95 });
-        });
-
-        let currentAngle = 0;
-        let targetAngle = 0;
-        const baseSpeed = 0.25; // Consistent base rotation 
-        let lastActiveIndex = -1;
-
-        let isDragging = false;
-        let previousX = 0;
-        let velocity = 0;
-
-        const handleDown = (clientX) => {
-            isDragging = true;
-            previousX = clientX;
-            velocity = 0;
-            content.style.cursor = 'grabbing';
-            gsap.killTweensOf(content);
-        };
-
-        const handleMove = (clientX) => {
-            if (!isDragging) return;
-            const deltaX = clientX - previousX;
-            // Normalize swipe by screen width so a phone swipe feels identical to a monitor swipe
-            const sensitivity = (360 / window.innerWidth) * 0.8;
-            velocity = deltaX * sensitivity;
-            targetAngle += velocity;
-            previousX = clientX;
-        };
-
-        const handleUp = () => {
-            isDragging = false;
-            content.style.cursor = 'grab';
-        };
-
-        const track = content.parentNode;
-        track.addEventListener('touchstart', (e) => handleDown(e.touches[0].clientX), { passive: true });
-        track.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientX), { passive: true });
-        track.addEventListener('touchend', handleUp);
-
-        track.addEventListener('mousedown', (e) => handleDown(e.clientX));
-        window.addEventListener('mousemove', (e) => handleMove(e.clientX));
-        window.addEventListener('mouseup', handleUp);
-
-        content.style.cursor = 'grab';
-
-        let lastTime = performance.now();
-
-        const animate = (currentTime) => {
-            if (!currentTime) currentTime = performance.now();
-            let dt = (currentTime - lastTime) / (1000 / 60); // normalize dt to 60fps
-            if (dt > 3) dt = 3; // cap dt for lag spikes
-            lastTime = currentTime;
-
-            if (!isDragging) {
-                // Decay velocity independently of frame rate
-                velocity *= Math.pow(0.92, dt);
-                targetAngle -= baseSpeed * dt;
-                targetAngle += velocity * dt;
-            }
-
-            // Frame-rate independent lerp
-            currentAngle += (targetAngle - currentAngle) * (1 - Math.pow(1 - 0.15, dt));
-            content.style.transform = `rotateY(${currentAngle}deg)`;
-
-            const normalizedAngle = ((currentAngle % 360) + 360) % 360;
-            const activeIndex = Math.round((360 - normalizedAngle) / angleStep) % numCards;
-
-            if (activeIndex !== lastActiveIndex) {
-                if (lastActiveIndex !== -1 && cards[lastActiveIndex]) {
-                    cards[lastActiveIndex].classList.remove('focused');
-                    gsap.to(cards[lastActiveIndex], { scale: 0.95, duration: 0.4 });
-                }
-                if (cards[activeIndex]) {
-                    cards[activeIndex].classList.add('focused');
-                    gsap.to(cards[activeIndex], { scale: 1.15, duration: 0.4 });
-                }
-                lastActiveIndex = activeIndex;
-            }
-            requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-    });
-}
 
 function switchLanguage(lang) {
     if (!translations[lang]) return;
@@ -828,7 +730,9 @@ class CertGallery {
     constructor() {
         this.certsPerPage = 2;
         this.currentPage = 1;
+        this.currentFilter = 'all';
         this.certs = Array.from(document.querySelectorAll('#certs .cert-card'));
+        this.filterBtns = document.querySelectorAll('#cert-filter-bar .filter-btn');
         this.pageNumbers = document.getElementById('cert-page-numbers');
         this.prevBtn = document.getElementById('prev-cert-page');
         this.nextBtn = document.getElementById('next-cert-page');
@@ -838,6 +742,16 @@ class CertGallery {
     }
 
     init() {
+        this.filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.currentFilter = btn.dataset.filter;
+                this.currentPage = 1;
+                this.render();
+            });
+        });
+
         if (this.prevBtn) {
             this.prevBtn.addEventListener('click', () => {
                 if (this.currentPage > 1) {
@@ -850,7 +764,8 @@ class CertGallery {
 
         if (this.nextBtn) {
             this.nextBtn.addEventListener('click', () => {
-                if (this.currentPage < Math.ceil(this.certs.length / this.certsPerPage)) {
+                const filtered = this.getFilteredCerts();
+                if (this.currentPage < Math.ceil(filtered.length / this.certsPerPage)) {
                     this.currentPage++;
                     this.render();
                     this.scrollToCerts();
@@ -861,12 +776,18 @@ class CertGallery {
         this.render();
     }
 
+    getFilteredCerts() {
+        if (this.currentFilter === 'all') return this.certs;
+        return this.certs.filter(c => c.dataset.category === this.currentFilter);
+    }
+
     scrollToCerts() {
         gsap.to(window, { duration: 0.8, scrollTo: { y: "#certs", offsetY: 80 }, ease: "power2.inOut" });
     }
 
     render() {
-        const totalPages = Math.ceil(this.certs.length / this.certsPerPage);
+        const filtered = this.getFilteredCerts();
+        const totalPages = Math.ceil(filtered.length / this.certsPerPage);
         const start = (this.currentPage - 1) * this.certsPerPage;
         const end = start + this.certsPerPage;
 
@@ -874,7 +795,7 @@ class CertGallery {
             c.style.display = 'none';
         });
 
-        const toShow = this.certs.slice(start, end);
+        const toShow = filtered.slice(start, end);
         toShow.forEach((c, idx) => {
             c.style.display = 'flex';
             gsap.fromTo(c,
@@ -971,7 +892,7 @@ const commands = {
         const lang = document.documentElement.lang || 'en';
         const c = translations[lang];
         if (!arg) return c.cli_ls_usage;
-        
+
         const projectKey = `cli_ls_${arg.toLowerCase()}`;
         return c[projectKey] || c.cli_not_found.replace('{cmd}', arg);
     },
@@ -997,7 +918,7 @@ cliInput.addEventListener('keydown', (e) => {
         const parts = fullInput.split(' ');
         const cmd = parts[0];
         const arg = parts[1];
-        
+
         if (!fullInput) return;
 
         // Log the command
@@ -1014,7 +935,7 @@ cliInput.addEventListener('keydown', (e) => {
         } else {
             response = translations[lang].cli_not_found.replace('{cmd}', cmd);
         }
-        
+
         if (response) {
             const outLine = document.createElement('div');
             outLine.className = 'cli-line';

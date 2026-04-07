@@ -35,6 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Amiri:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -99,69 +100,143 @@
     <main>
         <!-- Hero Section -->
         <section id="hero">
-            <div class="content">
-                <div class="status-badge reveal">
-                    <span class="pulse"></span> <span data-i18n="hero_status">Seeking 1-2 Month PFA Internship •
-                        Starting 01/07</span>
-                </div>
-                <h2 class="reveal" data-i18n="hero_subtitle">SOFTWARE ENGINEERING STUDENT</h2>
-                <h1 class="reveal emphasis">SALMA BARRAK</h1>
+            <section id="hero">
+                <section id="hero">
+                    <div class="hero-split-console reveal">
+                        <!-- Left Row: Identity -->
+                        <div class="console-left">
+                            <div class="identity-stack">
+                                <h2 class="c-label-mini" data-i18n="hero_subtitle">SOFTWARE_ENGINEERING_STUDENT</h2>
+                                <h1 class="c-name-mini emphasis">SALMA BARRAK</h1>
+                                <div class="c-bio-mini">
+                                    <p data-i18n="hero_desc">Building <span>robust software architectures</span> and
+                                        <span>intelligent systems</span> at ENSAO. Focus: Backend Reliability & AI
+                                        Automation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="hero-stats-carousel reveal">
-                    <i class="fas fa-star stats-icon"></i>
-                    <span id="stat-text-carousel"></span>
-                </div>
+                        <!-- Right Row: Status & Actions -->
+                        <div class="console-right">
+                            <div class="action-card-mini glass">
+                                <div class="status-alert-mini">
+                                    <span class="s-pulse-mini"></span>
+                                    <div class="status-stack-mini">
+                                        <p class="s-primary" data-i18n="hero_status_p1">SEEKING 1-2 MONTH PFA INTERNSHIP
+                                        </p>
+                                        <p class="s-secondary" data-i18n="hero_status_p2">AVAILABILITY: STARTING 01/07
+                                        </p>
+                                    </div>
+                                </div>
 
-                <p class="reveal" data-i18n="hero_desc">Software Engineering student at the <span>National School of
-                        Applied
-                        Sciences of Oujda</span>. I enjoy building <span>full-stack applications</span> and exploring
-                    new technologies. I'm currently focused on <span>backend development</span> (Spring Boot, Symfony)
-                    while learning to create <span>intuitive web and mobile interfaces</span>. I look forward to
-                    contributing to real-world projects and continuing my growth as an engineer.
-                </p>
-                <div class="cta-group reveal">
-                    <button class="btn-primary" onclick="gsap.to(window, {scrollTo: '#projects', duration: 1})"
-                        data-i18n="hero_cta_projects">View
-                        Projects</button>
-                    <button class="btn-secondary" id="open-resume-btn" onclick="openResumeModal()"
-                        data-i18n="hero_cta_resume">Get
-                        Resume</button>
-                </div>
-            </div>
+                                <div class="uptime-box-mini">
+                                    <i class="fas fa-microchip"></i>
+                                    <span id="stat-text-carousel">15+ Technologies Mastered</span>
+                                </div>
+
+                                <div class="cta-mini-stack">
+                                    <button class="btn-mini-solid"
+                                        onclick="gsap.to(window, {scrollTo: '#projects', duration: 1})"
+                                        data-i18n="hero_cta_projects">View Projects</button>
+                                    <button class="btn-mini-outline" id="open-resume-btn" onclick="openResumeModal()"
+                                        data-i18n="hero_cta_resume">Get Resume</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="console-bg-glow"></div>
+                </section>
+            </section>
         </section>
 
         <!-- Education Section -->
         <section id="education">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_edu">Academic Foundation</h2>
-                <div class="timeline-tree">
-                    <!-- ENSAO -->
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass">
-                            <h3 data-i18n="edu_item1_title">Engineering Degree in Computer Science (AI Option)</h3>
-                            <div class="timeline-org" data-i18n="edu_item1_org">National School of Applied Sciences -
-                                Oujda (ENSAO)</div>
-                            <span class="timeline-date" data-i18n="edu_item1_date">2021 - 2027 (Expected)</span>
-                            <ul data-i18n="edu_item1_desc">
-                                <li>Deepening expertise in Software Engineering, Artificial Intelligence, and
-                                    Distributed Systems.</li>
-                                <li>Current Rank: 4th Year Engineering Student.</li>
-                            </ul>
+                <div class="github-commit-history reveal">
+                    <!-- Master's Degree "Commit" -->
+                    <div class="commit-group">
+                        <div class="commit-group-icon"></div>
+                        <div class="commit-group-title">
+                            Commits on <span data-i18n="edu_item1_date">2021 - 2027 (Expected)</span>
+                        </div>
+
+                        <div class="commit-list glass">
+                            <div class="commit-item">
+                                <div class="commit-main">
+                                    <h3 class="commit-title" data-i18n="edu_item1_title">Engineering Degree in Computer
+                                        Science (AI Option)</h3>
+                                    <div class="commit-meta">
+                                        <img src="https://github.com/SalmasKit.png" alt="SalmasKit"
+                                            class="commit-avatar">
+                                        <span class="commit-author">SalmasKit</span> committed at <span
+                                            data-i18n="edu_item1_org">National School of Applied Sciences - Oujda
+                                            (ENSAO)</span>
+                                        <span class="commit-separator">·</span>
+                                        <span class="commit-status"><i class="fas fa-check"></i> 2/2</span>
+                                    </div>
+                                    <div class="commit-desc">
+                                        <ul data-i18n="edu_item1_desc">
+                                            <li>Deepening expertise in Software Engineering, Artificial Intelligence,
+                                                and Distributed Systems.</li>
+                                            <li>Current Rank: 4th Year Engineering Student.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="commit-actions">
+                                    <div class="commit-hash-group">
+                                        <span class="commit-hash">ensa027</span>
+                                        <button class="commit-btn" title="Copy the full SHA"><i
+                                                class="far fa-copy"></i></button>
+                                    </div>
+                                    <button class="commit-code-btn"
+                                        title="Browse the repository at this point in the history"><i
+                                            class="fas fa-code"></i></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Bac -->
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass">
-                            <h3 data-i18n="edu_item2_title">High School Diploma in Mathematical Sciences A</h3>
-                            <div class="timeline-org" data-i18n="edu_item2_org">Hassan Ibn Tabit High School - Zaio
+
+                    <!-- Baccalaureate "Commit" -->
+                    <div class="commit-group">
+                        <div class="commit-group-icon"></div>
+                        <div class="commit-group-title">
+                            Commits on <span data-i18n="edu_item2_date">2020 - 2021</span>
+                        </div>
+
+                        <div class="commit-list glass" style="transition-delay: 0.1s;">
+                            <div class="commit-item">
+                                <div class="commit-main">
+                                    <h3 class="commit-title" data-i18n="edu_item2_title">High School Diploma in
+                                        Mathematical Sciences A</h3>
+                                    <div class="commit-meta">
+                                        <img src="https://github.com/SalmasKit.png" alt="SalmasKit"
+                                            class="commit-avatar">
+                                        <span class="commit-author">SalmasKit</span> committed at <span
+                                            data-i18n="edu_item2_org">Hassan Ibn Tabit High School - Zaio</span>
+                                        <span class="commit-separator">·</span>
+                                        <span class="commit-status"><i class="fas fa-check"></i> 2/2</span>
+                                    </div>
+                                    <div class="commit-desc">
+                                        <ul data-i18n="edu_item2_desc">
+                                            <li>Graduated with "High Honors".</li>
+                                            <li>Focused on Advanced Mathematics and Physics.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="commit-actions">
+                                    <div class="commit-hash-group">
+                                        <span class="commit-hash">bac2021</span>
+                                        <button class="commit-btn" title="Copy the full SHA"><i
+                                                class="far fa-copy"></i></button>
+                                    </div>
+                                    <button class="commit-code-btn"
+                                        title="Browse the repository at this point in the history"><i
+                                            class="fas fa-code"></i></button>
+                                </div>
                             </div>
-                            <span class="timeline-date" data-i18n="edu_item2_date">2020 - 2021</span>
-                            <ul data-i18n="edu_item2_desc">
-                                <li>Graduated with "High Honors".</li>
-                                <li>Focused on Advanced Mathematics and Physics.</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -172,27 +247,69 @@
         <section id="experience">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_exp">Professional Path</h2>
-                <div class="timeline-tree">
-                    <!-- Experience 1 -->
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass">
-                            <h3 data-i18n="exp_item1_title">Full-Stack Development Intern</h3>
-                            <div class="timeline-org" data-i18n="exp_item1_org">AMEE - Rabat</div>
-                            <span class="timeline-date" data-i18n="exp_item1_date">07/2025 - 08/2025</span>
-                            <ul data-i18n="exp_item1_desc">
-                                <li>Conceived and developed an HR management web app with real-time dashboards.</li>
-                                <li>Automated document flows.</li>
-                                <li>Tech Stack: PHP, MySQL, JavaScript.</li>
-                            </ul>
+                <div class="github-pr-ui reveal">
+                    <!-- Pull Request Header -->
+                    <div class="pr-header">
+                        <h3 class="pr-title">
+                            <span data-i18n="exp_item1_title">Full-Stack Development Intern</span>
+                            <span class="pr-number">#1</span>
+                        </h3>
+                        <div class="pr-meta">
+                            <span class="pr-status merged"><i class="fas fa-code-merge"></i> Merged</span>
+                            <span class="pr-author">SalmasKit</span> requested to merge this experience into
+                            <code class="pr-branch">professional-path</code> from
+                            <code class="pr-branch">
+                                <img src="assets/images/amee.png" alt="AMEE" class="pr-org-logo-small" onerror="this.style.display='none'"> 
+                                <span data-i18n="exp_item1_org">AMEE - Rabat</span>
+                            </code>
+                            <span class="pr-date">• <span data-i18n="exp_item1_date">07/2025 - 08/2025</span></span>
+                        </div>
+                    </div>
 
-                            <!-- Certificate Attachment -->
-                            <div class="timeline-actions"
-                                style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem;">
-                                <a href="#"
-                                    onclick="openPdfViewer('exp_btn_cert', 'assets/docs/Certifs/Attestation de stage.pdf'); return false;"
-                                    class="action-link"><i class="fas fa-file-pdf"></i> <span
-                                        data-i18n="exp_btn_cert">View Certificate</span></a>
+                    <!-- Pull Request Timeline -->
+                    <div class="pr-timeline">
+                        <!-- Main Comment (The Experience Details) -->
+                        <div class="pr-comment">
+                            <div class="pr-avatar">
+                                <img src="https://github.com/SalmasKit.png" alt="Salma">
+                            </div>
+                            <div class="pr-comment-box glass">
+                                <div class="pr-comment-header">
+                                    <strong>SalmasKit</strong> commented
+                                    <span class="pr-comment-badge">Owner</span>
+                                </div>
+                                <div class="pr-comment-body">
+                                    <p>Implemented the following responsibilities during this mandate:</p>
+                                    <ul data-i18n="exp_item1_desc" class="markdown-body">
+                                        <li>Conceived and developed an HR management web app with real-time dashboards.
+                                        </li>
+                                        <li>Automated document flows.</li>
+                                        <li>Tech Stack: PHP, MySQL, JavaScript.</li>
+                                    </ul>
+
+                                    <!-- Attachments (Certificate) -->
+                                    <div class="pr-attachments">
+                                        <div class="pr-attach-title"><i class="fas fa-paperclip"></i> Certificate
+                                            attached</div>
+                                        <a href="#"
+                                            onclick="openPdfViewer('exp_btn_cert', 'assets/docs/Certifs/Attestation de stage.pdf'); return false;"
+                                            class="pr-file">
+                                            <i class="fas fa-file-pdf" style="color: #da3633; font-size: 16px;"></i>
+                                            <span data-i18n="exp_btn_cert">View Certificate</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline merge event -->
+                        <div class="pr-timeline-event">
+                            <div class="pr-timeline-icon merged"><i class="fas fa-code-merge"></i></div>
+                            <img src="assets/images/amee.png" alt="AMEE" class="pr-merge-avatar"
+                                onerror="this.style.display='none'">
+                            <div class="pr-timeline-desc">
+                                <strong data-i18n="exp_item1_org">AMEE - Rabat</strong> merged commit <a href="#"
+                                    class="pr-commit-link">amee825</a> into <code>professional-path</code>
                             </div>
                         </div>
                     </div>
@@ -204,45 +321,63 @@
         <section id="volunteer">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_volunteer">Impact & Volunteering</h2>
-                <div class="timeline-tree">
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass">
-                            <h3 data-i18n="vol_item1_title">Mentor & Workshop Animator</h3>
-                            <div class="timeline-org" data-i18n="vol_item1_org">Oriental Science House</div>
-                            <span class="timeline-date" data-i18n="vol_item1_date">09/2024</span>
-                            <ul data-i18n="vol_item1_desc">
-                                <li>Facilitated immersive workshops in Artificial Intelligence, Deep Learning, and n8n
-                                    automation.</li>
-                                <li>Engineered physical models and "maquettes" to translate complex scientific theories
-                                    into intuitive concepts for younger learners.</li>
-                            </ul>
-                            <div class="timeline-actions"
-                                style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem;">
-                                <a href="#" onclick="openGallery('n8n'); return false;" class="action-link"><i
-                                        class="fas fa-project-diagram"></i> <span data-i18n="vol_btn_n8n">n8n
-                                        Workflows</span></a>
-                                <a href="#" onclick="openGallery('cert'); return false;" class="action-link"><i
-                                        class="fas fa-award"></i> <span data-i18n="vol_btn_certs">View
-                                        Certificates</span></a>
+                <div class="impact-arch-grid reveal">
+                    <!-- Node 1: MDSO -->
+                    <div class="arch-node glass">
+                        <div class="arch-node-tab">node::mdso_mentorship</div>
+
+                        <div class="arch-header">
+                            <div class="arch-logo">
+                                <img src="assets/images/mdso.png" alt="MDSO" onerror="this.style.display='none'">
+                            </div>
+                            <div class="arch-title-wrapper">
+                                <h3 data-i18n="vol_item1_org">Oriental Science House</h3>
+                                <h4 data-i18n="vol_item1_title">Mentor & Workshop Animator</h4>
                             </div>
                         </div>
+
+                        <ul class="arch-desc" data-i18n="vol_item1_desc">
+                            <li>Facilitated immersive workshops in Artificial Intelligence, Deep Learning, and n8n
+                                automation.</li>
+                            <li>Engineered physical models to translate complex scientific theories into intuitive
+                                concepts.</li>
+                        </ul>
+
+                        <div class="arch-footer">
+                            <a href="#" onclick="openGallery('n8n'); return false;" class="arch-link"><span
+                                    data-i18n="vol_btn_n8n">n8n Workflows</span> <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" onclick="openGallery('cert'); return false;" class="arch-link"><span
+                                    data-i18n="vol_btn_certs">View Certificates</span> <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass">
-                            <h3 data-i18n="vol_item2_title">Technical Organization</h3>
-                            <div class="timeline-org" data-i18n="vol_item2_org">Club GI ENSAO</div>
-                            <span class="timeline-date" data-i18n="vol_item2_date">09/2024</span>
-                            <ul data-i18n="vol_item2_desc">
-                                <li>Orchestrated large-scale club events and high-stakes technical competitions.</li>
-                            </ul>
-                            <div class="timeline-actions"
-                                style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem;">
-                                <a href="#" onclick="openGallery('events'); return false;" class="action-link"><i
-                                        class="fas fa-images"></i> <span data-i18n="vol_btn_events">View Event
-                                        Gallery</span></a>
+
+                    <!-- Node 2: GI Club -->
+                    <div class="arch-node glass">
+                        <div class="arch-node-tab">node::clubgi_events</div>
+
+                        <div class="arch-header">
+                            <div class="arch-logo">
+                                <img src="assets/images/giclub.png" alt="GI Club" onerror="this.style.display='none'">
                             </div>
+                            <div class="arch-title-wrapper">
+                                <h3 data-i18n="vol_item2_org">Club GI ENSAO</h3>
+                                <h4 data-i18n="vol_item2_title">Technical Organization</h4>
+                            </div>
+                        </div>
+
+                        <ul class="arch-desc" data-i18n="vol_item2_desc">
+                            <li>Orchestrated large-scale club events and high-stakes technical competitions.</li>
+                            <li>Authored high-impact technical and promotional content for the club's digital presence.
+                            </li>
+                            <li>Mentored junior students, guiding them through technical challenges and club
+                                integration.</li>
+                        </ul>
+
+                        <div class="arch-footer">
+                            <a href="#" onclick="openGallery('events'); return false;" class="arch-link"><span
+                                    data-i18n="vol_btn_events">View Event Gallery</span> <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -253,159 +388,345 @@
         <section id="tech">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_tech">Neural Engine</h2>
-                <div class="grouped-marquee-system reveal">
-
-                    <!-- Languages Group -->
-                    <!-- Languages Group -->
-                    <div class="marquee-group">
-                        <div class="group-bg-text">LANGUAGES</div>
-                        <h3 class="group-label" data-i18n="tech_cat1">Languages</h3>
-                        <div class="marquee-track interactive-scroll">
-                            <div class="marquee-content no-animation">
-                                <div class="tech-card"><i class="fab fa-java"></i><span>Java</span></div>
-                                <div class="tech-card"><i class="fab fa-python"></i><span>Python</span></div>
-                                <div class="tech-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                                <div class="tech-card"><i class="fab fa-php"></i><span>PHP</span></div>
-                                <div class="tech-card"><i class="fab fa-html5"></i><span>HTML5/CSS3</span></div>
-                                <!-- Duplicates -->
-                                <div class="tech-card"><i class="fab fa-java"></i><span>Java</span></div>
-                                <div class="tech-card"><i class="fab fa-python"></i><span>Python</span></div>
-                                <div class="tech-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
-                                <div class="tech-card"><i class="fab fa-php"></i><span>PHP</span></div>
-                                <div class="tech-card"><i class="fab fa-html5"></i><span>HTML5/CSS3</span></div>
-                            </div>
+                <div class="tech-ide-window reveal">
+                    <div class="mac-header">
+                        <div class="mac-buttons">
+                            <span class="btn close"></span>
+                            <span class="btn min"></span>
+                            <span class="btn max"></span>
                         </div>
+                        <div class="mac-title"><span data-i18n="ide_folder">engineering_kit</span> — <span
+                                data-i18n="ide_workspace">Workspace</span></div>
                     </div>
 
-                    <!-- Frameworks & Libraries Group -->
-                    <div class="marquee-group">
-                        <div class="group-bg-text">FRAMEWORKS</div>
-                        <h3 class="group-label" data-i18n="tech_cat2">Frameworks & Libraries</h3>
-                        <div class="marquee-track interactive-scroll">
-                            <div class="marquee-content no-animation">
-                                <div class="tech-card"><i class="fas fa-leaf"></i><span>Spring Boot</span></div>
-                                <div class="tech-card"><i class="fab fa-java"></i><span>JavaEE</span></div>
-                                <div class="tech-card"><i class="fab fa-php"></i><span>Symfony</span></div>
-                                <div class="tech-card"><i class="fab fa-react"></i><span>React.js</span></div>
-                                <div class="tech-card"><i class="fab fa-android"></i><span>Android SDK</span></div>
-                                <div class="tech-card"><i class="fas fa-microchip"></i><span
-                                        data-i18n="tech_ai_sklearn">Scikit-learn</span></div>
-                                <div class="tech-card"><i class="fas fa-chart-bar"></i><span
-                                        data-i18n="tech_ai_pandas">Pandas/NumPy</span></div>
-                                <!-- Duplicates -->
-                                <div class="tech-card"><i class="fas fa-leaf"></i><span>Spring Boot</span></div>
-                                <div class="tech-card"><i class="fab fa-java"></i><span>JavaEE</span></div>
-                                <div class="tech-card"><i class="fab fa-php"></i><span>Symfony</span></div>
-                                <div class="tech-card"><i class="fab fa-react"></i><span>React.js</span></div>
-                                <div class="tech-card"><i class="fab fa-android"></i><span>Android SDK</span></div>
-                                <div class="tech-card"><i class="fas fa-microchip"></i><span
-                                        data-i18n="tech_ai_sklearn">Scikit-learn</span></div>
-                                <div class="tech-card"><i class="fas fa-chart-bar"></i><span
-                                        data-i18n="tech_ai_pandas">Pandas/NumPy</span></div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="ide-container">
+                        <!-- Pure CSS State Management -->
+                        <input type="radio" name="ide_tab" id="tab-lan" class="ide-radio" checked>
+                        <input type="radio" name="ide_tab" id="tab-fw" class="ide-radio">
+                        <input type="radio" name="ide_tab" id="tab-db" class="ide-radio">
+                        <input type="radio" name="ide_tab" id="tab-sys" class="ide-radio">
+                        <input type="radio" name="ide_tab" id="tab-ai" class="ide-radio">
+                        <input type="radio" name="ide_tab" id="tab-dev" class="ide-radio">
+                        <input type="radio" name="ide_tab" id="tab-soft" class="ide-radio">
 
-                    <!-- AI & Data Science Group -->
-                    <div class="marquee-group">
-                        <div class="group-bg-text">INTELLIGENCE</div>
-                        <h3 class="group-label" data-i18n="tech_cat5">AI & Data Science</h3>
-                        <div class="marquee-track interactive-scroll">
-                            <div class="marquee-content no-animation">
-                                <div class="tech-card"><i class="fas fa-brain"></i><span data-i18n="tech_ai_ml">Machine
-                                        Learning</span></div>
-                                <div class="tech-card"><i class="fas fa-network-wired"></i><span
-                                        data-i18n="tech_ai_dl">Deep Learning</span></div>
-                                <div class="tech-card"><i class="fas fa-eye"></i><span data-i18n="tech_ai_cv">Computer
-                                        Vision</span></div>
-                                <div class="tech-card"><i class="fab fa-google"></i><span>Google Colab</span></div>
-                                <!-- Duplicates -->
-                                <div class="tech-card"><i class="fas fa-brain"></i><span data-i18n="tech_ai_ml">Machine
-                                        Learning</span></div>
-                                <div class="tech-card"><i class="fas fa-network-wired"></i><span
-                                        data-i18n="tech_ai_dl">Deep Learning</span></div>
-                                <div class="tech-card"><i class="fas fa-eye"></i><span data-i18n="tech_ai_cv">Computer
-                                        Vision</span></div>
-                                <div class="tech-card"><i class="fab fa-google"></i><span>Google Colab</span></div>
+                        <!-- Sidebar Explorer -->
+                        <div class="ide-sidebar">
+                            <div class="sidebar-title" data-i18n="ide_explorer">EXPLORER</div>
+                            <!-- Open Folder -->
+                            <div class="folder-root">
+                                <div class="folder-header">
+                                    <i class="fas fa-chevron-down folder-arrow"></i>
+                                    <i class="fas fa-folder-open folder-icon"></i>
+                                    <span class="folder-name" data-i18n="ide_folder">engineering_kit</span>
+                                </div>
+                                <div class="folder-children">
+                                    <label for="tab-lan" class="side-item lan-item"><i class="fas fa-file-code"
+                                            style="color: #f43f5e"></i> <span
+                                            data-i18n="file_lan">core_languages.json</span></label>
+                                    <label for="tab-fw" class="side-item fw-item"><i class="fas fa-layer-group"
+                                            style="color: #10b981"></i> <span
+                                            data-i18n="file_fw">frameworks.json</span></label>
+                                    <label for="tab-db" class="side-item db-item"><i class="fas fa-database"
+                                            style="color: #0ea5e9"></i> <span
+                                            data-i18n="file_db">databases.json</span></label>
+                                    <label for="tab-sys" class="side-item sys-item"><i class="fas fa-server"
+                                            style="color: #f59e0b"></i> <span
+                                            data-i18n="file_sys">infrastructure.json</span></label>
+                                    <label for="tab-ai" class="side-item ai-item"><i class="fas fa-brain"
+                                            style="color: #6366f1"></i> <span
+                                            data-i18n="file_ai">ai_data.json</span></label>
+                                    <label for="tab-dev" class="side-item dev-item"><i class="fas fa-tools"
+                                            style="color: #d946ef"></i> <span
+                                            data-i18n="file_dev">tools.json</span></label>
+                                    <label for="tab-soft" class="side-item soft-item"><i class="fas fa-users"
+                                            style="color: #a855f7"></i> <span
+                                            data-i18n="file_soft">soft_skills.json</span></label>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Databases & Infra Group -->
-                    <div class="marquee-group">
-                        <div class="group-bg-text">INFRASTRUCTURE</div>
-                        <h3 class="group-label" data-i18n="tech_cat6">Databases & Infrastructure</h3>
-                        <div class="marquee-track interactive-scroll">
-                            <div class="marquee-content no-animation">
-                                <div class="tech-card"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-                                <div class="tech-card"><i class="fas fa-database"></i><span>MySQL</span></div>
-                                <div class="tech-card"><i class="fab fa-docker"></i><span>Docker</span></div>
-                                <div class="tech-card"><i class="fab fa-linux"></i><span>Linux</span></div>
-                                <!-- Duplicates -->
-                                <div class="tech-card"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-                                <div class="tech-card"><i class="fas fa-database"></i><span>MySQL</span></div>
-                                <div class="tech-card"><i class="fab fa-docker"></i><span>Docker</span></div>
-                                <div class="tech-card"><i class="fab fa-linux"></i><span>Linux</span></div>
+                        <!-- Editor Area -->
+                        <div class="ide-editor">
+                            <!-- Editor Tabs -->
+                            <div class="editor-tabs">
+                                <div class="e-tab lan-tab"><i class="fas fa-file-code" style="color: #f43f5e"></i> <span
+                                        data-i18n="file_lan">core_languages.json</span></div>
+                                <div class="e-tab fw-tab"><i class="fas fa-layer-group" style="color: #10b981"></i>
+                                    <span data-i18n="file_fw">frameworks.json</span>
+                                </div>
+                                <div class="e-tab db-tab"><i class="fas fa-database" style="color: #0ea5e9"></i> <span
+                                        data-i18n="file_db">databases.json</span></div>
+                                <div class="e-tab sys-tab"><i class="fas fa-server" style="color: #f59e0b"></i> <span
+                                        data-i18n="file_sys">infrastructure.json</span></div>
+                                <div class="e-tab ai-tab"><i class="fas fa-brain" style="color: #6366f1"></i> <span
+                                        data-i18n="file_ai">ai_data.json</span></div>
+                                <div class="e-tab dev-tab"><i class="fas fa-tools" style="color: #d946ef"></i> <span
+                                        data-i18n="file_dev">tools.json</span></div>
+                                <div class="e-tab soft-tab"><i class="fas fa-users" style="color: #a855f7"></i> <span
+                                        data-i18n="file_soft">soft_skills.json</span></div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Dev Tools & IDEs Group -->
-                    <div class="marquee-group">
-                        <div class="group-bg-text">LIFECYCLE</div>
-                        <h3 class="group-label" data-i18n="tech_cat4">Dev Tools & IDEs</h3>
-                        <div class="marquee-track interactive-scroll">
-                            <div class="marquee-content no-animation">
-                                <div class="tech-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
-                                <div class="tech-card"><i class="fab fa-github"></i><span>GitHub</span></div>
-                                <div class="tech-card"><i class="fab fa-gitlab"></i><span>GitLab</span></div>
-                                <div class="tech-card"><i class="fas fa-keyboard"></i><span>VS Code</span></div>
-                                <div class="tech-card"><i class="fas fa-code"></i><span>IntelliJ</span></div>
-                                <div class="tech-card"><i class="fas fa-rocket"></i><span>Postman</span></div>
-                                <div class="tech-card"><i class="fas fa-dog"></i><span>Bruno</span></div>
-                                <div class="tech-card"><i class="fas fa-robot"></i><span>n8n</span></div>
-                                <!-- Duplicates for scrolling visual stability -->
-                                <div class="tech-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
-                                <div class="tech-card"><i class="fab fa-github"></i><span>GitHub</span></div>
-                                <div class="tech-card"><i class="fab fa-gitlab"></i><span>GitLab</span></div>
-                                <div class="tech-card"><i class="fas fa-keyboard"></i><span>VS Code</span></div>
-                                <div class="tech-card"><i class="fas fa-code"></i><span>IntelliJ</span></div>
-                                <div class="tech-card"><i class="fas fa-rocket"></i><span>Postman</span></div>
-                                <div class="tech-card"><i class="fas fa-dog"></i><span>Bruno</span></div>
-                                <div class="tech-card"><i class="fas fa-robot"></i><span>n8n</span></div>
-                            </div>
-                        </div>
-                    </div>
+                            <!-- Content Views -->
+                            <div class="editor-content">
+                                <!-- View: Languages -->
+                                <div class="code-view" id="view-lan">
+                                    <div class="line"><span class="num">1</span> <span class="kw">{</span></div>
+                                    <div class="line"><span class="num">2</span> <span class="str">"<span
+                                                data-i18n="ide_category">category</span>"</span>: <span class="str"
+                                            data-i18n="tech_cat_lan">"Languages"</span>,</div>
+                                    <div class="line"><span class="num">3</span> <span class="str">"<span
+                                                data-i18n="ide_stack">stack</span>"</span>: <span class="kw">[</span>
+                                    </div>
+                                    <div class="line pl"><span class="num">4</span> <i class="fab fa-java code-icn"></i>
+                                        <span class="str">"Java"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">5</span> <i
+                                            class="fab fa-python code-icn"></i> <span class="str">"Python"</span>,</div>
+                                    <div class="line pl"><span class="num">6</span> <i class="fab fa-js code-icn"></i>
+                                        <span class="str">"JavaScript"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">7</span> <i class="fab fa-php code-icn"></i>
+                                        <span class="str">"PHP"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">8</span> <i
+                                            class="fas fa-hashtag code-icn"></i> <span class="str">"C#"</span>,</div>
+                                    <div class="line pl"><span class="num">9</span> <i
+                                            class="fab fa-html5 code-icn"></i> <span class="str">"HTML5/CSS3"</span>
+                                    </div>
+                                    <div class="line"><span class="num">10</span> <span class="kw">]</span></div>
+                                    <div class="line"><span class="num">11</span> <span class="kw">}</span></div>
+                                </div>
 
-                    <!-- Soft Skills Footer -->
-                    <div class="tech-skills-footer reveal">
-                        <div class="skills-chips">
-                            <div class="skills-label" data-i18n="tech_cat7">Agile & Project Management</div>
-                            <div class="pills-container">
-                                <span class="skill-pill" data-i18n="soft_agile">Agile</span>
-                                <span class="skill-pill" data-i18n="soft_scrum">Scrum</span>
-                                <span class="skill-pill" data-i18n="soft_jira">Jira</span>
-                            </div>
-                        </div>
-                        <div class="skills-chips" style="margin-top: 2rem;">
-                            <div class="skills-label" data-i18n="tech_cat3">Human Capital</div>
-                            <div class="pills-container">
-                                <span class="skill-pill" data-i18n="soft_communication">Communication</span>
-                                <span class="skill-pill" data-i18n="soft_teamwork">Teamwork</span>
-                                <span class="skill-pill" data-i18n="soft_problem_solving">Problem Solving</span>
-                                <span class="skill-pill" data-i18n="soft_adaptability">Adaptability</span>
-                            </div>
-                        </div>
-                        <div class="skills-chips" style="margin-top: 2rem;">
-                            <div class="skills-label" data-i18n="lang_label">Languages</div>
-                            <div class="pills-container">
-                                <span class="skill-pill" data-i18n="lang_arabic">Arabic (Native)</span>
-                                <span class="skill-pill" data-i18n="lang_french">French (B2)</span>
-                                <span class="skill-pill" data-i18n="lang_english">English (C1)</span>
+                                <!-- View: Frameworks -->
+                                <div class="code-view" id="view-fw">
+                                    <div class="line"><span class="num">1</span> <span class="kw">{</span></div>
+                                    <div class="line"><span class="num">2</span> <span class="str">"<span
+                                                data-i18n="ide_category">category</span>"</span>: <span class="str"
+                                            data-i18n="tech_cat_fw">"Frameworks & Libraries"</span>,</div>
+                                    <div class="line"><span class="num">3</span> <span class="str">"<span
+                                                data-i18n="ide_stack">stack</span>"</span>: <span class="kw">[</span>
+                                    </div>
+                                    <div class="line pl"><span class="num">4</span> <i class="fas fa-leaf code-icn"></i>
+                                        <span class="str">"Spring Boot"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">5</span> <i
+                                            class="fab fa-react code-icn"></i> <span class="str">"React.js"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">6</span> <i class="fab fa-php code-icn"></i>
+                                        <span class="str">"Symfony"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">7</span> <i
+                                            class="fab fa-android code-icn"></i> <span class="str">"Android SDK"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">8</span> <i class="fab fa-java code-icn"></i>
+                                        <span class="str">"JavaEE"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">9</span> <i
+                                            class="fas fa-desktop code-icn"></i> <span class="str">"JavaFX"</span></div>
+                                    <div class="line"><span class="num">10</span> <span class="kw">]</span></div>
+                                    <div class="line"><span class="num">11</span> <span class="kw">}</span></div>
+                                </div>
+
+                                <!-- View: Databases -->
+                                <div class="code-view" id="view-db">
+                                    <div class="line"><span class="num">1</span> <span class="kw">{</span></div>
+                                    <div class="line"><span class="num">2</span> <span class="str">"<span
+                                                data-i18n="ide_category">category</span>"</span>: <span class="str"
+                                            data-i18n="tech_cat_db">"Databases"</span>,</div>
+                                    <div class="line"><span class="num">3</span> <span class="str">"<span
+                                                data-i18n="ide_stack">stack</span>"</span>: <span class="kw">[</span>
+                                    </div>
+                                    <div class="line pl"><span class="num">4</span> <i
+                                            class="devicon-postgresql-plain code-icn"></i> <span
+                                            class="str">"PostgreSQL"</span>,</div>
+                                    <div class="line pl"><span class="num">5</span> <i
+                                            class="devicon-mysql-plain code-icn"></i> <span class="str">"MySQL"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">6</span> <i
+                                            class="devicon-sqlite-plain code-icn"></i> <span
+                                            class="str">"SQLite"</span>,</div>
+                                    <div class="line pl"><span class="num">7</span> <i class="fas fa-box code-icn"></i>
+                                        <span class="str">"Room"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">8</span> <i class="fas fa-fire code-icn"></i>
+                                        <span class="str">"Firebase"</span>
+                                    </div>
+                                    <div class="line"><span class="num">9</span> <span class="kw">]</span></div>
+                                    <div class="line"><span class="num">10</span> <span class="kw">}</span></div>
+                                </div>
+
+                                <!-- View: Infrastructure -->
+                                <div class="code-view" id="view-sys">
+                                    <div class="line"><span class="num">1</span> <span class="kw">{</span></div>
+                                    <div class="line"><span class="num">2</span> <span class="str">"<span
+                                                data-i18n="ide_category">category</span>"</span>: <span class="str"
+                                            data-i18n="tech_cat_sys_net">"Systems & Networks"</span>,</div>
+                                    <div class="line"><span class="num">3</span> <span class="str">"<span
+                                                data-i18n="ide_stack">stack</span>"</span>: <span class="kw">[</span>
+                                    </div>
+                                    <div class="line pl"><span class="num">4</span> <i
+                                            class="fab fa-docker code-icn"></i> <span class="str"
+                                            data-i18n="tech_docker">"Docker (Containers)"</span>,</div>
+                                    <div class="line pl"><span class="num">5</span> <i
+                                            class="fas fa-server code-icn"></i> <span class="str"
+                                            data-i18n="tech_vms">"Virtual Machines"</span>,</div>
+                                    <div class="line pl"><span class="num">6</span> <i
+                                            class="fab fa-linux code-icn"></i> <span class="str">"Linux (Ubuntu,
+                                            Debian)"</span>,</div>
+                                    <div class="line pl"><span class="num">7</span> <i
+                                            class="fas fa-terminal code-icn"></i> <span class="str"
+                                            data-i18n="tech_sysadmin">"Systems Administration"</span>,</div>
+                                    <div class="line pl"><span class="num">8</span> <i
+                                            class="fas fa-network-wired code-icn"></i> <span class="str"
+                                            data-i18n="tech_net">"Network Basics"</span></div>
+                                    <div class="line"><span class="num">9</span> <span class="kw">]</span></div>
+                                    <div class="line"><span class="num">10</span> <span class="kw">}</span></div>
+                                </div>
+
+                                <!-- View: AI & Data -->
+                                <div class="code-view" id="view-ai">
+                                    <div class="line"><span class="num">1</span> <span class="kw">{</span></div>
+                                    <div class="line"><span class="num">2</span> <span class="str">"<span
+                                                data-i18n="ide_category">category</span>"</span>: <span class="str"
+                                            data-i18n="tech_cat8">"AI & Data Science"</span>,</div>
+                                    <div class="line"><span class="num">3</span> <span class="str">"<span
+                                                data-i18n="ide_stack">stack</span>"</span>: <span class="kw">[</span>
+                                    </div>
+                                    <div class="line pl"><span class="num">4</span> <i
+                                            class="fas fa-network-wired code-icn"></i> <span class="str"
+                                            data-i18n="tech_ai_dl">"Deep Learning"</span>,</div>
+                                    <div class="line pl"><span class="num">5</span> <i
+                                            class="fas fa-brain code-icn"></i> <span class="str"
+                                            data-i18n="tech_ai_ml">"Machine Learning"</span>,</div>
+                                    <div class="line pl"><span class="num">6</span> <i class="fas fa-eye code-icn"></i>
+                                        <span class="str" data-i18n="tech_ai_cv">"Computer Vision"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">7</span> <i
+                                            class="fas fa-microchip code-icn"></i> <span class="str"
+                                            data-i18n="tech_ai_sklearn">"Scikit-learn"</span>,</div>
+                                    <div class="line pl"><span class="num">8</span> <i
+                                            class="fas fa-chart-bar code-icn"></i> <span class="str"
+                                            data-i18n="tech_ai_pandas">"Pandas/NumPy"</span></div>
+                                    <div class="line"><span class="num">9</span> <span class="kw">]</span></div>
+                                    <div class="line"><span class="num">10</span> <span class="kw">}</span></div>
+                                </div>
+
+                                <!-- View: Dev Tools -->
+                                <div class="code-view" id="view-dev">
+                                    <div class="line"><span class="num">1</span> <span class="kw">{</span></div>
+                                    <div class="line"><span class="num">2</span> <span class="str"
+                                            data-i18n="tech_cat_ides">"ides_environments"</span>: <span
+                                            class="kw">[</span></div>
+                                    <div class="line pl"><span class="num">3</span> <i class="fas fa-code code-icn"></i>
+                                        <span class="str">"JetBrains / VS Code"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">4</span> <i
+                                            class="fab fa-android code-icn"></i> <span class="str">"Android
+                                            Studio"</span>,</div>
+                                    <div class="line pl"><span class="num">5</span> <i
+                                            class="fas fa-book-open code-icn"></i> <span class="str">"Jupyter / Google
+                                            Colab"</span></div>
+                                    <div class="line"><span class="num">6</span> <span class="kw">]</span>,</div>
+                                    <div class="line"><span class="num">7</span> <span class="str"
+                                            data-i18n="tech_cat_versioning">"versioning_apis"</span>: <span
+                                            class="kw">[</span></div>
+                                    <div class="line pl"><span class="num">8</span> <i
+                                            class="fab fa-git-alt code-icn"></i> <span class="str">"Git / GitHub /
+                                            GitLab"</span>,</div>
+                                    <div class="line pl"><span class="num">9</span> <i
+                                            class="fas fa-robot code-icn"></i> <span class="str">"n8n"</span>,</div>
+                                    <div class="line pl"><span class="num">10</span> <i
+                                            class="fas fa-rocket code-icn"></i> <span class="str">"Postman"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">11</span> <i class="fas fa-paw code-icn"></i>
+                                        <span class="str">"Bruno"</span>
+                                    </div>
+                                    <div class="line"><span class="num">12</span> <span class="kw">]</span>,</div>
+                                    <div class="line"><span class="num">13</span> <span class="str"
+                                            data-i18n="tech_cat_testing">"testing_qa"</span>: <span class="kw">[</span>
+                                    </div>
+                                    <div class="line pl"><span class="num">14</span> <i
+                                            class="fas fa-vial code-icn"></i> <span class="str">"JUnit"</span>,</div>
+                                    <div class="line pl"><span class="num">15</span> <i class="fas fa-bug code-icn"></i>
+                                        <span class="str">"Mockito"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">16</span> <i
+                                            class="fas fa-shield-alt code-icn"></i> <span class="str">"JaCoCo"</span>
+                                    </div>
+                                    <div class="line"><span class="num">17</span> <span class="kw">]</span>,</div>
+                                    <div class="line"><span class="num">18</span> <span class="str"
+                                            data-i18n="tech_cat_design">"design_architecture"</span>: <span
+                                            class="kw">[</span></div>
+                                    <div class="line pl"><span class="num">19</span> <i
+                                            class="fas fa-project-diagram code-icn"></i> <span class="str">"UML"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">20</span> <i
+                                            class="fas fa-sitemap code-icn"></i> <span class="str">"Merise"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">21</span> <i
+                                            class="fab fa-figma code-icn"></i> <span class="str">"Figma"</span>,</div>
+                                    <div class="line pl"><span class="num">22</span> <i
+                                            class="fas fa-paint-brush code-icn"></i> <span class="str">"Canva"</span>
+                                    </div>
+                                    <div class="line"><span class="num">23</span> <span class="kw">]</span></div>
+                                    <div class="line"><span class="num">24</span> <span class="kw">}</span></div>
+                                </div>
+
+                                <!-- View: Soft Skills -->
+                                <div class="code-view" id="view-soft">
+                                    <div class="line"><span class="num">1</span> <span class="kw">{</span></div>
+                                    <div class="line"><span class="num">2</span> <span class="str">"<span
+                                                data-i18n="ide_category">category</span>"</span>: <span class="str"
+                                            data-i18n="tech_cat3">"Human Capital"</span>,</div>
+                                    <div class="line"><span class="num">3</span> <span class="str"
+                                            data-i18n="tech_cat7">"Agile & Project Management"</span>: <span
+                                            class="kw">[</span></div>
+                                    <div class="line pl"><span class="num">4</span> <i
+                                            class="fas fa-tasks code-icn"></i> <span class="str"
+                                            data-i18n="soft_agile">"Agile"</span>,</div>
+                                    <div class="line pl"><span class="num">5</span> <i class="fas fa-sync code-icn"></i>
+                                        <span class="str" data-i18n="soft_scrum">"Scrum"</span>,
+                                    </div>
+                                    <div class="line pl"><span class="num">6</span> <i class="fab fa-jira code-icn"></i>
+                                        <span class="str" data-i18n="soft_jira">"Jira"</span>
+                                    </div>
+                                    <div class="line"><span class="num">7</span> <span class="kw">]</span>,</div>
+                                    <div class="line"><span class="num">8</span> <span class="str"
+                                            data-i18n="tech_cat3">"Human Capital"</span>: <span class="kw">[</span>
+                                    </div>
+                                    <div class="line pl"><span class="num">9</span> <i
+                                            class="fas fa-comments code-icn"></i> <span class="str"
+                                            data-i18n="soft_communication">"Communication"</span>,</div>
+                                    <div class="line pl"><span class="num">10</span> <i
+                                            class="fas fa-users code-icn"></i> <span class="str"
+                                            data-i18n="soft_teamwork">"Teamwork"</span>,</div>
+                                    <div class="line pl"><span class="num">11</span> <i
+                                            class="fas fa-lightbulb code-icn"></i> <span class="str"
+                                            data-i18n="soft_problem_solving">"Problem Solving"</span>,</div>
+                                    <div class="line pl"><span class="num">12</span> <i
+                                            class="fas fa-random code-icn"></i> <span class="str"
+                                            data-i18n="soft_adaptability">"Adaptability"</span></div>
+                                    <div class="line"><span class="num">13</span> <span class="kw">]</span>,</div>
+                                    <div class="line"><span class="num">14</span> <span class="str"
+                                            data-i18n="lang_label">"Languages"</span>: <span class="kw">[</span></div>
+                                    <div class="line pl"><span class="num">15</span> <i
+                                            class="fas fa-globe code-icn"></i> <span class="str"
+                                            data-i18n="lang_arabic">"Arabic (Native)"</span>,</div>
+                                    <div class="line pl"><span class="num">16</span> <i
+                                            class="fas fa-globe-europe code-icn"></i> <span class="str"
+                                            data-i18n="lang_french">"French (B2)"</span>,</div>
+                                    <div class="line pl"><span class="num">17</span> <i
+                                            class="fas fa-globe-americas code-icn"></i> <span class="str"
+                                            data-i18n="lang_english">"English (C1)"</span></div>
+                                    <div class="line"><span class="num">18</span> <span class="kw">]</span></div>
+                                    <div class="line"><span class="num">19</span> <span class="kw">}</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+            </div>
             </div>
         </section>
 
@@ -700,16 +1021,52 @@
         <section id="certs">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_certs">Validated Expertise</h2>
+
+                <!-- Cert Filter Bar -->
+                <div class="filter-bar reveal" id="cert-filter-bar">
+                    <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                    <button class="filter-btn" data-filter="ai" data-i18n="filter_ai">AI & ML</button>
+                    <button class="filter-btn" data-filter="dev" data-i18n="filter_dev">Development</button>
+                    <button class="filter-btn" data-filter="infra" data-i18n="filter_infra">DevOps & Cloud</button>
+                    <button class="filter-btn" data-filter="db" data-i18n="filter_db">Databases</button>
+                </div>
+
                 <div class="cert-grid">
-                    <!-- Cert 0: Docker -->
-                    <div class="cert-card glass reveal">
+                    <!-- Cert 0: Prompt Engineering -->
+                    <div class="cert-card glass reveal" data-category="ai">
+                        <div class="cert-badge">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="cert-info">
+                            <span class="cert-org">Sololearn</span>
+                            <h3 data-i18n="cert5_title">Prompt Engineering</h3>
+                            <p data-i18n="cert5_desc">Mastering prompt design, few-shot learning, and interaction
+                                strategies with Large Language Models.</p>
+                            <div class="cert-meta">
+                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
+                                <div class="meta-item">ID: CC-SVM1YAQD</div>
+                            </div>
+                            <div class="tech-pills">
+                                <span class="pill">AI</span>
+                                <span class="pill">NLP</span>
+                            </div>
+                            <a href="#"
+                                onclick="openPdfViewer('cert5_title', 'assets/docs/Certifs/PromptEngineering.pdf', 'fa-award'); return false;"
+                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                    data-i18n="cert_show">Show
+                                    Credential</span></a>
+                        </div>
+                    </div>
+                    <!-- Cert 1: Docker -->
+                    <div class="cert-card glass reveal" data-category="infra">
                         <div class="cert-badge">
                             <i class="fab fa-docker"></i>
                         </div>
                         <div class="cert-info">
-                            <span class="cert-org">Simplilearn / Docker</span>
+                            <span class="cert-org">Simplilearn</span>
                             <h3 data-i18n="cert_docker_title">Docker Essentials</h3>
-                            <p data-i18n="cert_docker_desc">In-depth understanding of Docker containers, images, layering, and container orchestration workflows.</p>
+                            <p data-i18n="cert_docker_desc">In-depth understanding of Docker containers, images,
+                                layering, and container orchestration workflows.</p>
                             <div class="cert-meta">
                                 <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
                                 <div class="meta-item">ID: 10024321</div>
@@ -725,8 +1082,8 @@
                                     Credential</span></a>
                         </div>
                     </div>
-                    <!-- Cert 1 -->
-                    <div class="cert-card glass reveal">
+                    <!-- Cert 2 -->
+                    <div class="cert-card glass reveal" data-category="db">
                         <div class="cert-badge">
                             <i class="fab fa-free-code-camp"></i>
                         </div>
@@ -750,8 +1107,8 @@
                                     Credential</span></a>
                         </div>
                     </div>
-                    <!-- Cert 2 -->
-                    <div class="cert-card glass reveal">
+                    <!-- Cert 3 -->
+                    <div class="cert-card glass reveal" data-category="dev">
                         <div class="cert-badge">
                             <i class="fas fa-laptop-code"></i>
                         </div>
@@ -774,8 +1131,8 @@
                                     Credential</span></a>
                         </div>
                     </div>
-                    <!-- Cert 3 -->
-                    <div class="cert-card glass reveal">
+                    <!-- Cert 4 -->
+                    <div class="cert-card glass reveal" data-category="infra">
                         <div class="cert-badge">
                             <i class="fas fa-server"></i>
                         </div>
@@ -799,8 +1156,8 @@
                                     Credential</span></a>
                         </div>
                     </div>
-                    <!-- Cert 4 -->
-                    <div class="cert-card glass reveal">
+                    <!-- Cert 5 -->
+                    <div class="cert-card glass reveal" data-category="db">
                         <div class="cert-badge">
                             <i class="fas fa-database"></i>
                         </div>
@@ -837,51 +1194,64 @@
         <section id="contact">
             <div class="content glass-vibrant reveal">
                 <h2 class="section-title" data-i18n="sec_contact">Establish Connection</h2>
-                <p style="margin-bottom: 2rem;" data-i18n="contact_prompt">Looking for an intern or collaborator? My
-                    terminal is always open.</p>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="from_name" name="from_name" placeholder="Full Name" data-i18n="form_name"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="from_email" name="from_email" placeholder="Developer Email"
-                            data-i18n="form_email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Tell me about your project or opportunity..."
-                            data-i18n="form_msg" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary" data-i18n="form_send">Execute Send</button>
-                </form>
-                <!-- Quick Contact Info -->
-                <div class="contact-info-grid">
-                    <a href="mailto:salmabarrak26@gmail.com" class="info-card">
-                        <i class="fas fa-envelope"></i>
-                        <div class="info-content">
-                            <span class="info-label" data-i18n="contact_email_label">Email</span>
-                            <span class="info-value">salmabarrak26@gmail.com</span>
-                        </div>
-                    </a>
-                    <a href="tel:+212613361091" class="info-card">
-                        <i class="fas fa-phone-alt"></i>
-                        <div class="info-content">
-                            <span class="info-label" data-i18n="contact_phone_label">Phone</span>
-                            <span class="info-value">+212 613 361 091</span>
-                        </div>
-                    </a>
-                </div>
+                <div class="contact-layout">
+                    <!-- Left: Static Info -->
+                    <div class="contact-sidebar">
+                        <p style="margin-bottom: 2rem;" data-i18n="contact_prompt">Looking for an intern or
+                            collaborator? My terminal is always open.</p>
 
-                <div class="social-links-footer">
-                    <a href="https://www.linkedin.com/in/salma-barrak" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/SalmasKit" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://gitlab.com/SalmasKit" target="_blank" aria-label="GitLab">
-                        <i class="fab fa-gitlab"></i>
-                    </a>
+                        <div class="contact-info-grid">
+                            <a href="mailto:salmabarrak26@gmail.com" class="info-card">
+                                <i class="fas fa-envelope"></i>
+                                <div class="info-content">
+                                    <span class="info-label" data-i18n="contact_email_label">Email</span>
+                                    <span class="info-value">salmabarrak26@gmail.com</span>
+                                </div>
+                            </a>
+                            <a href="tel:+212613361091" class="info-card">
+                                <i class="fas fa-phone-alt"></i>
+                                <div class="info-content">
+                                    <span class="info-label" data-i18n="contact_phone_label">Phone</span>
+                                    <span class="info-value">+212 613 361 091</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="social-links-footer">
+                            <a href="https://www.linkedin.com/in/salma-barrak" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/SalmasKit" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://gitlab.com/SalmasKit" target="_blank" aria-label="GitLab">
+                                <i class="fab fa-gitlab"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Form -->
+                    <div class="contact-form-wrapper">
+                        <form id="contact-form">
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <input type="text" id="from_name" name="from_name" placeholder="Full Name"
+                                        data-i18n="form_name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="from_email" name="from_email" placeholder="Developer Email"
+                                        data-i18n="form_email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message"
+                                    placeholder="Tell me about your project or opportunity..." data-i18n="form_msg"
+                                    rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary" data-i18n="form_send" style="width: 100%;">Execute
+                                Send</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -993,7 +1363,8 @@
                 </button>
             </div>
             <div class="cli-body" id="cli-body">
-                <div class="cli-line intro" data-i18n="cli_intro">Type 'help' to see available commands. Welcome to Salma's Interactive Lab.</div>
+                <div class="cli-line intro" data-i18n="cli_intro">Type 'help' to see available commands. Welcome to
+                    Salma's Interactive Lab.</div>
                 <div id="cli-output"></div>
                 <div class="cli-input-line">
                     <span class="cli-prompt">visitor@salma-barrak:~$</span>

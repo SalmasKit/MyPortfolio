@@ -679,16 +679,16 @@ class ProjectGallery {
         const start = (this.currentPage - 1) * this.projectsPerPage;
         const end = start + this.projectsPerPage;
 
-        // Hide all with a slight fade out if they were visible
+        // Hide all projects explicitly
         this.projects.forEach(p => {
-            p.classList.add('project-hidden');
+            p.style.display = 'none';
         });
 
-        // Show current page
+        // Show and animate current page
         const toShow = filtered.slice(start, end);
         toShow.forEach((p, idx) => {
-            p.classList.remove('project-hidden');
-            // Re-trigger reveal animation with GSAP for smoothness
+            p.style.display = '';
+            gsap.killTweensOf(p); // clear any conflicting ScrollTrigger reveal tweens
             gsap.fromTo(p,
                 { opacity: 0, scale: 0.9, y: 20 },
                 { opacity: 1, scale: 1, y: 0, duration: 0.5, delay: idx * 0.08, ease: "back.out(1.2)" }

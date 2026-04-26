@@ -882,7 +882,7 @@ if (cliInput) {
 const projectDetailsData = {
     stockify: {
         tags: ["Symfony 7.4", "PHP 8.2", "TailwindCSS 4.x", "PostgreSQL", "Doctrine ORM", "Turbo UX"],
-        media: `<img src="assets/images/Apps/Stockify.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `<img src="assets/images/Apps/Stockify/Stockify.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
     },
     soukify: {
         tags: ["Android SDK", "Java", "Firebase", "OpenStreetMap", "Cloudinary", "MVVM"],
@@ -897,7 +897,7 @@ const projectDetailsData = {
                             <div style="width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);"></div>
                         </div>
                         <div style="overflow:hidden; max-height:480px;">
-                            <video src="assets/images/Apps/SOUKIFY%20Demo.mp4" controls autoplay loop muted playsinline style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
+                            <video src="assets/images/Apps/Soukify/SOUKIFY%20Demo.mp4" controls autoplay loop muted playsinline style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
                         </div>
                     </div>
                     <div style="display:flex;justify-content:center;padding-top:4px;">
@@ -909,7 +909,7 @@ const projectDetailsData = {
     },
     portfolio: {
         tags: ["Vanilla JS", "GSAP", "Three.js", "i18next", "CSS3 Animations"],
-        media: `<img src="assets/images/Apps/portfolio_mockup.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `<img src="assets/images/Apps/Portfolio/portfolio_mockup.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
     },
     proj1: {
         tags: ["Spring Boot 3", "PostgreSQL", "Hibernate", "JWT Security", "TDD (Mockito/JUnit)", "Maven"],
@@ -921,35 +921,48 @@ const projectDetailsData = {
     },
     chatbot: {
         tags: ["FastAPI", "Vite", "React", "Hugging Face LLMs", "FAISS/Vector Storage", "Tesseract OCR"],
-        media: `<img src="assets/images/Apps/chatbot_mso.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `<img src="assets/images/Apps/Chatbotmso/chatbot_mso.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
     },
     proj4: {
         tags: ["Python 3.9+", "OpenCV", "Streamlit", "NumPy", "Background Subtraction", "Real-time Processing"],
-        media: `<img src="assets/images/Apps/MouvementDetection.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `<img src="assets/images/Apps/Mouvementdetection/MouvementDetection.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
     },
     proj5: {
         tags: ["Python", "Streamlit", "OpenCV", "NumPy", "Scikit-learn", "CBIR Engine"],
-        media: `<img src="assets/images/Apps/Cbir.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `<img src="assets/images/Apps/Cbir/Cbir.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
     },
     quiz: {
         tags: ["Java 8+", "Android SDK", "MVVM", "Room DB", "Retrofit 2", "Material Design 3"],
         media: `
-            <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
-                <img src="assets/images/Apps/quiz3.jpeg" style="height: 300px; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <img src="assets/images/Apps/quiz.jpeg" style="height: 300px; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <img src="assets/images/Apps/quiz2.jpeg" style="height: 300px; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+            <div style="flex-shrink: 0; display: flex; justify-content: center;">
+                <div style="position: relative; width: 240px; background: linear-gradient(145deg, #1c1c2e, #12121f); border-radius: 36px; padding: 12px 8px 6px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 0 3px #0a0a14, 0 0 0 4px rgba(255,255,255,0.06), 0 24px 60px rgba(0,0,0,0.9);">
+                    <div style="position:absolute;left:-3px;top:70px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
+                    <div style="position:absolute;left:-3px;top:104px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
+                    <div style="position:absolute;right:-3px;top:88px;width:3px;height:38px;background:linear-gradient(to left,#0a0a14,#1c1c2e);border-radius:0 3px 3px 0;"></div>
+                    <div style="border-radius:26px;overflow:hidden;background:#000;position:relative;line-height:0;">
+                        <div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:14px;background:#000;border-radius:20px;z-index:10;box-shadow:0 0 0 1px rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:flex-end;padding-right:6px;">
+                            <div style="width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);"></div>
+                        </div>
+                        <div style="overflow:hidden; max-height:480px;">
+                            <video src="assets/images/Apps/Quiz/QUIZAPPDEMO.mp4" controls autoplay loop muted playsinline style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
+                        </div>
+                    </div>
+                    <div style="display:flex;justify-content:center;padding-top:4px;">
+                        <div style="width:50px;height:3px;border-radius:3px;background:rgba(255,255,255,0.18);"></div>
+                    </div>
+                </div>
             </div>
         `
     },
     amee: {
         tags: ["PHP 8.1", "MVC Architecture", "MySQL", "JavaScript", "Chart.js", "Word/Excel Export"],
-        media: `<img src="assets/images/Apps/eCongeAmee.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `<img src="assets/images/Apps/Econgeamee/eCongeAmee.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
     },
     proj6: {
         tags: ["Java 11+", "JavaFX 21", "MySQL 8.0", "OpenPDF", "DAO Pattern", "Maven"],
         media: `
             <div style="border-radius:8px;overflow:hidden;border: 1px solid var(--glass-border);box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <video src="assets/images/Apps/SHIFAADEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.5" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;"></video>
+                <video src="assets/images/Apps/Shifaa/SHIFAADEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.5" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;"></video>
             </div>
         `
     },
@@ -957,7 +970,7 @@ const projectDetailsData = {
         tags: ["Python 3.8+", "Streamlit", "Tkinter", "Pandas", "Matplotlib/Seaborn", "Data Visualization"],
         media: `
             <div style="border-radius:8px;overflow:hidden;border: 1px solid var(--glass-border);box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-                <video src="assets/images/Apps/BAYTALHIKMADEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.5" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;"></video>
+                <video src="assets/images/Apps/Baytalhikma/BAYTALHIKMADEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.5" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;"></video>
             </div>
         `
     }
@@ -974,24 +987,15 @@ function openProjectModal(projectId) {
     const translatedDesc = translations[lang][`proj_${projectId}_modal_desc`] || translations[lang][`${projectId}_modal_desc`] || translations[lang][`proj_${projectId}_desc`] || translations[lang][`${projectId}_desc`] || "";
     title.innerHTML = `<i class="fas fa-project-diagram"></i> <span>${translatedTitle}</span>`;
     let tagsHtml = data.tags.map(tag => `<span class="pill" style="font-size: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; color: var(--text-primary);">${tag}</span>`).join('');
-    if (projectId === 'amee' || projectId === 'quiz') {
+    if (projectId === 'amee') {
         let imagesHtml = '';
-        if (projectId === 'quiz') {
-            const quizImages = ['quiz3.jpeg', 'quiz.jpeg', 'quiz2.jpeg'];
-            imagesHtml = quizImages.map(img => `
-                <div class="carousel-slide" onclick="window.open('assets/images/Apps/${img}', '_blank')" style="cursor: pointer;">
-                    <img src="assets/images/Apps/${img}" alt="Quiz UI">
-                </div>
-            `).join('');
-        } else {
-            const imageCount = 15;
-            const basePath = 'assets/images/Apps/Econgeamee';
-            imagesHtml = Array.from({length: imageCount}, (_, i) => `
-                <div class="carousel-slide" onclick="window.open('${basePath}/${i + 1}.png', '_blank')" style="cursor: pointer;">
-                    <img src="${basePath}/${i + 1}.png" alt="${projectId} UI ${i + 1}">
-                </div>
-            `).join('');
-        }
+        const ameeImages = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10-1.png', '10.png', '11.png', '12.png', '13.png', '14.png', '15.png'];
+        const basePath = 'assets/images/Apps/Econgeamee';
+        imagesHtml = ameeImages.map(img => `
+            <div class="carousel-slide" onclick="window.open('${basePath}/${img}', '_blank')" style="cursor: pointer;">
+                <img src="${basePath}/${img}" alt="${projectId} UI">
+            </div>
+        `).join('');
 
         content.innerHTML = `
             <div class="carousel-wrapper">

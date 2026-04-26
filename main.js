@@ -944,7 +944,7 @@ const projectDetailsData = {
                             <div style="width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);"></div>
                         </div>
                         <div style="overflow:hidden; max-height:480px;">
-                            <video src="assets/images/Apps/Quiz/QUIZAPPDEMO.mp4" controls autoplay loop muted playsinline style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
+                            <video src="assets/images/Apps/Quiz/QUIZAPPDEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.75" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
                         </div>
                     </div>
                     <div style="display:flex;justify-content:center;padding-top:4px;">

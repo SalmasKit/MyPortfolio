@@ -882,7 +882,11 @@ if (cliInput) {
 const projectDetailsData = {
     stockify: {
         tags: ["Symfony 7.4", "PHP 8.2", "TailwindCSS 4.x", "PostgreSQL", "Doctrine ORM", "Turbo UX"],
-        media: `<img src="assets/images/Apps/Stockify/Stockify.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `
+            <div style="border-radius:12px; overflow:hidden; border:1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.6); background: #000;">
+                <video src="assets/images/Apps/Stockify/STOCKIFY%20DEMO.mp4" controls autoplay loop muted playsinline style="width:100%; display:block;"></video>
+            </div>
+        `
     },
     soukify: {
         tags: ["Android SDK", "Java", "Firebase", "OpenStreetMap", "Cloudinary", "MVVM"],

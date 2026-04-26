@@ -104,19 +104,25 @@
             <div class="hero-ticker-banner">
                 <div class="ticker-content">
                     <!-- Original Stream -->
-                    <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A 1-2 MONTH PFA INTERNSHIP</span></span>
+                    <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A
+                            1-2 MONTH PFA INTERNSHIP</span></span>
                     <span class="ticker-separator"></span>
-                    <span class="ticker-item"><i class="far fa-calendar-check"></i> <span data-i18n="hero_status_p2">STARTING 01/07</span></span>
+                    <span class="ticker-item"><i class="far fa-calendar-check"></i> <span
+                            data-i18n="hero_status_p2">STARTING 01/07</span></span>
                     <span class="ticker-separator"></span>
-                    <span class="ticker-item"><i class="fas fa-satellite-dish"></i> <span data-i18n="hero_status_ready">STATUS: READY</span></span>
+                    <span class="ticker-item"><i class="fas fa-satellite-dish"></i> <span
+                            data-i18n="hero_status_ready">STATUS: READY</span></span>
                     <span class="ticker-separator"></span>
 
                     <!-- Duplicate Stream for Seamless Loop -->
-                    <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A 1-2 MONTH PFA INTERNSHIP</span></span>
+                    <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A
+                            1-2 MONTH PFA INTERNSHIP</span></span>
                     <span class="ticker-separator"></span>
-                    <span class="ticker-item"><i class="far fa-calendar-check"></i> <span data-i18n="hero_status_p2">STARTING 01/07</span></span>
+                    <span class="ticker-item"><i class="far fa-calendar-check"></i> <span
+                            data-i18n="hero_status_p2">STARTING 01/07</span></span>
                     <span class="ticker-separator"></span>
-                    <span class="ticker-item"><i class="fas fa-satellite-dish"></i> <span data-i18n="hero_status_ready">STATUS: READY</span></span>
+                    <span class="ticker-item"><i class="fas fa-satellite-dish"></i> <span
+                            data-i18n="hero_status_ready">STATUS: READY</span></span>
                     <span class="ticker-separator"></span>
                 </div>
             </div>
@@ -148,7 +154,8 @@
                                     fill="transparent" />
                                 <text width="500">
                                     <textPath xlink:href="#curve" class="revolving-text" data-i18n="revolving_text">
-                                        &nbsp; BUILD • AUTOMATÉ • LEARN • DEPLOY • SOLVE • INNOVATE • BUILD • AUTOMATÉ • LEARN •
+                                        &nbsp; BUILD • AUTOMATÉ • LEARN • DEPLOY • SOLVE • INNOVATE • BUILD • AUTOMATÉ •
+                                        LEARN •
                                     </textPath>
                                 </text>
                             </svg>
@@ -325,8 +332,10 @@
                             <div class="pr-timeline-desc">
                                 <strong data-i18n="exp_item1_org">AMEE - Rabat</strong> merged commit <a href="#"
                                     class="pr-commit-link">amee825</a> into <code>professional-path</code>
-                                <span class="pr-date" style="margin-left: 10px; background: rgba(255, 255, 255, 0.1); color: var(--text-primary); padding: 2px 8px; border-radius: 6px; font-weight: 600; font-size: 0.85em; border: 1px solid var(--glass-border); display: inline-flex; align-items: center; gap: 5px;">
-                                    <i class="far fa-calendar-alt"></i> <span data-i18n="exp_item1_date">07/2025 - 08/2025</span>
+                                <span class="pr-date"
+                                    style="margin-left: 10px; background: rgba(255, 255, 255, 0.1); color: var(--text-primary); padding: 2px 8px; border-radius: 6px; font-weight: 600; font-size: 0.85em; border: 1px solid var(--glass-border); display: inline-flex; align-items: center; gap: 5px;">
+                                    <i class="far fa-calendar-alt"></i> <span data-i18n="exp_item1_date">07/2025 -
+                                        08/2025</span>
                                 </span>
                             </div>
                         </div>
@@ -762,277 +771,414 @@
                     <button class="filter-btn" data-filter="desktop" data-i18n="filter_desktop">Desktop</button>
                 </div>
 
-                <div class="project-grid">
-                    <!-- Project 0: Portfolio (Meta) -->
-                    <div class="project-card glass reveal" data-category="web">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/portfolio_mockup.png" alt="Interactive 3D Portfolio Showcase">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj_portfolio_title">Interactive 3D Portfolio</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span
-                                    data-i18n="proj_portfolio_desc">Designing a high-performance, multilingual hub with
-                                    custom 3D animations and real-time localized content.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span
-                                    data-i18n="proj_portfolio_sol">Built with Vanilla JS and GSAP, featuring custom 3D
-                                    carousels and smooth scroll-driven visuals.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Vanilla JS</span>
-                                <span class="pill">GSAP</span>
-                                <span class="pill">CSS3</span>
+                <div class="gallery-container">
+                    <button id="proj-prev" class="side-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="project-grid">
+                        <!-- Project 0: Portfolio (Meta) -->
+                        <div class="project-card glass reveal" data-category="web">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/portfolio_mockup.png"
+                                    alt="Interactive 3D Portfolio Showcase">
                             </div>
-                            <a href="https://github.com/SalmasKit/MyPortfolio" target="_blank" class="github-link"><i
-                                    class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj_portfolio_title">Interactive 3D Portfolio</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Vanilla JS</span>
+                                        <span class="pill">GSAP</span>
+                                        <span class="pill">CSS3</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj_portfolio_desc">Designing a high-performance, multilingual hub
+                                        with
+                                        custom 3D animations and real-time localized content.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj_portfolio_sol">Built with Vanilla JS and GSAP, featuring custom
+                                        3D
+                                        carousels and smooth scroll-driven visuals.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/MyPortfolio" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('portfolio')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Project 1: Jira Clone -->
-                    <div class="project-card glass reveal" data-category="web">
-                        <div class="project-img">
-                            <div
-                                style="height: 100%; display: flex; align-items: center; justify-content: center; width: 100%;">
-                                <span
-                                    style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px;"
-                                    data-i18n="proj_coming_soon">Coming Soon</span>
+                        <!-- Project 1: Jira Clone -->
+                        <div class="project-card glass reveal" data-category="web">
+                            <div class="project-img">
+                                <div
+                                    style="height: 100%; display: flex; align-items: center; justify-content: center; width: 100%;">
+                                    <span
+                                        style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px;"
+                                        data-i18n="proj_coming_soon">Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj1_title">Jira Clone Pro</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Spring Boot</span>
+                                        <span class="pill">React</span>
+                                        <span class="pill">PostgreSQL</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj1_desc">Building
+                                        a robust back-end for real-time task management with RESTful API
+                                        integrity.</span>
+                                </p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj1_sol">Implemented
+                                        high test coverage (Mockito/JUnit) and scalable PostgreSQL architecture.</span>
+                                </p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://gitlab.com/formations2026/gera-back" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-gitlab"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('proj1')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj1_title">Jira Clone Pro</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span data-i18n="proj1_desc">Building
-                                    a robust back-end for real-time task management with RESTful API integrity.</span>
-                            </p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj1_sol">Implemented
-                                    high test coverage (Mockito/JUnit) and scalable PostgreSQL architecture.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Spring Boot</span>
-                                <span class="pill">React</span>
-                                <span class="pill">JUnit</span>
-                                <span class="pill">Mockito</span>
-                                <span class="pill">JaCoCo</span>
-                            </div>
-                            <a href="https://gitlab.com/formations2026/gera-back" target="_blank" class="github-link"><i
-                                    class="fab fa-gitlab"></i> <span data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
 
-                    <!-- Project 2: Chatbot -->
-                    <div class="project-card glass reveal" data-category="ai">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/chatbot_mso.png" alt="Chatbot MSO - AI Assistant">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj_chatbot_title">Chatbot-mso - Gov Assistant</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span
-                                    data-i18n="proj_chatbot_desc">Developing a multilingual RAG system to simplify
-                                    administrative procedures in Morocco with OCR and vector search.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span
-                                    data-i18n="proj_chatbot_sol">Full-stack FastAPI + Vite engine using Hugging Face
-                                    LLMs, local vector storage, and Tesseract for document OCR.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">FastAPI</span>
-                                <span class="pill">Vite</span>
-                                <span class="pill">Hugging Face</span>
-                                <span class="pill">Docker</span>
+                        <!-- Project 2: Chatbot -->
+                        <div class="project-card glass reveal" data-category="ai">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/chatbot_mso.png" alt="Chatbot MSO - AI Assistant">
                             </div>
-                            <a href="https://gitlab.com/chatbot-mso/Chatbot-mso" target="_blank" class="github-link"><i
-                                    class="fab fa-gitlab"></i> <span data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: Soukify (Mobile) -->
-                    <div class="project-card glass reveal" data-category="mobile">
-                        <div class="project-img triple-img">
-                            <img src="assets/images/Apps/Soukify3.jpeg" alt="Soukify Mobile Screen 3">
-                            <img src="assets/images/Apps/Soukify.jpeg" alt="Soukify Mobile Screen 1">
-                            <img src="assets/images/Apps/Soukify2.jpeg" alt="Soukify Mobile Screen 2">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj3_title">Soukify - Marketplace</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span
-                                    data-i18n="proj3_desc">Integrating geolocation and complex user-to-user interactions
-                                    on mobile devices.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj3_sol">Architected
-                                    with Android SDK and Firebase using the MVVM design pattern.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Android</span>
-                                <span class="pill">Java</span>
-                                <span class="pill">Firebase</span>
-                            </div>
-                            <a href="https://github.com/SalmasKit/SoukifyApp" target="_blank" class="github-link"><i
-                                    class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Project 4: Stockify -->
-                    <div class="project-card glass reveal" data-category="web">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/Stockify.png" alt="Inventory Analytics">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj2_title">Stockify - Inventory Hub</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span data-i18n="proj2_desc">Managing
-                                    real-time stock volatility and generating automated alert systems.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj2_sol">Utilized
-                                    Symfony 7 and Doctrine to create a sub-second analytical data pipeline.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Symfony 7</span>
-                                <span class="pill">PHP 8.2</span>
-                                <span class="pill">MySQL</span>
-                            </div>
-                            <a href="https://github.com/SalmasKit/StockifyApp" target="_blank" class="github-link"><i
-                                    class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Project 5: Vision -->
-                    <div class="project-card glass reveal" data-category="ai">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/MouvementDetection.png" alt="Vision Security Engine">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj4_title">Vision Security Engine</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span data-i18n="proj4_desc">Real-time
-                                    background subtraction for motion capture under varying lighting.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj4_sol">Engineered
-                                    an OpenCV-based pipeline in Python with Streamlit visuals.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Python</span>
-                                <span class="pill">OpenCV</span>
-                                <span class="pill">NumPy</span>
-                            </div>
-                            <a href="https://github.com/SalmasKit/MotionDetectionApp" target="_blank"
-                                class="github-link"><i class="fab fa-github"></i> <span
-                                    data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Project 5: QueryPix -->
-                    <div class="project-card glass reveal" data-category="ai">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/Cbir.png" alt="QueryPix - CBIR">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj5_title">QueryPix - CBIR</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span
-                                    data-i18n="proj5_desc">Content-Based Image Retrieval with contour and feature
-                                    extraction.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj5_sol">Developed a
-                                    similarity search engine using Dataset Corel 1000 and Scikit-learn.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Scikit-learn</span>
-                                <span class="pill">Pandas</span>
-                                <span class="pill">NumPy</span>
-                            </div>
-                            <a href="https://github.com/SalmasKit/QueryPix-CBIRApp" target="_blank"
-                                class="github-link"><i class="fab fa-github"></i> <span
-                                    data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Project: Tech Quiz Pro -->
-                    <div class="project-card glass reveal" data-category="mobile">
-                        <div class="project-img triple-img">
-                            <img src="assets/images/Apps/quiz3.jpeg" alt="System Build Analysis Screen">
-                            <img src="assets/images/Apps/quiz.jpeg" alt="Tech Quiz Pro Home">
-                            <img src="assets/images/Apps/quiz2.jpeg" alt="Quiz Tracks Screen">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj_quiz_title">Tech Quiz Pro: IT Mastery</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span
-                                    data-i18n="proj_quiz_desc">Developing a high-performance Android quiz engine with 8
-                                    specialized technical tracks and 350+ challenges.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj_quiz_sol">Built
-                                    with Java using MVVM, Room Database for local
-                                    persistence, and a 'System Build' analysis engine.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Android</span>
-                                <span class="pill">Java</span>
-                                <span class="pill">Room DB</span>
-                                <span class="pill">Retrofit</span>
-                            </div>
-                            <a href="https://github.com/SalmasKit/QuizApp.git" target="_blank" class="github-link"><i
-                                    class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Project AMEE (Internship) -->
-                    <div class="project-card glass reveal" data-category="web">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/eCongeAmee.png" alt="eCongé AMEE - HR Management Portal">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj_amee_title">eCongé AMEE - HR Management</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span
-                                    data-i18n="proj_amee_desc">Modernizing HR workflows for a government agency by
-                                    automating leave tracking and document management.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span
-                                    data-i18n="proj_amee_sol">Developed a full-stack PHP/MySQL portal with automated
-                                    email notifications, interactive calendars, and admin analytics.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">PHP</span>
-                                <span class="pill">MySQL</span>
-                                <span class="pill">JavaScript</span>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj_chatbot_title">Chatbot-mso - Gov Assistant</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">FastAPI</span>
+                                        <span class="pill">Vite</span>
+                                        <span class="pill">Hugging Face</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj_chatbot_desc">Developing a multilingual RAG system to simplify
+                                        administrative procedures in Morocco with OCR and vector search.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj_chatbot_sol">Full-stack FastAPI + Vite engine using Hugging Face
+                                        LLMs, local vector storage, and Tesseract for document OCR.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://gitlab.com/chatbot-mso/Chatbot-mso" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-gitlab"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('chatbot')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Project 6: Shifaa -->
-                    <div class="project-card glass reveal" data-category="desktop">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/Shifaa.png" alt="Shifaa Healthcare Hub">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj6_title">Shifaa - Healthcare Hub</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span data-i18n="proj6_desc">Managing
-                                    complex relationships between patients, doctors, and treatments with high data
-                                    integrity.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj6_sol">Developed a
-                                    full-stack JavaFX desktop suite using DAOs for MySQL persistence and OpenPDF for
-                                    medical reporting.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">JavaFX 21</span>
-                                <span class="pill">MySQL</span>
-                                <span class="pill">OpenPDF</span>
+                        <!-- Project 3: Soukify (Mobile) -->
+                        <div class="project-card glass reveal" data-category="mobile">
+                            <div class="project-img triple-img">
+                                <img src="assets/images/Apps/Soukify3.jpeg" alt="Soukify Mobile Screen 3">
+                                <img src="assets/images/Apps/Soukify.jpeg" alt="Soukify Mobile Screen 1">
+                                <img src="assets/images/Apps/Soukify2.jpeg" alt="Soukify Mobile Screen 2">
                             </div>
-                            <a href="https://github.com/SalmasKit/ShifaaApp" target="_blank" class="github-link"><i
-                                    class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>
-                        </div>
-                    </div>
-
-                    <!-- Project 8: Bayt Al Hikma -->
-                    <div class="project-card glass reveal" data-category="desktop">
-                        <div class="project-img">
-                            <img src="assets/images/Apps/bayt_al_hikma.png" alt="Bayt Al Hikma - Library Dashboard">
-                        </div>
-                        <div class="project-info">
-                            <h3 data-i18n="proj7_title">Bayt Al Hikma - Library System</h3>
-                            <p><span data-i18n="proj_challenge">Challenge:</span> <span data-i18n="proj7_desc">Designing
-                                    a unified library engine with triple interface support (Web, Desktop, CLI) for
-                                    complex book and member logic.</span></p>
-                            <p><span data-i18n="proj_solution">Solution:</span> <span data-i18n="proj7_sol">Built with
-                                    Python, Streamlit, and Tkinter, featuring real-time data visualization and
-                                    persistent file storage.</span></p>
-                            <div class="tech-pills">
-                                <span class="pill">Python</span>
-                                <span class="pill">Streamlit</span>
-                                <span class="pill">Pandas</span>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj3_title">Soukify - Marketplace</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Android</span>
+                                        <span class="pill">Java</span>
+                                        <span class="pill">Firebase</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj3_desc">Bridging the gap between traditional Moroccan artisans
+                                        and digital consumers while handling geolocation, real-time chat, and
+                                        media-heavy catalogs on mobile.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj3_sol">Architected
+                                        with Android SDK and Firebase using the MVVM design pattern.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/SoukifyApp" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('soukify')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
                             </div>
-                            <a href="https://github.com/SalmasKit/libraryBaytAlHikmaApp" target="_blank"
-                                class="github-link"><i class="fab fa-github"></i> <span
-                                    data-i18n="proj_source">Source</span></a>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Project Pagination -->
-                <div class="pagination-controls reveal">
-                    <button id="prev-page" class="pager-btn"><i class="fas fa-chevron-left"></i></button>
-                    <div id="page-numbers"></div>
-                    <button id="next-page" class="pager-btn"><i class="fas fa-chevron-right"></i></button>
-                </div>
+                        <!-- Project 4: Stockify -->
+                        <div class="project-card glass reveal" data-category="web">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/Stockify.png" alt="Inventory Analytics">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj2_title">Stockify - Inventory Hub</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Symfony 7</span>
+                                        <span class="pill">PHP 8.2</span>
+                                        <span class="pill">MySQL</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj2_desc">Managing
+                                        real-time stock volatility and generating automated alert systems.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj2_sol">Utilized
+                                        Symfony 7 and Doctrine to create a sub-second analytical data pipeline.</span>
+                                </p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/StockifyApp" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('stockify')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5: Vision -->
+                        <div class="project-card glass reveal" data-category="ai">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/MouvementDetection.png" alt="Vision Security Engine">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj4_title">Vision Security Engine</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Python</span>
+                                        <span class="pill">OpenCV</span>
+                                        <span class="pill">NumPy</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj4_desc">Real-time
+                                        background subtraction for motion capture under varying lighting.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj4_sol">Engineered
+                                        an OpenCV-based pipeline in Python with Streamlit visuals.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/MotionDetectionApp" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('proj4')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5: QueryPix -->
+                        <div class="project-card glass reveal" data-category="ai">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/Cbir.png" alt="QueryPix - CBIR">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj5_title">QueryPix - CBIR</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Scikit-learn</span>
+                                        <span class="pill">Pandas</span>
+                                        <span class="pill">NumPy</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj5_desc">Content-Based Image Retrieval with contour and feature
+                                        extraction.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj5_sol">Developed a
+                                        similarity search engine using Dataset Corel 1000 and Scikit-learn.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/QueryPix-CBIRApp" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('proj5')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project: Tech Quiz Pro -->
+                        <div class="project-card glass reveal" data-category="mobile">
+                            <div class="project-img triple-img">
+                                <img src="assets/images/Apps/quiz3.jpeg" alt="System Build Analysis Screen">
+                                <img src="assets/images/Apps/quiz.jpeg" alt="Tech Quiz Pro Home">
+                                <img src="assets/images/Apps/quiz2.jpeg" alt="Quiz Tracks Screen">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj_quiz_title">Tech Quiz Pro: IT Mastery</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Android</span>
+                                        <span class="pill">Java</span>
+                                        <span class="pill">Room DB</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj_quiz_desc">Developing a high-performance Android quiz engine
+                                        with 8 specialized technical tracks and 350+ challenges.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj_quiz_sol">Built with Java using MVVM, Room Database for local
+                                        persistence, and a 'System Build' analysis engine.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/QuizApp.git" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('quiz')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project AMEE (Internship) -->
+                        <div class="project-card glass reveal" data-category="web">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/eCongeAmee.png" alt="eCongé AMEE - HR Management Portal">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj_amee_title">eCongé AMEE - HR Management</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">PHP</span>
+                                        <span class="pill">MySQL</span>
+                                        <span class="pill">JavaScript</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj_amee_desc">Modernizing HR workflows for a government agency by
+                                        automating leave tracking and document management.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj_amee_sol">Developed a full-stack PHP/MySQL portal with automated
+                                        email notifications, interactive calendars, and admin analytics.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: flex-end; margin-top: 1.5rem; align-items: center;">
+                                    <button class="btn-details" onclick="openProjectModal('amee')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6: Shifaa -->
+                        <div class="project-card glass reveal" data-category="desktop">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/Shifaa.png" alt="Shifaa Healthcare Hub">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj6_title">Shifaa - Healthcare Hub</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">JavaFX 21</span>
+                                        <span class="pill">MySQL</span>
+                                        <span class="pill">OpenPDF</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj6_desc">Managing complex relationships between patients, doctors,
+                                        and treatments with high data integrity.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj6_sol">Developed a full-stack JavaFX desktop suite using DAOs for
+                                        MySQL persistence and OpenPDF for medical reporting.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/ShifaaApp" target="_blank" class="github-link" style="margin-top: 0;"><i
+                                            class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('proj6')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 8: Bayt Al Hikma -->
+                        <div class="project-card glass reveal" data-category="desktop">
+                            <div class="project-img">
+                                <img src="assets/images/Apps/bayt_al_hikma.png" alt="Bayt Al Hikma - Library Dashboard">
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj7_title">Bayt Al Hikma - Library System</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Python</span>
+                                        <span class="pill">Streamlit</span>
+                                        <span class="pill">Pandas</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj7_desc">Designing a unified library engine with triple interface
+                                        support (Web, Desktop, CLI) for complex book and member logic.</span></p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj7_sol">Built with Python, Streamlit, and Tkinter, featuring
+                                        real-time data visualization and persistent file storage.</span></p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                    <a href="https://github.com/SalmasKit/libraryBaytAlHikmaApp" target="_blank"
+                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
+                                    <button class="btn-details" onclick="openProjectModal('proj7')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- end project-grid -->
+                    <button id="proj-next" class="side-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div> <!-- end gallery-container -->
+
+
+
             </div>
-        </section>
-        </div>
+            </div>
         </section>
 
         <!-- Certifications -->
@@ -1049,212 +1195,215 @@
                     <button class="filter-btn" data-filter="db" data-i18n="filter_db">Databases</button>
                 </div>
 
-                <div class="cert-grid">
-                    <!-- Cert: Agentic Workflows (Sololearn) -->
-                    <div class="cert-card glass reveal" data-category="ai">
-                        <div class="cert-badge">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">Sololearn</span>
-                            <h3 data-i18n="cert_agentic_title">Agentic Workflows</h3>
-                            <p data-i18n="cert_agentic_desc">Designing autonomous AI systems using agentic patterns (Reflection, Planning, Multi-Agent), Tool Use & Function Calling, and LLM workflow evaluation.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
-                                <div class="meta-item">ID: CC-HSWFG6Z7</div>
+                <div class="gallery-container">
+                    <button id="prev-cert-page" class="side-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="cert-grid">
+                        <!-- Cert: Agentic Workflows (Sololearn) -->
+                        <div class="cert-card glass reveal" data-category="ai">
+                            <div class="cert-badge">
+                                <i class="fas fa-robot"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">AI</span>
-                                <span class="pill">LLM</span>
-                                <span class="pill">Agents</span>
+                            <div class="cert-info">
+                                <span class="cert-org">Sololearn</span>
+                                <h3 data-i18n="cert_agentic_title">Agentic Workflows</h3>
+                                <p data-i18n="cert_agentic_desc">Designing autonomous AI systems using agentic patterns
+                                    (Reflection, Planning, Multi-Agent), Tool Use & Function Calling, and LLM workflow
+                                    evaluation.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
+                                    <div class="meta-item">ID: CC-HSWFG6Z7</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">AI</span>
+                                    <span class="pill">LLM</span>
+                                    <span class="pill">Agents</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert_agentic_title', 'assets/docs/Certifs/Agentic Workflows.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert_agentic_title', 'assets/docs/Certifs/Agentic Workflows.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
                         </div>
-                    </div>
-                    <!-- Cert: Java Intermediate (Sololearn) -->
-                    <div class="cert-card glass reveal" data-category="dev">
-                        <div class="cert-badge">
-                            <i class="fab fa-java"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">Sololearn</span>
-                            <h3 data-i18n="cert_java_inter_title">Java Intermediate</h3>
-                            <p data-i18n="cert_java_inter_desc">Mastery of advanced OOP (inheritance, abstraction, interfaces), the Collections Framework, Exception Handling, Multithreading & Concurrency, and File I/O.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
-                                <div class="meta-item">ID: CC-KWY8R7QD</div>
+                        <!-- Cert: Java Intermediate (Sololearn) -->
+                        <div class="cert-card glass reveal" data-category="dev">
+                            <div class="cert-badge">
+                                <i class="fab fa-java"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">Java</span>
-                                <span class="pill">OOP</span>
+                            <div class="cert-info">
+                                <span class="cert-org">Sololearn</span>
+                                <h3 data-i18n="cert_java_inter_title">Java Intermediate</h3>
+                                <p data-i18n="cert_java_inter_desc">Mastery of advanced OOP (inheritance, abstraction,
+                                    interfaces), the Collections Framework, Exception Handling, Multithreading &
+                                    Concurrency, and File I/O.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
+                                    <div class="meta-item">ID: CC-KWY8R7QD</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">Java</span>
+                                    <span class="pill">OOP</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert_java_inter_title', 'assets/docs/Certifs/Java Intermediate.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert_java_inter_title', 'assets/docs/Certifs/Java Intermediate.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
                         </div>
-                    </div>
-                    <!-- Cert 0: Prompt Engineering -->
-                    <div class="cert-card glass reveal" data-category="ai">
-                        <div class="cert-badge">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">Sololearn</span>
-                            <h3 data-i18n="cert5_title">Prompt Engineering</h3>
-                            <p data-i18n="cert5_desc">Mastering prompt design, few-shot learning, and interaction
-                                strategies with Large Language Models.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
-                                <div class="meta-item">ID: CC-SVM1YAQD</div>
+                        <!-- Cert 0: Prompt Engineering -->
+                        <div class="cert-card glass reveal" data-category="ai">
+                            <div class="cert-badge">
+                                <i class="fas fa-brain"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">AI</span>
-                                <span class="pill">NLP</span>
+                            <div class="cert-info">
+                                <span class="cert-org">Sololearn</span>
+                                <h3 data-i18n="cert5_title">Prompt Engineering</h3>
+                                <p data-i18n="cert5_desc">Mastering prompt design, few-shot learning, and interaction
+                                    strategies with Large Language Models.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
+                                    <div class="meta-item">ID: CC-SVM1YAQD</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">AI</span>
+                                    <span class="pill">NLP</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert5_title', 'assets/docs/Certifs/PromptEngineering.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert5_title', 'assets/docs/Certifs/PromptEngineering.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
                         </div>
-                    </div>
-                    <!-- Cert 1: Docker -->
-                    <div class="cert-card glass reveal" data-category="infra">
-                        <div class="cert-badge">
-                            <i class="fab fa-docker"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">Simplilearn</span>
-                            <h3 data-i18n="cert_docker_title">Docker Essentials</h3>
-                            <p data-i18n="cert_docker_desc">In-depth understanding of Docker containers, images,
-                                layering, and container orchestration workflows.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
-                                <div class="meta-item">ID: 10024321</div>
+                        <!-- Cert 1: Docker -->
+                        <div class="cert-card glass reveal" data-category="infra">
+                            <div class="cert-badge">
+                                <i class="fab fa-docker"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">Docker</span>
-                                <span class="pill">Containers</span>
+                            <div class="cert-info">
+                                <span class="cert-org">Simplilearn</span>
+                                <h3 data-i18n="cert_docker_title">Docker Essentials</h3>
+                                <p data-i18n="cert_docker_desc">In-depth understanding of Docker containers, images,
+                                    layering, and container orchestration workflows.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                    <div class="meta-item">ID: 10024321</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">Docker</span>
+                                    <span class="pill">Containers</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert_docker_title', 'assets/docs/Certifs/DockerCertificate.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert_docker_title', 'assets/docs/Certifs/DockerCertificate.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
                         </div>
-                    </div>
-                    <!-- Cert 2 -->
-                    <div class="cert-card glass reveal" data-category="db">
-                        <div class="cert-badge">
-                            <i class="fab fa-free-code-camp"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">freeCodeCamp</span>
-                            <h3 data-i18n="cert1_title">Relational Database</h3>
-                            <p data-i18n="cert1_desc">Mastery of SQL, PostgreSQL, and relational data modeling through
-                                advanced project implementation.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
-                                <div class="meta-item">ID: fcc-ad52db15-a244-49e1-a870-b86928a540ac-rdv9</div>
+                        <!-- Cert 2 -->
+                        <div class="cert-card glass reveal" data-category="db">
+                            <div class="cert-badge">
+                                <i class="fab fa-free-code-camp"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">SQL</span>
-                                <span class="pill">PostgreSQL</span>
+                            <div class="cert-info">
+                                <span class="cert-org">freeCodeCamp</span>
+                                <h3 data-i18n="cert1_title">Relational Database</h3>
+                                <p data-i18n="cert1_desc">Mastery of SQL, PostgreSQL, and relational data modeling
+                                    through
+                                    advanced project implementation.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                    <div class="meta-item">ID: fcc-ad52db15-a244-49e1-a870-b86928a540ac-rdv9</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">SQL</span>
+                                    <span class="pill">PostgreSQL</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert1_title', 'assets/docs/Certifs/relational-databases-v9.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert1_title', 'assets/docs/Certifs/relational-databases-v9.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
                         </div>
-                    </div>
-                    <!-- Cert 3 -->
-                    <div class="cert-card glass reveal" data-category="dev">
-                        <div class="cert-badge">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">HackerRank</span>
-                            <h3 data-i18n="cert2_title">Java (Basic)</h3>
-                            <p data-i18n="cert2_desc">Demonstrated proficiency in core Java concepts, including data
-                                structures, inheritance, and algorithmic logic.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
-                                <div class="meta-item">ID: D1EFFDE4738E</div>
+                        <!-- Cert 3 -->
+                        <div class="cert-card glass reveal" data-category="dev">
+                            <div class="cert-badge">
+                                <i class="fas fa-laptop-code"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">Java</span>
+                            <div class="cert-info">
+                                <span class="cert-org">HackerRank</span>
+                                <h3 data-i18n="cert2_title">Java (Basic)</h3>
+                                <p data-i18n="cert2_desc">Demonstrated proficiency in core Java concepts, including data
+                                    structures, inheritance, and algorithmic logic.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                    <div class="meta-item">ID: D1EFFDE4738E</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">Java</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert2_title', 'assets/docs/Certifs/java_basic_certificate.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert2_title', 'assets/docs/Certifs/java_basic_certificate.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
                         </div>
-                    </div>
-                    <!-- Cert 4 -->
-                    <div class="cert-card glass reveal" data-category="infra">
-                        <div class="cert-badge">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">Simplilearn</span>
-                            <h3 data-i18n="cert3_title">DevOps 101</h3>
-                            <p data-i18n="cert3_desc">Understanding DevOps principles, CI/CD pipelines, and
-                                infrastructure operations.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
-                                <div class="meta-item">ID: 9936127</div>
+                        <!-- Cert 4 -->
+                        <div class="cert-card glass reveal" data-category="infra">
+                            <div class="cert-badge">
+                                <i class="fas fa-server"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">DevOps</span>
-                                <span class="pill">CI/CD</span>
+                            <div class="cert-info">
+                                <span class="cert-org">Simplilearn</span>
+                                <h3 data-i18n="cert3_title">DevOps 101</h3>
+                                <p data-i18n="cert3_desc">Understanding DevOps principles, CI/CD pipelines, and
+                                    infrastructure operations.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                    <div class="meta-item">ID: 9936127</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">DevOps</span>
+                                    <span class="pill">CI/CD</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert3_title', 'assets/docs/Certifs/DevOps 101.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert3_title', 'assets/docs/Certifs/DevOps 101.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
                         </div>
-                    </div>
-                    <!-- Cert 5 -->
-                    <div class="cert-card glass reveal" data-category="db">
-                        <div class="cert-badge">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="cert-info">
-                            <span class="cert-org">HackerRank</span>
-                            <h3 data-i18n="cert4_title">SQL Intermediate</h3>
-                            <p data-i18n="cert4_desc">Advanced SQL queries, subqueries, and database optimization.</p>
-                            <div class="cert-meta">
-                                <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
-                                <div class="meta-item">ID: IDC2DDC0F680B9</div>
+                        <!-- Cert 5 -->
+                        <div class="cert-card glass reveal" data-category="db">
+                            <div class="cert-badge">
+                                <i class="fas fa-database"></i>
                             </div>
-                            <div class="tech-pills">
-                                <span class="pill">SQL</span>
+                            <div class="cert-info">
+                                <span class="cert-org">HackerRank</span>
+                                <h3 data-i18n="cert4_title">SQL Intermediate</h3>
+                                <p data-i18n="cert4_desc">Advanced SQL queries, subqueries, and database optimization.
+                                </p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Mar 2026</div>
+                                    <div class="meta-item">ID: IDC2DDC0F680B9</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">SQL</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert4_title', 'assets/docs/Certifs/sql_intermediate certificate.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
                             </div>
-                            <a href="#"
-                                onclick="openPdfViewer('cert4_title', 'assets/docs/Certifs/sql_intermediate certificate.pdf', 'fa-award'); return false;"
-                                class="github-link"><i class="fas fa-external-link-alt"></i> <span
-                                    data-i18n="cert_show">Show
-                                    Credential</span></a>
-                        </div>
-                    </div>
+                        </div> <!-- end cert-grid -->
+                        <button id="next-cert-page" class="side-nav-btn next"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div> <!-- end gallery-container -->
                 </div>
-
-                <!-- Cert Pagination -->
-                <div class="pagination-controls reveal" id="cert-pagination">
-                    <button id="prev-cert-page" class="pager-btn"><i class="fas fa-chevron-left"></i></button>
-                    <div id="cert-page-numbers"></div>
-                    <button id="next-cert-page" class="pager-btn"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
         </section>
 
         <!-- Contact Footer -->
@@ -1436,6 +1585,26 @@
                 <div class="cli-input-line">
                     <span class="cli-prompt">visitor@salma-barrak:~$</span>
                     <input type="text" id="cli-input" autofocus autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="resume-modal" role="dialog" aria-modal="true" aria-label="Project Details">
+        <div class="resume-modal-inner" style="max-width: 800px; max-height: 90vh;">
+            <div class="resume-modal-header">
+                <span class="resume-modal-title" id="project-modal-title"><i class="fas fa-project-diagram"></i>
+                    <span>Project Details</span></span>
+                <div class="resume-modal-actions">
+                    <button class="resume-close-btn" onclick="closeProjectModal()" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="resume-modal-body" style="padding: 2rem; overflow-y: auto;">
+                <div id="project-modal-content" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <!-- Dynamically populated -->
                 </div>
             </div>
         </div>

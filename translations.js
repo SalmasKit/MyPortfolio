@@ -101,6 +101,7 @@ const translations = {
         sec_projects: "Engineering Feats",
         proj_challenge: "Challenge:",
         proj_solution: "Solution:",
+        proj_btn_details: "See Details",
         proj_source: "Source",
         proj_coming_soon: "Coming Soon",
         filter_all: "All",
@@ -114,36 +115,707 @@ const translations = {
         proj1_title: "Jira Clone Pro",
         proj1_desc: "Building a robust back-end for real-time task management with RESTful API integrity.",
         proj1_sol: "Implemented high test coverage (Mockito/JUnit) and scalable PostgreSQL architecture.",
-        proj2_title: "Stockify - Inventory Hub",
-        proj2_desc: "Managing real-time stock volatility and generating automated alert systems.",
-        proj2_sol: "Utilized Symfony 7 and Doctrine to create a sub-second analytical data pipeline.",
+        proj1_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Jira Clone Pro is a high-integrity project management backend designed to mirror the complex workflow capabilities of enterprise-grade Agile tools. It focuses on absolute data consistency, real-time task transitions, and a strictly enforced RESTful API architecture to ensure a scalable and predictable development environment.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-tasks"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Agile Lifecycle</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Complete management of epics, stories, and tasks with state-driven transitions and priority hierarchies.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-vial"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">TDD Excellence</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Strict Test-Driven Development using Mockito and JUnit, ensuring 90%+ coverage for all critical business logic.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-database"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Relational Integrity</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">A highly optimized PostgreSQL schema utilizing advanced indexing and constraints for sub-millisecond query performance.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-project-diagram"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">RESTful Blueprint</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Level 3 HATEOAS-compliant API design with robust error handling and standardized response envelopes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built using the Spring ecosystem for enterprise reliability and modern reactive standards:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Spring Boot 3 & Data JPA:</strong> Leveraging Hibernate for efficient object-relational mapping and transaction management.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Security & JWT:</strong> Stateless authentication layer ensuring secure communication between front-end and API endpoints.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Maven & CI/CD:</strong> Standardized build pipelines with automated quality gates and dependency vulnerability scanning.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        stockify_title: "Stockify - Inventory Hub",
+        stockify_desc: "A professional inventory management system built with Symfony 7.4 for tracking products, transactions, and stock operations.",
+        stockify_sol: "Utilized Symfony 7, Doctrine ORM, and TailwindCSS 4 to create a sub-second analytical data pipeline.",
+        stockify_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Stockify is a professional, high-performance inventory management system designed to bring sub-second analytical depth to stock tracking. Built with a modern PHP stack, it provides businesses with a robust suite of tools to manage product volatility, automate restock cycles, and maintain full accountability through detailed transaction auditing.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Analytical Dashboard</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time overview of inventory health, featuring automated low-stock alerts and key performance metrics.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-exchange-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Stock Operations</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Specialized workflows for restocks and donations, ensuring every item movement is logged with precision.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-history"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Transaction Ledger</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">A permanent, immutable history of all stock changes for full transparency and simplified auditing.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-shield"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">RBAC Security</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Role-based access control with secure account activation, profile management, and session safety.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Architected with a focus on data integrity and high performance using the Symfony framework:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Symfony 7.4 + Doctrine:</strong> Leveraging advanced ORM mapping and sub-second analytical query optimization.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>TailwindCSS 4.x:</strong> A custom-designed, mobile-first interface optimized for rapid navigation across devices.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>UX Turbo & Stimulus:</strong> Integrated modern JavaScript components for seamless, SPA-like page transitions without reloads.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj3_title: "Soukify - Marketplace",
-        proj3_desc: "Integrating geolocation and complex user-to-user interactions on mobile devices.",
+        proj3_desc: "Bridging the gap between traditional Moroccan artisans and digital consumers while handling geolocation, real-time chat, and media-heavy catalogs on mobile.",
         proj3_sol: "Architected with Android SDK and Firebase using the MVVM design pattern.",
+        proj3_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Soukify is a comprehensive mobile application designed to promote and sell Moroccan craftsmanship. It bridges the gap between traditional artisans and digital consumers by offering a dedicated e-commerce platform with smart geolocation, direct artisan-to-customer chat, and an ecosystem that preserves cultural heritage while empowering local creators.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-map-marked-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Geo-Discovery</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Built with OpenStreetMap (osmdroid) to discover artisan workshops by proximity without relying on expensive APIs.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Artisan Hub</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Comprehensive shop management allowing artisans to add products and view analytics.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-comments"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Real-time Chat</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Integrated chat connecting buyers and sellers directly, powered by Firebase and push notifications.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Media Optimization</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Adaptive image compression via Cloudinary for fast loading even on 3G networks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Developed for the Android ecosystem focusing on scalability and user engagement:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Java & MVVM:</strong> Clean separation of concerns ensuring a testable and maintainable mobile codebase.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Firebase Backend:</strong> Leveraging real-time database and authentication for seamless user interactions.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>OpenStreetMap API:</strong> Providing advanced mapping features with zero license costs and high customization.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_chatbot_title: "Chatbot-mso - Gov Assistant",
-        proj_chatbot_desc: "Developing a multilingual RAG system to simplify administrative procedures in Morocco with OCR and vector search.",
-        proj_chatbot_sol: "Full-stack FastAPI + Vite engine using Hugging Face LLMs, local vector storage, and Tesseract for document OCR.",
+        proj_chatbot_desc: "A multilingual AI chatbot that answers citizens' questions on Moroccan administrative procedures in Arabic, French, and Darija.",
+        proj_chatbot_sol: "Full-stack FastAPI + Vite engine powered by Hugging Face LLMs, a local vector DB, Tesseract OCR, and Docker orchestration.",
+        proj_chatbot_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Chatbot-mso is a full-stack RAG-powered chatbot that makes Moroccan administrative procedures instantly accessible — in Arabic, French, and Darija. Citizens can ask real questions like <em>"Comment obtenir un extrait d'acte de naissance ?"</em> or <em>"كيف أحصل على جواز السفر البيومتري؟"</em> and receive accurate, context-grounded answers drawn from a local vector knowledge base.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-language"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Trilingual RAG</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Handles citizen queries in Arabic, French, and Darija using a local vector DB for fast, semantically accurate context retrieval.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-file-image"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Image OCR Upload</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Users can upload official document images; the backend extracts text via Tesseract OCR and feeds it into the LLM context window.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-exchange-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Swappable LLM Backend</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Defaults to the Hugging Face Router; easily switch to an OpenAI-compatible service via a single env variable and import swap.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-shipping-fast"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Docker One-Command Deploy</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">A single <code>start.sh</code> script builds the data pipeline if needed, then spins up all containers — frontend on :8080, backend on :8000.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built as a modular, containerized AI pipeline with a clean separation between retrieval, inference, and presentation layers:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>FastAPI + Vite:</strong> Async Python backend paired with a blazing-fast Vite frontend for sub-second UI interactions.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Local Vector DB:</strong> Pre-built embeddings (downloadable) enable instant retrieval without rebuilding a 2-hour data pipeline.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Hugging Face Router:</strong> Production-ready LLM calls via HF Inference API, with a modular <code>llm_service</code> pattern allowing zero-friction OpenAI migration.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj4_title: "Vision Security Engine",
         proj4_desc: "Real-time background subtraction for motion capture under varying lighting.",
         proj4_sol: "Engineered an OpenCV-based pipeline in Python with Streamlit visuals.",
-        proj_quiz_title: "Tech Quiz Pro: IT Mastery",
-        proj_quiz_desc: "Developing a high-performance Android quiz engine with 8 specialized technical tracks and 350+ challenges.",
+        proj4_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Vision Security Engine is a high-performance, real-time motion detection system designed for advanced surveillance and motion capture. It leverages state-of-the-art background subtraction algorithms to isolate movement from complex backgrounds, providing security professionals with a configurable and interactive tool for both live feeds and recorded media.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-video"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Dual Input Modes</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Seamlessly process high-definition video files or connect to live webcam feeds for real-time security monitoring.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-brain"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Triple Detection Engine</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Choose between MOG2 (Gaussian Mixture), KNN (K-Nearest Neighbors), or Frame Differencing based on lighting conditions.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-columns"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Quad-View Interface</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Four simultaneous views: Original feed, Binary motion mask, Extracted objects, and Bounding box tracking.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Live Telemetry</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time performance metrics including FPS tracking, object counts, and processing progress bars.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Engineered with a modular Python architecture optimized for low-latency computer vision tasks:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>OpenCV Pipeline:</strong> Advanced morphological operations and binary thresholding for noise reduction and shadow detection.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>OOP Design:</strong> Highly modular class structure with specialized processors for file-based and stream-based data.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Streamlit Dashboard:</strong> A reactive web frontend for dynamic parameter tuning (variance thresholds, kernel sizes).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        proj_quiz_title: "Tech Quiz Pro: IT Mastery Edition",
+        proj_quiz_desc: "A high-performance Android quiz application designed for developers and IT professionals.",
         proj_quiz_sol: "Built with Java using MVVM, Room Database for local persistence, and a 'System Build' analysis engine.",
-        proj5_title: "QueryPix - CBIR",
-        proj5_desc: "Content-Based Image Retrieval with contour and feature extraction.",
-        proj5_sol: "Developed a similarity search engine using Dataset Corel 1000 and Scikit-learn.",
+        proj_quiz_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Tech Quiz Pro is a professional-grade Android application designed to test and master technical depth across 8 specialized IT tracks. It combines a premium "IT Console" aesthetic with a high-capacity data engine to provide developers with a rigorous evaluation of their 'system stability' in various technologies.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-terminal"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">8 specialized Tracks</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Master 350+ curated challenges across HTML5, CSS3, JS (ES6+), Java, SQL, Git, General CS, and Cyber Security.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-stopwatch"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Technical Marathons</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">High-capacity 50-question sessions designed to simulate intense technical interviews and test endurance.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-microchip"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">System Build Analysis</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Post-quiz summaries presented as a 'Build Log' with compilation points, accuracy tracking, and error detection.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-palette"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">IT Console Aesthetic</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Premium Glassmorphism UI with neon-cyan accents, floating components, and a dedicated dark-mode environment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built with a modern Android architecture to ensure high performance and data integrity:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>MVVM + LiveData:</strong> Robust state management ensuring reactive UI updates and lifecycle awareness.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Room Persistence:</strong> Atomic batch-insertion of question pools for high-speed offline access.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Dynamic Engine:</strong> JSON asset management for localized data and Retrofit 2 for dynamic API fallbacks.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        proj5_title: "QueryPix - CBIR System",
+        proj5_desc: "A modern Content-Based Image Retrieval system built for searching and retrieving similar images from the Corel-1000 dataset.",
+        proj5_sol: "Developed a similarity search engine using OpenCV, NumPy, and Scikit-learn with a Streamlit interface.",
+        proj5_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    QueryPix is a modern Content-Based Image Retrieval (CBIR) system designed to search and retrieve visually similar images from the extensive Corel-1000 dataset. By leveraging advanced computer vision techniques and multiple feature extraction methods, it provides an intuitive web interface for high-precision visual similarity discovery.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-search-plus"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Multi-Method Extraction</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Supports RGB, HSV, and Lab color spaces with configurable histogram bins (up to 128) for varying levels of detail.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-ruler-combined"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Diverse Metrics</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Includes Swain-Ballard Intersection, Euclidean, Manhattan, and Chi-square distances for versatile similarity analysis.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-tachometer-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Pre-computed Engine</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Features an optimized backend using pre-calculated descriptors (descriptors.json) for sub-second retrieval times.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-bar"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Visual Scoring</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time results with color-coded similarity indicators (Green/Yellow/Red) and interactive data tables.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built with a professional Python stack optimized for computer vision and interactive data apps:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>OpenCV & NumPy:</strong> High-speed image processing and vector operations for efficient distance calculations.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Streamlit Engine:</strong> Modern reactive frontend for seamless image uploading and parameter configuration.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Plotly Integration:</strong> Advanced visualization for results distribution and similarity scoring trends.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj6_title: "Shifaa - Healthcare Hub",
         proj6_desc: "Managing complex relationships between patients, doctors, and treatments with high data integrity.",
         proj6_sol: "Developed a full-stack JavaFX desktop suite using DAOs for MySQL persistence and OpenPDF for medical reporting.",
+        proj6_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Shifaa is a comprehensive healthcare management system built with JavaFX. It streamlines medical operations by providing a centralized desktop suite for managing user sessions, patient records, doctor schedules, and treatment tracking with robust data integrity and reporting capabilities.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-injured"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Patient Records</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Add, edit, and search complete patient profiles, maintaining high data integrity across medical histories.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-md"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Doctor & Appointments</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Manage doctor profiles, and schedule patient appointments with conflict prevention and tracking.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-pills"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Treatment Tracking</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Log and monitor patient treatments, prescriptions, and medical interventions securely.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-file-pdf"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">PDF Reporting</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Generate structured medical reports directly from the application data using OpenPDF.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built utilizing <strong>Java 11+</strong> and the <strong>JavaFX 21</strong> framework for a native desktop experience, following solid design principles:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>DAO Pattern:</strong> Clean data access objects separating MySQL persistence logic from business logic.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Security & State:</strong> Secure login with persistent session management across UI controllers.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Build Automation:</strong> Managed entirely by Maven, handling dependencies like \`mysql-connector-java\` and \`openpdf\`.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj7_title: "Bayt Al Hikma - Library System",
         proj7_desc: "Designing a unified library engine with triple interface support (Web, Desktop, CLI) for complex book and member logic.",
         proj7_sol: "Built with Python, Streamlit, and Tkinter, featuring real-time data visualization and persistent file storage.",
+        proj7_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Bayt Al Hikma is a modern library management system built with Python, offering seamless web-based, desktop, and CLI interfaces. Designed to streamline book lending, member management, and library operations, it provides librarians with flexible UI options and powerful data analytics.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-layer-group"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Triple Interface</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Freedom to choose between a modern Streamlit Web Interface, a native Tkinter Desktop GUI, or a traditional Command-Line console.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-book-reader"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Library Operations</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Complete book and member management with automated loan systems, availability tracking, and borrowing quota enforcements.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-pie"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Visual Analytics</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time statistics dashboard featuring genre distribution charts, popular author rankings, and monthly borrowing trends using Matplotlib & Seaborn.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-history"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Audit Trail</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Comprehensive activity feed and historical logging ensuring full traceability for all lending and return operations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Engineered in <strong>Python 3.7+</strong> using modern data tools, the system is designed with a clear separation of logic and presentation:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Data Processing:</strong> Utilizes <code>Pandas</code> for robust manipulation and filtering of library databases.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Data Persistence:</strong> Text and CSV file-based persistence (<code>livres.txt</code>, <code>historique.csv</code>) ensures lightweight data portability without a database server.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Error Handling:</strong> Custom Python exception classes (e.g. <code>LivreIndisponibleError</code>, <code>QuotaEmpruntDepasseError</code>) cleanly manage edge cases and business rules.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_portfolio_title: "Interactive 3D Portfolio",
         proj_portfolio_desc: "Designing a high-performance, multilingual hub with custom 3D animations and real-time localized content.",
         proj_portfolio_sol: "Built with Vanilla JS and GSAP, featuring custom 3D carousels and smooth scroll-driven visuals.",
+        proj_portfolio_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    This Interactive 3D Portfolio is a high-performance digital hub designed to showcase technical mastery through immersive user experiences. It transcends the static nature of traditional portfolios by integrating complex 3D mathematics, real-time localized state management, and custom-engineered animations that respond to every user interaction.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cube"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">3D Space Orbit</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">A custom CSS/JS orbital system featuring revolving 3D text paths and multi-layered perspective shifts.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-globe"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Real-time Localization</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Dynamic I18next integration for seamless switching between English and French without page reloads.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-mouse-pointer"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Reactive Cursor Lab</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Advanced pointer-tracking physics and magnetic button effects powered by GSAP.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-mobile-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Fluid Responsiveness</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Sophisticated CSS Grid and Flexbox layouts that adapt to all screen sizes while maintaining visual depth.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Optimized for performance and aesthetic excellence using a modern frontend architecture:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Vanilla JS & GSAP:</strong> Zero-dependency core logic with GSAP ScrollTrigger for orchestrated cinematic sequences.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Modular CSS System:</strong> Pure Vanilla CSS with advanced variables (Design Tokens) for a cohesive and dynamic theme engine.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Lighthouse Optimized:</strong> High-performance assets, semantic HTML5, and optimized rendering loops for 95+ performance scores.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_amee_title: "eCongé AMEE - HR Management",
         proj_amee_desc: "Modernizing HR workflows for a government agency by automating leave tracking and document management.",
         proj_amee_sol: "Developed a full-stack PHP/MySQL portal with automated email notifications, interactive calendars, and admin analytics.",
+        proj_amee_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    eCongé AMEE is a comprehensive web application developed to digitize and optimize the leave management process for the Moroccan Agency for Energy Efficiency. It centralizes the submission, validation, and tracking of leave requests, providing a dedicated Employee Space for managing requests and an advanced HR Space for supervising leaves, sick days, and staff balances.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-clock"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Employee Portal</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Intuitive dashboard for submitting leave requests with automatic calculation of working days, excluding weekends and holidays.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-users-cog"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">HR Management Hub</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Comprehensive tools for validating requests, tracking sick leaves with medical certificates, and managing the personnel hierarchy.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-pie"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Interactive Analytics</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time charts and dashboards utilizing Chart.js to monitor leave distributions, monthly trends, and absenteeism indicators.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-file-export"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Automated Reports</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Generation and export of detailed leave summaries and official documents in Word and Excel formats.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built natively in <strong>PHP 8</strong> using an <strong>MVC architecture</strong> for robust separation of concerns, ensuring maintainability and scalability:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Security First:</strong> Implemented prepared SQL statements, XSS/CSRF protections, and secure password hashing.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Responsive Frontend:</strong> Crafted with HTML5, CSS3, Bootstrap 5, and vanilla JavaScript (ES6+) for a seamless cross-device experience.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Advanced Integrations:</strong> Utilized Composer for dependency management, incorporating PHPMailer for automated notifications, and PhpSpreadsheet/PhpWord for dynamic document generation.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         sec_certs: "Validated Expertise",
         cert_docker_title: "Docker Essentials",
         cert_docker_desc: "In-depth understanding of Docker containers, images, layering, and container orchestration workflows.",
@@ -231,6 +903,126 @@ const translations = {
         cli_ls_soukify: "Soukify Marketplace | Geolocation-integrated mobile Android app with complex interactions.\\n- Stack: Java, Android SDK, Firebase, MVVM Pattern.",
         cli_ls_quiz: "Tech Quiz Pro | High-performance IT quiz engine with 350+ tracks & analytics.\\n- Stack: Java, Room Database, MVVM Architecture.",
         cli_ls_portfolio: "Interactive Portfolio | Custom 3D developer showcase with real-time localization.\\n- Stack: Vanilla JS, Three.js, GSAP, High-End CSS3.",
+        proj_stockify_title: "Stockify - Inventory Hub",
+        proj_stockify_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-boxes"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Stockify is a professional, high-performance inventory management system built to handle complex stock volatility. It provides a comprehensive suite of tools for tracking products, automated transaction logging, and real-time analytical dashboards.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-microchip"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-tachometer-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Analytical Dashboard</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time overview of inventory status, including low-stock alerts and movement metrics.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-history"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Transaction Ledger</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Automated history of every stock change (RESTOCK, DONATION) for full accountability.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-shield-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">RBAC Security</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Role-based access control (Admin/User) to secure critical inventory operations.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Donation Workflow</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Specialized tracking for stock removal intended for social contributions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-layer-group"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built with <strong>Symfony 7</strong> and <strong>PHP 8.2</strong>, prioritizing sub-second data processing and relational integrity:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Doctrine ORM:</strong> Complex relational mapping and optimized database queries.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>TailwindCSS:</strong> Modern, responsive interface built with utility-first CSS.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        proj_soukify_title: "Soukify - Marketplace",
+        proj_soukify_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Project Vision
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Soukify is a comprehensive mobile application designed to promote and sell Moroccan handicrafts. It bridges the gap between traditional artisans and digital consumers by providing a dedicated e-commerce platform with smart geolocation, direct artisan-client chat, and an ecosystem that preserves cultural heritage while empowering local creators.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core Features
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-map-marked-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Geo-Discovery</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Built with OpenStreetMap (osmdroid) to discover artisan workshops by proximity without relying on costly APIs.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Artisan Hub</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Complete store management allowing artisans to add products, manage stock, and view performance analytics.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-comments"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Real-time Chat</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Integrated chat connecting buyers and sellers directly, powered by Firebase and push notifications.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Media Optimization</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Adaptive image compression via Cloudinary for fast loading even on limited 3G networks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Blueprint
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Built natively in <strong>Java</strong> using the <strong>MVVM pattern</strong> for robust separation of concerns. The architecture leverages a hybrid sync strategy:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Firebase Ecosystem:</strong> Real-time database synchronization, authentication, and cloud functions.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>NoSQL Storage:</strong> Firestore for flexible, hierarchical artisanal product data.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Offline Capability:</strong> SharedPreferences and Room-inspired patterns for resilient data access.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         revolving_text: "BUILD • AUTOMATÉ • LEARN • DEPLOY • SOLVE • INNOVATE • BUILD • AUTOMATÉ • LEARN •"
     },
     fr: {
@@ -337,6 +1129,7 @@ const translations = {
         sec_projects: "Réalisations",
         proj_challenge: "Défi :",
         proj_solution: "Solution :",
+        proj_btn_details: "Voir Détails",
         proj_source: "Source",
         proj_coming_soon: "Bientôt disponible",
         filter_all: "Tous",
@@ -350,36 +1143,707 @@ const translations = {
         proj1_title: "Jira Clone Pro",
         proj1_desc: "Construction d'un backend robuste pour la gestion de tâches en temps réel.",
         proj1_sol: "Mise en œuvre d'une couverture de test élevée (Mockito/JUnit) et d'une architecture PostgreSQL.",
-        proj2_title: "Stockify - Inventory Hub",
-        proj2_desc: "Gestion de la volatilité des stocks et alertes automatisées.",
-        proj2_sol: "Utilisation de Symfony 7 pour créer un pipeline de données analytiques rapide.",
+        proj1_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Jira Clone Pro est un backend de gestion de projet de haute intégrité conçu pour refléter les capacités de flux de travail complexes des outils Agile d'entreprise. Il se concentre sur une cohérence absolue des données, des transitions de tâches en temps réel et une architecture API RESTful strictement appliquée pour garantir un environnement de développement évolutif et prévisible.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-tasks"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Cycle de Vie Agile</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Gestion complète des epics, stories et tâches avec des transitions pilotées par état et des hiérarchies de priorité.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-vial"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Excellence TDD</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Développement piloté par les tests (TDD) strict avec Mockito et JUnit, garantissant une couverture de 90%+.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-database"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Intégrité Relationnelle</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Schéma PostgreSQL optimisé utilisant des index avancés et des contraintes pour des performances de requête ultra-rapides.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-project-diagram"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Schéma RESTful</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Conception API conforme au niveau 3 HATEOAS avec gestion des erreurs robuste et enveloppes de réponse standardisées.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Construit avec l'écosystème Spring pour une fiabilité d'entreprise et des standards réactifs modernes :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Spring Boot 3 & Data JPA :</strong> Utilisation de Hibernate pour un mapping objet-relationnel efficace et la gestion des transactions.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Sécurité & JWT :</strong> Couche d'authentification sans état garantissant des communications sécurisées entre le frontend et l'API.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Maven & CI/CD :</strong> Pipelines de build standardisés avec des tests de qualité automatisés et scan de vulnérabilités.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        stockify_title: "Stockify - Hub d'Inventaire",
+        stockify_desc: "Un système de gestion d'inventaire professionnel construit avec Symfony 7.4 pour le suivi des produits et des stocks.",
+        stockify_sol: "Utilisation de Symfony 7, Doctrine ORM et TailwindCSS 4 pour créer un pipeline de données analytiques rapide.",
+        stockify_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Stockify est un système professionnel de gestion d'inventaire haute performance conçu pour apporter une profondeur analytique ultra-rapide au suivi des stocks. Construit avec une stack PHP moderne, il offre aux entreprises une suite robuste d'outils pour gérer la volatilité des produits, automatiser les cycles de réapprovisionnement et maintenir une responsabilité totale grâce à un audit détaillé des transactions.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Tableau de Bord Analytique</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Aperçu en temps réel de la santé de l'inventaire, avec alertes automatiques de stock faible et indicateurs de performance clés.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-exchange-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Opérations de Stock</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Flux de travail spécialisés pour les réapprovisionnements et les dons, garantissant que chaque mouvement est enregistré avec précision.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-history"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Registre des Transactions</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Un historique permanent et immuable de tous les changements de stock pour une transparence totale et un audit simplifié.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-shield"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Sécurité RBAC</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Contrôle d'accès basé sur les rôles avec activation sécurisée des comptes, gestion des profils et sécurité des sessions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Architecturé avec un focus sur l'intégrité des données et la haute performance via le framework Symfony :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Symfony 7.4 + Doctrine :</strong> Utilisation du mapping ORM avancé et optimisation des requêtes analytiques ultra-rapides.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>TailwindCSS 4.x :</strong> Interface mobile-first conçue sur mesure, optimisée pour une navigation rapide sur tous les appareils.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>UX Turbo & Stimulus :</strong> Intégration de composants JavaScript modernes pour des transitions de page fluides sans rechargement.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj3_title: "Soukify - Marketplace",
-        proj3_desc: "Intégration de la géolocalisation et interactions complexes sur mobile.",
+        proj3_desc: "Combler le fossé entre les artisans marocains traditionnels et les consommateurs digitaux, tout en gérant la géolocalisation, le chat en temps réel et des catalogues riches en médias.",
         proj3_sol: "Architecturé avec SDK Android et Firebase via le pattern MVVM.",
+        proj3_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Soukify est une application mobile complète conçue pour promouvoir et vendre l'artisanat marocain. Elle comble le fossé entre les artisans traditionnels et les consommateurs numériques en offrant une plateforme de commerce électronique dédiée avec géolocalisation intelligente, chat direct artisan-client et un écosystème qui préserve l'héritage culturel tout en autonomisant les créateurs locaux.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-map-marked-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Géo-Découverte</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Construit avec OpenStreetMap (osmdroid) pour découvrir les ateliers d'artisans par proximité sans dépendre d'API coûteuses.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Hub Artisan</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Gestion complète de la boutique permettant aux artisans d'ajouter des produits et de consulter les analyses.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-comments"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Chat Temps Réel</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Chat intégré reliant directement acheteurs et vendeurs, propulsé par Firebase et notifications push.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Optimisation Média</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Compression d'image adaptative via Cloudinary pour un chargement rapide même sur les réseaux 3G.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Développé pour l'écosystème Android avec un focus sur la scalabilité et l'engagement utilisateur :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Java & MVVM :</strong> Séparation propre des responsabilités assurant un codebase mobile testable et maintenable.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Backend Firebase :</strong> Utilisation de la base de données temps réel et de l'authentification pour des interactions fluides.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>API OpenStreetMap :</strong> Fournit des fonctionnalités de cartographie avancées avec zéro coût de licence et haute personnalisation.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_chatbot_title: "Chatbot-mso - Assistant Admin",
-        proj_chatbot_desc: "Système RAG multilingue utilisant l'IA pour simplifier les procédures administratives via OCR et recherche vectorielle.",
-        proj_chatbot_sol: "Moteur full-stack FastAPI + Vite utilisant les LLMs Hugging Face et OCR Tesseract pour le traitement de documents.",
+        proj_chatbot_desc: "Un chatbot IA multilingue qui répond aux questions des citoyens sur les procédures administratives marocaines en arabe, français et darija.",
+        proj_chatbot_sol: "Moteur full-stack FastAPI + Vite alimenté par les LLMs Hugging Face, une base vectorielle locale, OCR Tesseract et Docker.",
+        proj_chatbot_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Chatbot-mso est un chatbot RAG full-stack qui rend les procédures administratives marocaines instantanément accessibles — en arabe, français et darija. Les citoyens peuvent poser des vraies questions comme <em>"Comment obtenir un extrait d'acte de naissance ?"</em> ou <em>"كيف أحصل على جواز السفر البيومتري؟"</em> et recevoir des réponses précises issues d'une base de connaissances vectorielle locale.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-language"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">RAG Trilingue</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Traite les questions des citoyens en arabe, français et darija grâce à une base vectorielle locale pour une récupération sémantique précise.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-file-image"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">OCR sur Image</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Les utilisateurs peuvent uploader des images de documents officiels ; le backend extrait le texte via Tesseract OCR et l'injecte dans le contexte du LLM.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-exchange-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Backend LLM Interchangeable</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Par défaut sur le Hugging Face Router ; basculez vers OpenAI via une seule variable d'environnement et un échange d'import modulaire.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-shipping-fast"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Déploiement Docker Unifié</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Un seul script <code>start.sh</code> construit le pipeline de données si nécessaire, puis lance tous les conteneurs — frontend sur :8080, backend sur :8000.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Construit comme un pipeline IA modulaire et conteneurisé avec une séparation nette entre récupération, inférence et présentation :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>FastAPI + Vite :</strong> Backend Python asynchrone couplé à un frontend Vite ultra-rapide pour des interactions UI en moins d'une seconde.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Base Vectorielle Locale :</strong> Embeddings pré-construits (téléchargeables) permettant une récupération instantanée sans reconstruire un pipeline de 2 heures.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Hugging Face Router :</strong> Appels LLM via l'API d'inférence HF, avec un pattern <code>llm_service</code> modulaire permettant une migration OpenAI sans friction.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj4_title: "Vision Security Engine",
         proj4_desc: "Soustraction de fond pour la capture de mouvement en temps réel.",
         proj4_sol: "Pipeline basé sur OpenCV en Python avec visualisation Streamlit.",
-        proj_quiz_title: "Tech Quiz Pro : IT Mastery",
-        proj_quiz_desc: "Développement d'un moteur de quiz Android haute performance avec 8 parcours techniques spécialisés.",
+        proj4_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Vision Security Engine est un système de détection de mouvement en temps réel haute performance conçu pour la surveillance avancée et la capture de mouvement. Il exploite des algorithmes de soustraction de fond de pointe pour isoler le mouvement des arrière-plans complexes, offrant aux professionnels de la sécurité un outil configurable et interactif pour les flux en direct et les médias enregistrés.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-video"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Modes d'Entrée Duo</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Traitez de manière fluide des fichiers vidéo haute définition ou connectez-vous à des flux webcam en direct pour une surveillance en temps réel.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-brain"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Triple Moteur de Détection</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Choisissez entre MOG2 (Mélange de Gaussiennes), KNN (K-Plus Proches Voisins) ou Frame Differencing selon les conditions d'éclairage.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-columns"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Interface Quadruple Vue</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Quatre vues simultanées : flux original, masque de mouvement binaire, objets extraits et suivi par boîtes englobantes.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Télémétrie en Direct</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Métriques de performance en temps réel incluant le suivi du FPS, le nombre d'objets et les barres de progression.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Conçu avec une architecture Python modulaire optimisée pour les tâches de vision par ordinateur à faible latence :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Pipeline OpenCV :</strong> Opérations morphologiques avancées et seuillage binaire pour la réduction du bruit et la détection d'ombres.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Conception Orientée Objet :</strong> Structure de classes hautement modulaire avec des processeurs spécialisés pour les fichiers et les flux de données.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Dashboard Streamlit :</strong> Une interface web réactive pour le réglage dynamique des paramètres (seuils de variance, tailles de noyau).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        proj_quiz_title: "Tech Quiz Pro : IT Mastery Edition",
+        proj_quiz_desc: "Une application de quiz Android haute performance conçue pour les développeurs et les professionnels de l'informatique.",
         proj_quiz_sol: "Développé en Java avec MVVM, Room Database pour la persistance locale et un moteur d'analyse 'System Build'.",
-        proj5_title: "QueryPix - CBIR",
-        proj5_desc: "Recherche d'images par le contenu (CBIR) avec extraction de caractéristiques.",
-        proj5_sol: "Moteur de recherche par similitude utilisant le Dataset Corel 1000 et Scikit-learn.",
+        proj_quiz_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Tech Quiz Pro est une application Android de niveau professionnel conçue pour tester et maîtriser la profondeur technique sur 8 parcours informatiques spécialisés. Elle combine une esthétique premium "Console IT" avec un moteur de données haute performance pour offrir aux développeurs une évaluation rigoureuse de leur 'stabilité système' dans diverses technologies.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-terminal"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">8 Parcours Spécialisés</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Maîtrisez plus de 350 défis sur HTML5, CSS3, JS (ES6+), Java, SQL, Git, Informatique Générale et Cybersécurité.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-stopwatch"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Marathons Techniques</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Sessions de 50 questions conçues pour simuler des entretiens techniques intenses et tester votre endurance.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-microchip"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Analyse de Build Système</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Résumés post-quiz présentés comme un 'Journal de Build' avec points de compilation et détection d'erreurs.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-palette"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Esthétique Console IT</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Interface Glassmorphism premium avec accents néon-cyan, composants flottants et mode sombre dédié.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Construit avec une architecture Android moderne pour garantir haute performance et intégrité des données :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>MVVM + LiveData :</strong> Gestion d'état robuste garantissant des mises à jour réactives de l'interface.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Persistance Room :</strong> Insertion par lots atomiques des questions pour un accès hors ligne ultra-rapide.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Moteur Dynamique :</strong> Gestion des actifs JSON pour les données localisées et Retrofit 2 pour les API fallbacks.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        proj5_title: "QueryPix - CBIR System",
+        proj5_desc: "Un système moderne de recherche d'images par le contenu (CBIR) conçu pour rechercher et récupérer des images similaires.",
+        proj5_sol: "Développement d'un moteur de recherche par similitude utilisant OpenCV, NumPy et Scikit-learn avec une interface Streamlit.",
+        proj5_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    QueryPix est un système moderne de recherche d'images par le contenu (CBIR) conçu pour rechercher et récupérer des images visuellement similaires dans l'important Dataset Corel-1000. En exploitant des techniques avancées de vision par ordinateur et plusieurs méthodes d'extraction de caractéristiques, il offre une interface web intuitive pour une découverte de similitudes visuelles de haute précision.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-search-plus"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Extraction Multi-Méthodes</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Supporte les espaces colorimétriques RGB, HSV et Lab avec des bacs d'histogramme configurables (jusqu'à 128) pour différents niveaux de détail.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-ruler-combined"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Métriques Diversifiées</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Inclut l'intersection Swain-Ballard, les distances Euclidienne, Manhattan et Chi-carré pour une analyse de similitude polyvalente.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-tachometer-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Moteur Pré-calculé</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Dispose d'un backend optimisé utilisant des descripteurs pré-calculés (descriptors.json) pour des temps de récupération inférieurs à la seconde.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-bar"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Scoring Visuel</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Résultats en temps réel avec indicateurs de similitude par code couleur (Vert/Jaune/Rouge) et tableaux de données interactifs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Construit avec une stack Python professionnelle optimisée pour la vision par ordinateur et les applications de données interactives :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>OpenCV & NumPy :</strong> Traitement d'image ultra-rapide et opérations vectorielles pour des calculs de distance efficaces.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Moteur Streamlit :</strong> Frontend réactif moderne pour le téléchargement d'images et la configuration des paramètres sans couture.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Intégration Plotly :</strong> Visualisation avancée pour la distribution des résultats et les tendances des scores de similitude.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj6_title: "Shifaa - Healthcare Hub",
         proj6_desc: "Gestion des relations complexes entre patients, médecins et traitements.",
         proj6_sol: "Suite desktop JavaFX avec DAOs pour la persistance MySQL et rapports médicaux via OpenPDF.",
+        proj6_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Shifaa est un système complet de gestion de la santé construit avec JavaFX. Il simplifie les opérations médicales en fournissant une suite desktop centralisée pour la gestion des sessions utilisateurs, des dossiers patients, des plannings médicaux et du suivi des traitements, avec une intégrité des données et des capacités de reporting robustes.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-injured"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Dossiers Patients</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Ajout, édition et recherche de profils patients complets, tout en maintenant une haute intégrité des antécédents médicaux.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-md"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Médecins & RDV</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Gestion des profils des médecins et planification des rendez-vous avec prévention des conflits.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-pills"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Suivi des Traitements</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Enregistrement et suivi sécurisé des traitements, prescriptions et interventions médicales.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-file-pdf"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Rapports PDF</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Génération de rapports médicaux structurés directement depuis les données de l'application avec OpenPDF.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Construit avec <strong>Java 11+</strong> et le framework <strong>JavaFX 21</strong> pour une expérience desktop native, en suivant des principes de conception solides :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Pattern DAO :</strong> Séparation propre de la logique d'accès aux données MySQL de la logique métier.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Sécurité & État :</strong> Connexion sécurisée avec gestion de session persistante entre les contrôleurs UI.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Automatisation :</strong> Gestion intégrale par Maven, incluant les dépendances \`mysql-connector-java\` et \`openpdf\`.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj7_title: "Bayt Al Hikma - Gestion de Bibliothèque",
         proj7_desc: "Conception d'un moteur de bibliothèque unifié avec triple interface (Web, Desktop, CLI) pour la gestion d'emprunts.",
         proj7_sol: "Développement en Python avec Streamlit et Tkinter, intégrant des visualisations de données en temps réel.",
+        proj7_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Bayt Al Hikma est un système moderne de gestion de bibliothèque construit avec Python, offrant des interfaces web, desktop et en ligne de commande. Conçu pour rationaliser le prêt de livres, la gestion des membres et les opérations de la bibliothèque, il offre aux bibliothécaires des options d'interface flexibles et des analyses de données puissantes.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-layer-group"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Triple Interface</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Liberté de choisir entre une interface web moderne Streamlit, une GUI desktop native Tkinter, ou une console traditionnelle en ligne de commande.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-book-reader"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Opérations de Bibliothèque</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Gestion complète des livres et des membres avec systèmes de prêt automatisés, suivi des disponibilités et application des quotas d'emprunt.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-pie"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Analytique Visuelle</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Tableau de bord de statistiques en temps réel avec graphiques de répartition par genre, classements des auteurs et tendances mensuelles d'emprunt via Matplotlib & Seaborn.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-history"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Piste d'Audit</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Flux d'activités complet et journalisation historique assurant une traçabilité totale pour toutes les opérations de prêt et de retour.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Conçu en <strong>Python 3.7+</strong> avec des outils de données modernes, le système repose sur une séparation claire entre logique et présentation :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Traitement de Données :</strong> Utilisation de <code>Pandas</code> pour une manipulation et un filtrage robustes des bases de données.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Persistance des Données :</strong> Sauvegarde basée sur des fichiers texte et CSV (<code>livres.txt</code>, <code>historique.csv</code>) assurant une portabilité légère sans serveur de base de données.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Gestion des Erreurs :</strong> Classes d'exceptions Python personnalisées (ex: <code>LivreIndisponibleError</code>) pour gérer proprement les règles métier et les cas particuliers.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_portfolio_title: "Portfolio 3D Interactif",
-        proj_portfolio_desc: "Conception d'un hub multilingue haute performance avec animations 3D personnalisées et contenu localisé.",
-        proj_portfolio_sol: "Développé en JS Pur et GSAP, incluant des carrousels 3D sur mesure et des visuels synchronisés au défilement.",
+        proj_portfolio_desc: "Conception d'un hub multilingue haute performance avec des animations 3D personnalisées et un contenu localisé en temps réel.",
+        proj_portfolio_sol: "Construit avec Vanilla JS et GSAP, avec des carrousels 3D personnalisés et des visuels fluides pilotés par le défilement.",
+        proj_portfolio_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Ce portfolio interactif 3D est un hub numérique haute performance conçu pour démontrer la maîtrise technique à travers des expériences utilisateur immersives. Il transcende la nature statique des portfolios traditionnels en intégrant des mathématiques 3D complexes, une gestion d'état localisée en temps réel et des animations conçues sur mesure qui répondent à chaque interaction de l'utilisateur.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cube"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Orbite Spatiale 3D</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Système orbital CSS/JS personnalisé avec des chemins de texte 3D tournants et des changements de perspective multi-couches.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-globe"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Localisation Réelle</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Intégration dynamique d'I18next pour un basculement fluide entre l'anglais et le français sans rechargement de page.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-mouse-pointer"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Labo Curseur Réactif</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Physique avancée de suivi du pointeur et effets de boutons magnétiques propulsés par GSAP.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-mobile-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Réactivité Fluide</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Layouts CSS Grid et Flexbox sophistiqués s'adaptant à toutes les tailles d'écran tout en maintenant la profondeur visuelle.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Optimisé pour la performance et l'excellence esthétique via une architecture frontend moderne :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Vanilla JS & GSAP :</strong> Logique centrale sans dépendance avec GSAP ScrollTrigger pour des séquences cinématiques orchestrées.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Système CSS Modulaire :</strong> Utilisation avancée de variables CSS pour un moteur de thème cohérent et dynamique.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Optimisé Lighthouse :</strong> Assets haute performance, HTML5 sémantique et boucles de rendu optimisées pour des scores 95+.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_amee_title: "eCongé AMEE - Gestion RH",
         proj_amee_desc: "Modernisation des flux RH pour une agence nationale en automatisant le suivi des congés et la gestion documentaire.",
         proj_amee_sol: "Développement d'un portail full-stack PHP/MySQL avec notifications par e-mail, calendrier interactif et dashboards RH.",
+        proj_amee_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    eCongé AMEE est une application web complète développée pour dématérialiser et optimiser le processus de gestion des congés pour l'Agence Marocaine pour l'Efficacité Énergétique. Elle centralise la soumission, la validation et le suivi des demandes, offrant un Espace Employé dédié et un Espace RH avancé pour superviser les congés, les arrêts maladie et les soldes du personnel.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-user-clock"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Portail Employé</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Tableau de bord intuitif pour soumettre des demandes avec calcul automatique des jours ouvrables, excluant week-ends et jours fériés.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-users-cog"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Hub de Gestion RH</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Outils complets pour valider les demandes, suivre les arrêts maladie avec certificats, et gérer la hiérarchie du personnel.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-pie"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Analytique Interactive</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Graphiques en temps réel avec Chart.js pour surveiller la répartition des congés, les tendances mensuelles et l'absentéisme.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-file-export"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Rapports Automatisés</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Génération et export de récapitulatifs détaillés et documents officiels aux formats Word et Excel.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Construit nativement en <strong>PHP 8</strong> avec une <strong>architecture MVC</strong> pour une séparation robuste des responsabilités, assurant maintenabilité et scalabilité :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Priorité Sécurité :</strong> Implémentation de requêtes SQL préparées, protections XSS/CSRF, et hachage sécurisé des mots de passe.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Frontend Responsive :</strong> Conçu avec HTML5, CSS3, Bootstrap 5, et JavaScript natif (ES6+) pour une expérience multi-appareils fluide.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Intégrations Avancées :</strong> Utilisation de Composer pour la gestion des dépendances, incluant PHPMailer pour les notifications, et PhpSpreadsheet/PhpWord pour la génération de documents.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         sec_certs: "Expertise Validée",
         cert_docker_title: "Docker Fondamentaux",
         cert_docker_desc: "Compréhension approfondie des conteneurs, des images, des couches Docker et de l'orchestration.",
@@ -467,6 +1931,82 @@ const translations = {
         cli_ls_soukify: "Soukify Marketplace | Application Android mobile géolocalisée avec interactions complexes.\\n- Stack : Java, Android SDK, Firebase, Pattern MVVM.",
         cli_ls_quiz: "Tech Quiz Pro | Moteur de quiz IT haute performance avec plus de 350 défis.\\n- Stack : Java, Room Database, Architecture MVVM.",
         cli_ls_portfolio: "Portfolio Interactif | Showcase développeur 3D avec localisation en temps réel.\\n- Stack : Vanilla JS, Three.js, GSAP, CSS3 haut de gamme.",
+        proj_stockify_title: "Stockify - Hub d'Inventaire",
+        proj_stockify_desc: `
+            <h3 style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 1.2rem;">À propos du Projet</h3>
+            <p>Stockify est un système de gestion d'inventaire professionnel et performant construit avec Symfony 7.4 et TailwindCSS. Il offre une suite complète d'outils pour le suivi des produits, des catégories, des transactions et la gestion des opérations de stock telles que les réapprovisionnements et les dons.</p>
+            <h3 style="color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.2rem;">✨ Caractéristiques Clés</h3>
+            <ul style="padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                <li><strong>Tableau de Bord Complet :</strong> Aperçu en temps réel de l'état de votre inventaire, y compris les alertes de stock faible et les indicateurs clés.</li>
+                <li><strong>Gestion des Produits et Catégories :</strong> Capacités CRUD complètes pour la gestion de votre catalogue d'inventaire.</li>
+                <li><strong>Opérations de Réapprovisionnement :</strong> Ajoutez facilement du stock aux produits existants avec un enregistrement automatisé des transactions.</li>
+                <li><strong>Suivi des Dons :</strong> Gérez les sorties de stock pour les dons avec des flux de travail dédiés et un audit complet.</li>
+                <li><strong>Registre des Transactions :</strong> Un historique détaillé de chaque changement de stock (RÉAPPROVISIONNEMENT, DON, etc.) pour une traçabilité totale.</li>
+                <li><strong>Gestion Sécurisée des Utilisateurs :</strong> Contrôle d'accès basé sur les rôles (Admin/Utilisateur), inscription et gestion des profils.</li>
+            </ul>
+        `,
+        proj_soukify_title: "Soukify - Marché Artisanal",
+        proj_soukify_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Vision du Projet
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Soukify est une application mobile complète conçue pour promouvoir et vendre l'artisanat marocain. Elle comble le fossé entre les artisans traditionnels et les consommateurs numériques en offrant une plateforme de commerce électronique dédiée avec géolocalisation intelligente, chat direct artisan-client et un écosystème qui préserve l'héritage culturel tout en autonomisant les créateurs locaux.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques Clés
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-map-marked-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Géo-Découverte</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Construit avec OpenStreetMap (osmdroid) pour découvrir les ateliers d'artisans par proximité sans dépendre d'API coûteuses.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-chart-line"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Hub Artisan</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Gestion complète de la boutique permettant aux artisans d'ajouter des produits et de consulter les analyses.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-comments"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Chat Temps Réel</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Chat intégré reliant directement acheteurs et vendeurs, propulsé par Firebase et notifications push.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Optimisation Média</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Compression d'image adaptative via Cloudinary pour un chargement rapide même sur les réseaux 3G.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Schéma Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Construit nativement en <strong>Java</strong> avec le pattern <strong>MVVM</strong>. L'architecture utilise une stratégie hybride :</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Écosystème Firebase :</strong> Synchronisation temps réel, authentification et fonctions cloud.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Stockage NoSQL :</strong> Firestore pour des données produits artisanaux flexibles et hiérarchiques.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Capacité Hors-ligne :</strong> Patrons SharedPreferences et inspirés de Room pour un accès résilient.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         revolving_text: "CONSTRUIRE • AUTOMATISER • APPRENDRE • DÉPLOYER • RÉSOUDRE • INNOVER • CONSTRUIRE • AUTOMATISER •"
     }
 };

@@ -595,15 +595,10 @@ function openPdfViewer(titleKey, pdfUrl, iconClass = 'fa-file-pdf') {
     const lang = document.documentElement.getAttribute('lang') || 'en';
     const t = typeof translations !== 'undefined' && translations[lang] ? translations[lang] : {};
 
-    let displayTitle = titleKey; // fallback
-    if (t[titleKey]) {
-        displayTitle = t[titleKey];
-    }
-
+    let displayTitle = t[titleKey] || titleKey;
     title.innerHTML = `<i class="fas ${iconClass}"></i> <span data-i18n="${titleKey}">${displayTitle}</span>`;
 
     let downloadText = t['resume_download'] || 'Download';
-
     content.innerHTML = `
         <iframe src="${pdfUrl}" style="width: 100%; height: 70vh; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);"></iframe>
         <div style="margin-top: 1rem;">
@@ -616,19 +611,22 @@ function openPdfViewer(titleKey, pdfUrl, iconClass = 'fa-file-pdf') {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+
+window.openGallery = openGallery;
+window.closeGalleryModal = closeGalleryModal;
 window.openPdfViewer = openPdfViewer;
 
-// ── Project Gallery Orchestration ─────────────────────────
 class ProjectGallery {
     constructor() {
-        this.projectsPerPage = 3;
+        this.projectsPerPage = 2;
         this.currentPage = 1;
         this.currentFilter = 'all';
         this.projects = Array.from(document.querySelectorAll('.project-card'));
-        this.filterBtns = document.querySelectorAll('.filter-btn');
-        this.pageNumbers = document.getElementById('page-numbers');
-        this.prevBtn = document.getElementById('prev-page');
-        this.nextBtn = document.getElementById('next-page');
+        this.filterBtns = document.querySelectorAll('#projects .filter-btn');
+        this.currentPageSpan = document.getElementById('current-page');
+        this.totalPagesSpan = document.getElementById('total-pages');
+        this.prevBtn = document.getElementById('proj-prev');
+        this.nextBtn = document.getElementById('proj-next');
 
         if (this.projects.length > 0) this.init();
     }
@@ -644,22 +642,24 @@ class ProjectGallery {
             });
         });
 
-        this.prevBtn.addEventListener('click', () => {
-            if (this.currentPage > 1) {
-                this.currentPage--;
-                this.render();
-                this.scrollToProjects();
-            }
-        });
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => {
+                if (this.currentPage > 1) {
+                    this.currentPage--;
+                    this.render();
+                }
+            });
+        }
 
-        this.nextBtn.addEventListener('click', () => {
-            const filtered = this.getFilteredProjects();
-            if (this.currentPage < Math.ceil(filtered.length / this.projectsPerPage)) {
-                this.currentPage++;
-                this.render();
-                this.scrollToProjects();
-            }
-        });
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => {
+                const filtered = this.getFilteredProjects();
+                if (this.currentPage < Math.ceil(filtered.length / this.projectsPerPage)) {
+                    this.currentPage++;
+                    this.render();
+                }
+            });
+        }
 
         this.render();
     }
@@ -679,50 +679,25 @@ class ProjectGallery {
         const start = (this.currentPage - 1) * this.projectsPerPage;
         const end = start + this.projectsPerPage;
 
-        // Hide all projects explicitly
-        this.projects.forEach(p => {
-            p.style.display = 'none';
-        });
+        this.projects.forEach(p => { p.style.display = 'none'; });
 
-        // Show and animate current page
         const toShow = filtered.slice(start, end);
         toShow.forEach((p, idx) => {
-            p.style.display = '';
-            gsap.killTweensOf(p); // clear any conflicting ScrollTrigger reveal tweens
+            p.style.display = 'flex';
+            gsap.killTweensOf(p);
             gsap.fromTo(p,
                 { opacity: 0, scale: 0.9, y: 20 },
-                { opacity: 1, scale: 1, y: 0, duration: 0.5, delay: idx * 0.08, ease: "back.out(1.2)" }
+                { opacity: 1, scale: 1, y: 0, duration: 0.5, delay: idx * 0.1, ease: "power2.out" }
             );
         });
 
-        this.renderPagination(totalPages);
-    }
-
-    renderPagination(totalPages) {
-        if (!this.pageNumbers) return;
-        this.pageNumbers.innerHTML = '';
-
-        for (let i = 1; i <= totalPages; i++) {
-            const btn = document.createElement('div');
-            btn.className = `page-num ${i === this.currentPage ? 'active' : ''}`;
-            btn.textContent = i;
-            btn.addEventListener('click', () => {
-                if (this.currentPage !== i) {
-                    this.currentPage = i;
-                    this.render();
-                    this.scrollToProjects();
-                }
-            });
-            this.pageNumbers.appendChild(btn);
-        }
-
+        if (this.currentPageSpan) this.currentPageSpan.textContent = this.currentPage;
+        if (this.totalPagesSpan) this.totalPagesSpan.textContent = totalPages || 1;
         if (this.prevBtn) this.prevBtn.disabled = this.currentPage === 1;
         if (this.nextBtn) this.nextBtn.disabled = this.currentPage === totalPages || totalPages === 0;
 
         const controls = document.querySelector('.pagination-controls');
-        if (controls) {
-            controls.style.display = totalPages <= 1 ? 'none' : 'flex';
-        }
+        if (controls) controls.style.display = totalPages <= 1 ? 'none' : 'flex';
     }
 }
 
@@ -738,7 +713,7 @@ class CertGallery {
         this.nextBtn = document.getElementById('next-cert-page');
         this.paginationControls = document.getElementById('cert-pagination');
 
-        if (this.certs.length > 0 && this.pageNumbers) this.init();
+        if (this.certs.length > 0) this.init();
     }
 
     init() {
@@ -757,7 +732,6 @@ class CertGallery {
                 if (this.currentPage > 1) {
                     this.currentPage--;
                     this.render();
-                    this.scrollToCerts();
                 }
             });
         }
@@ -768,7 +742,6 @@ class CertGallery {
                 if (this.currentPage < Math.ceil(filtered.length / this.certsPerPage)) {
                     this.currentPage++;
                     this.render();
-                    this.scrollToCerts();
                 }
             });
         }
@@ -791,9 +764,7 @@ class CertGallery {
         const start = (this.currentPage - 1) * this.certsPerPage;
         const end = start + this.certsPerPage;
 
-        this.certs.forEach(c => {
-            c.style.display = 'none';
-        });
+        this.certs.forEach(c => { c.style.display = 'none'; });
 
         const toShow = filtered.slice(start, end);
         toShow.forEach((c, idx) => {
@@ -810,7 +781,6 @@ class CertGallery {
     renderPagination(totalPages) {
         if (!this.pageNumbers) return;
         this.pageNumbers.innerHTML = '';
-
         for (let i = 1; i <= totalPages; i++) {
             const btn = document.createElement('div');
             btn.className = `page-num ${i === this.currentPage ? 'active' : ''}`;
@@ -824,40 +794,33 @@ class CertGallery {
             });
             this.pageNumbers.appendChild(btn);
         }
-
         if (this.prevBtn) this.prevBtn.disabled = this.currentPage === 1;
         if (this.nextBtn) this.nextBtn.disabled = this.currentPage === totalPages || totalPages === 0;
-
-        if (this.paginationControls) {
-            this.paginationControls.style.display = totalPages <= 1 ? 'none' : 'flex';
-        }
+        if (this.paginationControls) this.paginationControls.style.display = totalPages <= 1 ? 'none' : 'flex';
     }
 }
 
 window.ProjectGallery = ProjectGallery;
 window.CertGallery = CertGallery;
 
-/* --- Terminal (CLI) Logic --- */
 const cliInput = document.getElementById('cli-input');
 const cliOutput = document.getElementById('cli-output');
 const cliOverlay = document.getElementById('cli-overlay');
 const cliFab = document.getElementById('cli-fab');
 
-// Toggle CLI Visibility
 function toggleCLI() {
     const isVisible = cliOverlay.style.display === 'flex';
     cliOverlay.style.display = isVisible ? 'none' : 'flex';
     if (!isVisible) {
         cliInput.focus();
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
+        document.body.style.overflow = 'hidden';
     } else {
         document.body.style.overflow = '';
     }
 }
 
-cliFab.addEventListener('click', toggleCLI);
+if (cliFab) cliFab.addEventListener('click', toggleCLI);
 
-// Command Definitions
 const commands = {
     help: () => {
         const lang = document.documentElement.lang || 'en';
@@ -872,82 +835,187 @@ const commands = {
 - clear: ${c.cli_help_clear}
 - exit: ${c.cli_help_exit}`;
     },
-    whoami: () => {
-        const lang = document.documentElement.lang || 'en';
-        return translations[lang].cli_whoami;
-    },
-    status: () => {
-        const lang = document.documentElement.lang || 'en';
-        return translations[lang].cli_status;
-    },
-    skills: () => {
-        const lang = document.documentElement.lang || 'en';
-        return translations[lang].cli_skills;
-    },
-    projects: () => {
-        const lang = document.documentElement.lang || 'en';
-        return translations[lang].cli_projects;
-    },
+    whoami: () => translations[document.documentElement.lang || 'en'].cli_whoami,
+    status: () => translations[document.documentElement.lang || 'en'].cli_status,
+    skills: () => translations[document.documentElement.lang || 'en'].cli_skills,
+    projects: () => translations[document.documentElement.lang || 'en'].cli_projects,
     ls: (arg) => {
         const lang = document.documentElement.lang || 'en';
         const c = translations[lang];
         if (!arg) return c.cli_ls_usage;
-
         const projectKey = `cli_ls_${arg.toLowerCase()}`;
         return c[projectKey] || c.cli_not_found.replace('{cmd}', arg);
     },
-    contact: () => {
-        const lang = document.documentElement.lang || 'en';
-        return translations[lang].cli_contact;
+    contact: () => translations[document.documentElement.lang || 'en'].cli_contact,
+    clear: () => { cliOutput.innerHTML = ''; return ''; },
+    exit: () => { toggleCLI(); return translations[document.documentElement.lang || 'en'].cli_exit; }
+};
+
+if (cliInput) {
+    cliInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const fullInput = cliInput.value.trim().toLowerCase();
+            const parts = fullInput.split(' ');
+            const cmd = parts[0];
+            const arg = parts[1];
+            if (!fullInput) return;
+            const line = document.createElement('div');
+            line.className = 'cli-line user';
+            line.innerHTML = `<span class="cli-prompt">visitor@salma-barrak:~$</span> ${fullInput}`;
+            cliOutput.appendChild(line);
+            let response = "";
+            const lang = document.documentElement.lang || 'en';
+            if (commands[cmd]) response = commands[cmd](arg);
+            else response = translations[lang].cli_not_found.replace('{cmd}', cmd);
+            if (response) {
+                const outLine = document.createElement('div');
+                outLine.className = 'cli-line';
+                outLine.innerHTML = response.replace(/\\n/g, '<br>');
+                cliOutput.appendChild(outLine);
+            }
+            cliInput.value = '';
+            document.getElementById('cli-body').scrollTop = document.getElementById('cli-body').scrollHeight;
+        }
+    });
+}
+
+const projectDetailsData = {
+    stockify: {
+        tags: ["Symfony 7.4", "PHP 8.2", "TailwindCSS 4.x", "PostgreSQL", "Doctrine ORM", "Turbo UX"],
+        media: `<img src="assets/images/Apps/Stockify.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
     },
-    clear: () => {
-        cliOutput.innerHTML = '';
-        return '';
+    soukify: {
+        tags: ["Android SDK", "Java", "Firebase", "OpenStreetMap", "Cloudinary", "MVVM"],
+        media: `
+            <div style="flex-shrink: 0; display: flex; justify-content: center;">
+                <div style="position: relative; width: 240px; background: linear-gradient(145deg, #1c1c2e, #12121f); border-radius: 36px; padding: 12px 8px 6px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 0 3px #0a0a14, 0 0 0 4px rgba(255,255,255,0.06), 0 24px 60px rgba(0,0,0,0.9);">
+                    <div style="position:absolute;left:-3px;top:70px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
+                    <div style="position:absolute;left:-3px;top:104px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
+                    <div style="position:absolute;right:-3px;top:88px;width:3px;height:38px;background:linear-gradient(to left,#0a0a14,#1c1c2e);border-radius:0 3px 3px 0;"></div>
+                    <div style="border-radius:26px;overflow:hidden;background:#000;position:relative;line-height:0;">
+                        <div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:14px;background:#000;border-radius:20px;z-index:10;box-shadow:0 0 0 1px rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:flex-end;padding-right:6px;">
+                            <div style="width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);"></div>
+                        </div>
+                        <div style="overflow:hidden; max-height:480px;">
+                            <video src="assets/images/Apps/SOUKIFY%20Demo.mp4" controls autoplay loop muted playsinline style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
+                        </div>
+                    </div>
+                    <div style="display:flex;justify-content:center;padding-top:4px;">
+                        <div style="width:50px;height:3px;border-radius:3px;background:rgba(255,255,255,0.18);"></div>
+                    </div>
+                </div>
+            </div>
+        `
     },
-    exit: () => {
-        const lang = document.documentElement.lang || 'en';
-        toggleCLI();
-        return translations[lang].cli_exit;
+    portfolio: {
+        tags: ["Vanilla JS", "GSAP", "Three.js", "i18next", "CSS3 Animations"],
+        media: `<img src="assets/images/Apps/portfolio_mockup.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+    },
+    proj1: {
+        tags: ["Spring Boot 3", "PostgreSQL", "Hibernate", "JWT Security", "TDD (Mockito/JUnit)", "Maven"],
+        media: `
+            <div style="height: 200px; display: flex; align-items: center; justify-content: center; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--glass-border);">
+                <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px;" data-i18n="proj_coming_soon">Coming Soon</span>
+            </div>
+        `
+    },
+    chatbot: {
+        tags: ["FastAPI", "Vite", "React", "Hugging Face LLMs", "FAISS/Vector Storage", "Tesseract OCR"],
+        media: `<img src="assets/images/Apps/chatbot_mso.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+    },
+    proj4: {
+        tags: ["Python 3.9+", "OpenCV", "Streamlit", "NumPy", "Background Subtraction", "Real-time Processing"],
+        media: `<img src="assets/images/Apps/MouvementDetection.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+    },
+    proj5: {
+        tags: ["Python", "Streamlit", "OpenCV", "NumPy", "Scikit-learn", "CBIR Engine"],
+        media: `<img src="assets/images/Apps/Cbir.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+    },
+    quiz: {
+        tags: ["Java 8+", "Android SDK", "MVVM", "Room DB", "Retrofit 2", "Material Design 3"],
+        media: `
+            <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px;">
+                <img src="assets/images/Apps/quiz3.jpeg" style="height: 300px; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="assets/images/Apps/quiz.jpeg" style="height: 300px; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="assets/images/Apps/quiz2.jpeg" style="height: 300px; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+            </div>
+        `
+    },
+    amee: {
+        tags: ["PHP 8.1", "MVC Architecture", "MySQL", "JavaScript", "Chart.js", "Word/Excel Export"],
+        media: `<img src="assets/images/Apps/eCongeAmee.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+    },
+    proj6: {
+        tags: ["Java 11+", "JavaFX 21", "MySQL 8.0", "OpenPDF", "DAO Pattern", "Maven"],
+        media: `
+            <div style="border-radius:8px;overflow:hidden;border: 1px solid var(--glass-border);box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <video src="assets/images/Apps/SHIFAADEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.5" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;"></video>
+            </div>
+        `
+    },
+    proj7: {
+        tags: ["Python 3.8+", "Streamlit", "Tkinter", "Pandas", "Matplotlib/Seaborn", "Data Visualization"],
+        media: `
+            <div style="border-radius:8px;overflow:hidden;border: 1px solid var(--glass-border);box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <video src="assets/images/Apps/BAYTALHIKMADEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.5" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;"></video>
+            </div>
+        `
     }
 };
 
-// Handle Input
-cliInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        const fullInput = cliInput.value.trim().toLowerCase();
-        const parts = fullInput.split(' ');
-        const cmd = parts[0];
-        const arg = parts[1];
-
-        if (!fullInput) return;
-
-        // Log the command
-        const line = document.createElement('div');
-        line.className = 'cli-line user';
-        line.innerHTML = `<span class="cli-prompt">visitor@salma-barrak:~$</span> ${fullInput}`;
-        cliOutput.appendChild(line);
-
-        // Process output
-        let response = "";
-        const lang = document.documentElement.lang || 'en';
-        if (commands[cmd]) {
-            response = commands[cmd](arg);
+function openProjectModal(projectId) {
+    const modal = document.getElementById('project-modal');
+    const title = document.getElementById('project-modal-title');
+    const content = document.getElementById('project-modal-content');
+    if (!modal || !content || !projectDetailsData[projectId]) return;
+    const data = projectDetailsData[projectId];
+    const lang = document.documentElement.lang || 'en';
+    const translatedTitle = translations[lang][`proj_${projectId}_title`] || translations[lang][`${projectId}_title`] || projectId;
+    const translatedDesc = translations[lang][`proj_${projectId}_modal_desc`] || translations[lang][`${projectId}_modal_desc`] || translations[lang][`proj_${projectId}_desc`] || translations[lang][`${projectId}_desc`] || "";
+    title.innerHTML = `<i class="fas fa-project-diagram"></i> <span>${translatedTitle}</span>`;
+    let tagsHtml = data.tags.map(tag => `<span class="pill" style="font-size: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; color: var(--text-primary);">${tag}</span>`).join('');
+    if (projectId === 'amee' || projectId === 'quiz') {
+        let imagesHtml = '';
+        if (projectId === 'quiz') {
+            const quizImages = ['quiz3.jpeg', 'quiz.jpeg', 'quiz2.jpeg'];
+            imagesHtml = quizImages.map(img => `
+                <div class="carousel-slide" onclick="window.open('assets/images/Apps/${img}', '_blank')" style="cursor: pointer;">
+                    <img src="assets/images/Apps/${img}" alt="Quiz UI">
+                </div>
+            `).join('');
         } else {
-            response = translations[lang].cli_not_found.replace('{cmd}', cmd);
+            const imageCount = 15;
+            const basePath = 'assets/images/Apps/Econgeamee';
+            imagesHtml = Array.from({length: imageCount}, (_, i) => `
+                <div class="carousel-slide" onclick="window.open('${basePath}/${i + 1}.png', '_blank')" style="cursor: pointer;">
+                    <img src="${basePath}/${i + 1}.png" alt="${projectId} UI ${i + 1}">
+                </div>
+            `).join('');
         }
 
-        if (response) {
-            const outLine = document.createElement('div');
-            outLine.className = 'cli-line';
-            outLine.innerHTML = response.replace(/\\n/g, '<br>');
-            cliOutput.appendChild(outLine);
-        }
-
-        cliInput.value = '';
-        document.getElementById('cli-body').scrollTop = document.getElementById('cli-body').scrollHeight;
+        content.innerHTML = `
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="project-carousel-track">
+                    ${imagesHtml}
+                </div>
+                <button class="carousel-btn prev" onclick="const t = this.parentElement.querySelector('#project-carousel-track'); t.scrollBy({left: -t.offsetWidth, behavior: 'smooth'})">❮</button>
+                <button class="carousel-btn next" onclick="const t = this.parentElement.querySelector('#project-carousel-track'); t.scrollBy({left: t.offsetWidth, behavior: 'smooth'})">❯</button>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">${tagsHtml}</div>
+            <div class="project-modal-desc" style="width: 100%; text-align: left;">${translatedDesc}</div>
+        `;
+    } else {
+        content.innerHTML = `${data.media}<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">${tagsHtml}</div>
+            <div class="project-modal-desc" style="margin-top: 1rem;">${translatedDesc}</div>`;
     }
-});
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-// Double-click canvas to trigger terminal (Easter Egg)
-document.getElementById('canvas3d').addEventListener('dblclick', toggleCLI);
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
+}
 
+window.openProjectModal = openProjectModal;
+window.closeProjectModal = closeProjectModal;

@@ -145,7 +145,7 @@
 
                 <!-- Right World: Machine (The System that builds) -->
                 <div class="world-machine">
-                    <!-- Particles will be contained here in CSS/JS -->
+                    <!-- Background Scene will be contained here in CSS/JS -->
                     <div class="machine-content reveal">
                         <div class="orbit-planet">
                             <div class="spinning-ring"></div>
@@ -774,11 +774,48 @@
                 <div class="gallery-container">
                     <button id="proj-prev" class="side-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
                     <div class="project-grid">
+                        <!-- Project: AfriqAI -->
+                        <div class="project-card glass reveal" data-category="web">
+                            <div class="project-img">
+                                <div
+                                    style="height: 100%; display: flex; align-items: center; justify-content: center; width: 100%;">
+                                    <span
+                                        style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px;"
+                                        data-i18n="proj_coming_soon">Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-header">
+                                    <h3 data-i18n="proj_afriqai_title">AfriqAI Feedback Analyzer</h3>
+                                    <div class="tech-pills">
+                                        <span class="pill">Spring Boot 3</span>
+                                        <span class="pill">FastAPI</span>
+                                        <span class="pill">Generative AI</span>
+                                    </div>
+                                </div>
+                                <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
+                                        data-i18n="proj_afriqai_desc">A specialized AI module integrated into the AfriqAI ecosystem for real-time feedback analysis and platform maintenance.</span>
+                                </p>
+                                <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
+                                        data-i18n="proj_afriqai_sol">Developed a FastAPI (Python) microservice module while managing the core Spring Boot 3.4 application maintenance.</span>
+                                </p>
+                                <div class="project-links"
+                                    style="display: flex; justify-content: flex-end; margin-top: 1.5rem; align-items: center;">
+                                    <button class="btn-details" onclick="openProjectModal('afriqai')"
+                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
+                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
+                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
+                                            data-i18n="proj_btn_details">See Details</span> <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Project 0: Portfolio (Meta) -->
                         <div class="project-card glass reveal" data-category="web">
                             <div class="project-img">
                                 <img src="assets/images/Apps/Portfolio/portfolio_mockup.png"
-                                    alt="Interactive 3D Portfolio Showcase">
+                                    alt="Interactive Digital Portfolio Showcase">
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
@@ -854,6 +891,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <!-- Project 2: Chatbot -->
                         <div class="project-card glass reveal" data-category="ai">
@@ -1398,12 +1436,11 @@
                                     class="github-link"><i class="fas fa-external-link-alt"></i> <span
                                         data-i18n="cert_show">Show
                                         Credential</span></a>
-                            </div>
-                        </div> <!-- end cert-grid -->
-                        <button id="next-cert-page" class="side-nav-btn next"><i
-                                class="fas fa-chevron-right"></i></button>
-                    </div> <!-- end gallery-container -->
-                </div>
+                        </div> <!-- end cert-card -->
+                    </div> <!-- end cert-grid -->
+                    <button id="next-cert-page" class="side-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div> <!-- end gallery-container -->
+            </div> <!-- end content -->
         </section>
 
         <!-- Contact Footer -->

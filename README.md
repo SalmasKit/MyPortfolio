@@ -7,7 +7,7 @@ A modern, high-performance software engineering portfolio featuring interactive 
 ### Frontend & Core
 - **HTML5 & Vanilla CSS3**: Semantic structure and custom-designed responsive layouts.
 - **JavaScript (ES6+)**: Core logic and interactive components.
-- **Three.js**: Orchestrating the interactive 3D particle background system.
+- **Three.js**: Orchestrating the interactive digital background system.
 - **GSAP (GreenSock Animation Platform)**: Powering cinematic reveal animations and smooth scroll interactions.
 - **EmailJS**: Integrated for serverless contact form submissions.
 
@@ -32,7 +32,7 @@ Portfolio/
 ## ✨ Key Features
 - **Multi-language Support**: Seamless toggle between **English** and **French** with persistence.
 - **Glassmorphism UI**: Modern aesthetic with dynamic blur and transparency.
-- **3D Background**: Interactive particle system built with Three.js.
+- **Interactive Background**: Modern background system built with Three.js.
 - **Cinematic Reveal**: GSAP-powered elements that smoothly transition into view.
 - **Universal Responsiveness**: Fully optimized for mobile, tablet, and desktop displays.
 - **Integrated Contact System**: Direct-to-email communication via EmailJS.

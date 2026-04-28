@@ -10,7 +10,6 @@ const CONFIG = {
         secondary: 0x10B981,
         bg: 0x050510
     },
-    particles: 1500,
     cameraOffset: { x: 0, y: 0, z: 5 }
 };
 
@@ -23,7 +22,6 @@ class PortfolioScene {
         this.setupCamera();
         this.setupRenderer();
         this.setupLights();
-        this.addParticles();
         this.setupEventListeners();
         this.setupScrollAnimations();
         this.onWindowResize();
@@ -53,43 +51,6 @@ class PortfolioScene {
 
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
         this.scene.add(ambientLight);
-    }
-
-    addParticles() {
-        const geometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(CONFIG.particles * 4 * 3);
-        const colors = new Float32Array(CONFIG.particles * 4 * 3);
-
-        for (let i = 0; i < (CONFIG.particles * 4) * 3; i += 3) {
-            const r = 12 * Math.pow(Math.random(), 0.5);
-            const theta = Math.random() * 2 * Math.PI;
-            const phi = Math.acos(2 * Math.random() - 1);
-
-            positions[i] = r * Math.sin(phi) * Math.cos(theta);
-            positions[i + 1] = r * Math.sin(phi) * Math.sin(theta);
-            positions[i + 2] = r * Math.cos(phi);
-
-            const color = new THREE.Color();
-            color.lerpColors(
-                new THREE.Color(CONFIG.colors.primary),
-                new THREE.Color(CONFIG.colors.secondary),
-                Math.random()
-            );
-
-            colors[i] = color.r; colors[i + 1] = color.g; colors[i + 2] = color.b;
-        }
-
-        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-        this.particleSystem = new THREE.Points(geometry, new THREE.PointsMaterial({
-            size: 0.02,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.5,
-            blending: THREE.AdditiveBlending
-        }));
-        this.scene.add(this.particleSystem);
     }
 
     setupScrollAnimations() {
@@ -154,7 +115,7 @@ class PortfolioScene {
         // Boot Carousel after initial load
         setTimeout(window.playStatsCarousel, 1500);
 
-        // Background Particle System Transitions
+        // Background Transitions
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: "body",
@@ -165,11 +126,8 @@ class PortfolioScene {
         });
 
         tl.to(this.camera.position, { z: 4, x: 2, y: 1 }, "step1")
-            .to(this.particleSystem.rotation, { y: 1.5, x: 0.5 }, "step1")
             .to(this.camera.position, { x: -3, y: -2, z: 8 }, "step2")
-            .to(this.particleSystem.scale, { x: 1.5, y: 1.5, z: 1.5 }, "step2")
-            .to(this.camera.position, { x: 0, y: 0, z: 3 }, "step3")
-            .to(this.particleSystem.rotation, { y: Math.PI * 2 }, "step3");
+            .to(this.camera.position, { x: 0, y: 0, z: 3 }, "step3");
 
         // Smooth Nav Links
         document.querySelectorAll('nav a').forEach(link => {
@@ -252,12 +210,6 @@ class PortfolioScene {
             const threeX = (x / window.innerWidth) * 2 - 1;
             const threeY = -(y / window.innerHeight) * 2 + 1;
 
-            gsap.to(this.particleSystem.rotation, {
-                y: threeX * 0.15,
-                x: -threeY * 0.15,
-                duration: 2
-            });
-
             // Point light follows mouse
             gsap.to(this.pointLight.position, {
                 x: threeX * 8,
@@ -310,10 +262,10 @@ class PortfolioScene {
 
     animate() {
         requestAnimationFrame(() => this.animate());
-        const time = performance.now() * 0.0005;
-        this.particleSystem.rotation.y += 0.0005;
-        this.pointLight.position.x = Math.sin(time) * 5;
-        this.pointLight.position.z = Math.cos(time) * 5;
+        const time = performance.now() * 0.001;
+
+        this.pointLight.position.x = Math.sin(time * 0.5) * 5;
+        this.pointLight.position.z = Math.cos(time * 0.5) * 5;
         this.renderer.render(this.scene, this.camera);
     }
 }
@@ -618,7 +570,7 @@ window.openPdfViewer = openPdfViewer;
 
 class ProjectGallery {
     constructor() {
-        this.projectsPerPage = 2;
+        this.updateItemsPerPage();
         this.currentPage = 1;
         this.currentFilter = 'all';
         this.projects = Array.from(document.querySelectorAll('.project-card'));
@@ -628,7 +580,18 @@ class ProjectGallery {
         this.prevBtn = document.getElementById('proj-prev');
         this.nextBtn = document.getElementById('proj-next');
 
-        if (this.projects.length > 0) this.init();
+        if (this.projects.length > 0) {
+            this.init();
+            window.addEventListener('resize', () => {
+                const oldVal = this.projectsPerPage;
+                this.updateItemsPerPage();
+                if (oldVal !== this.projectsPerPage) this.render();
+            });
+        }
+    }
+
+    updateItemsPerPage() {
+        this.projectsPerPage = window.innerWidth <= 768 ? 1 : 2;
     }
 
     init() {
@@ -703,7 +666,7 @@ class ProjectGallery {
 
 class CertGallery {
     constructor() {
-        this.certsPerPage = 2;
+        this.updateItemsPerPage();
         this.currentPage = 1;
         this.currentFilter = 'all';
         this.certs = Array.from(document.querySelectorAll('#certs .cert-card'));
@@ -713,7 +676,18 @@ class CertGallery {
         this.nextBtn = document.getElementById('next-cert-page');
         this.paginationControls = document.getElementById('cert-pagination');
 
-        if (this.certs.length > 0) this.init();
+        if (this.certs.length > 0) {
+            this.init();
+            window.addEventListener('resize', () => {
+                const oldVal = this.certsPerPage;
+                this.updateItemsPerPage();
+                if (oldVal !== this.certsPerPage) this.render();
+            });
+        }
+    }
+
+    updateItemsPerPage() {
+        this.certsPerPage = window.innerWidth <= 768 ? 1 : 2;
     }
 
     init() {
@@ -880,6 +854,14 @@ if (cliInput) {
 }
 
 const projectDetailsData = {
+    afriqai: {
+        tags: ["Spring Boot 3.4", "FastAPI", "Python 3.11", "Generative AI", "PostgreSQL 15", "Microservices"],
+        media: `
+            <div style="height: 200px; display: flex; align-items: center; justify-content: center; width: 100%; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--glass-border);">
+                <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px;" data-i18n="proj_coming_soon">Coming Soon</span>
+            </div>
+        `
+    },
     stockify: {
         tags: ["Symfony 7.4", "PHP 8.2", "TailwindCSS 4.x", "PostgreSQL", "Doctrine ORM", "Turbo UX"],
         media: `

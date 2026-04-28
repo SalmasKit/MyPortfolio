@@ -688,16 +688,16 @@ const translations = {
                 </div>
             </div>
         `,
-        proj_portfolio_title: "Interactive 3D Portfolio",
-        proj_portfolio_desc: "Designing a high-performance, multilingual hub with custom 3D animations and real-time localized content.",
-        proj_portfolio_sol: "Built with Vanilla JS and GSAP, featuring custom 3D carousels and smooth scroll-driven visuals.",
+        proj_portfolio_title: "Interactive Digital Portfolio",
+        proj_portfolio_desc: "Designing a high-performance, multilingual hub with immersive animations and real-time localized content.",
+        proj_portfolio_sol: "Built with Vanilla JS and GSAP, featuring custom carousels and smooth scroll-driven visuals.",
         proj_portfolio_modal_desc: `
             <div style="margin-bottom: 2rem;">
                 <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
                     <i class="fas fa-bullseye"></i> Project Vision
                 </h3>
                 <p style="line-height: 1.6; color: var(--text-secondary);">
-                    This Interactive 3D Portfolio is a high-performance digital hub designed to showcase technical mastery through immersive user experiences. It transcends the static nature of traditional portfolios by integrating complex 3D mathematics, real-time localized state management, and custom-engineered animations that respond to every user interaction.
+                    This Interactive Digital Portfolio is a high-performance hub designed to showcase technical mastery through immersive user experiences. It transcends the static nature of traditional portfolios by integrating advanced animation physics, real-time localized state management, and custom-engineered visuals that respond to every user interaction.
                 </p>
             </div>
 
@@ -708,8 +708,8 @@ const translations = {
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
                     <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
                         <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cube"></i></div>
-                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">3D Space Orbit</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary);">A custom CSS/JS orbital system featuring revolving 3D text paths and multi-layered perspective shifts.</p>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Orbital Motion System</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">A custom CSS/JS orbital system featuring revolving dynamic text paths and multi-layered perspective shifts.</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
                         <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-globe"></i></div>
@@ -755,6 +755,74 @@ const translations = {
         proj_amee_title: "eCongé AMEE - HR Management",
         proj_amee_desc: "Modernizing HR workflows for a government agency by automating leave tracking and document management.",
         proj_amee_sol: "Developed a full-stack PHP/MySQL portal with automated email notifications, interactive calendars, and admin analytics.",
+        proj_afriqai_title: "AfriqAI Feedback Analyzer",
+        proj_afriqai_desc: "A specialized AI module integrated into the AfriqAI ecosystem for real-time feedback analysis and platform maintenance.",
+        proj_afriqai_sol: "Developed a FastAPI (Python) microservice module while managing the core Spring Boot 3.4 application maintenance.",
+        proj_afriqai_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Module Overview
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    The Feedback Analyzer is a critical module added to the <strong>AfriqAI</strong> web application. It automates the processing of participant feedback using an independent AI microservice, while ensuring the underlying event management platform remains robust through continuous maintenance and optimization.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-tools"></i> Maintenance & Evolution
+                </h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-sync" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Legacy Support:</strong> Ongoing maintenance of the Spring Boot 3.4 core to ensure stability and security across the entire ecosystem.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-puzzle-piece" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Modular Integration:</strong> Designed as a separate microservice to allow for feature expansion without disrupting existing event workflows.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Core AI Features
+                </h3>
+                <div style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); display: grid; gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-brain"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Sentiment Analysis</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time classification of feedback into POSITIVE, NEGATIVE, or NEUTRAL categories via advanced Generative AI.</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-tags"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Smart Categorization</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Automatic sorting of feedback into LOGISTICS, SPEAKER, or CONTENT themes for targeted reporting.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Technical Architecture
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">A polyglot microservice stack optimized for maintainability:</p>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Spring Boot & Java 21:</strong> Core platform handling security (JWT) and centralized persistence via PostgreSQL 15.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>FastAPI & Python 3.11:</strong> High-performance AI microservice for trilingual analysis (FR/EN/ES).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_amee_modal_desc: `
             <div style="margin-bottom: 2rem;">
                 <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
@@ -902,7 +970,7 @@ const translations = {
         cli_ls_stockify: "Stockify - Inventory Hub | Sub-second analytical data pipeline for stock volatility.\\n- Stack: Symfony 7, Doctrine, PHP, MySQL, CSS3.",
         cli_ls_soukify: "Soukify Marketplace | Geolocation-integrated mobile Android app with complex interactions.\\n- Stack: Java, Android SDK, Firebase, MVVM Pattern.",
         cli_ls_quiz: "Tech Quiz Pro | High-performance IT quiz engine with 350+ tracks & analytics.\\n- Stack: Java, Room Database, MVVM Architecture.",
-        cli_ls_portfolio: "Interactive Portfolio | Custom 3D developer showcase with real-time localization.\\n- Stack: Vanilla JS, Three.js, GSAP, High-End CSS3.",
+        cli_ls_portfolio: "Interactive Portfolio | Custom interactive developer showcase with real-time localization.\\n- Stack: Vanilla JS, Three.js, GSAP, High-End CSS3.",
         proj_stockify_title: "Stockify - Inventory Hub",
         proj_stockify_desc: `
             <div style="margin-bottom: 2rem;">
@@ -1716,16 +1784,16 @@ const translations = {
                 </div>
             </div>
         `,
-        proj_portfolio_title: "Portfolio 3D Interactif",
-        proj_portfolio_desc: "Conception d'un hub multilingue haute performance avec des animations 3D personnalisées et un contenu localisé en temps réel.",
-        proj_portfolio_sol: "Construit avec Vanilla JS et GSAP, avec des carrousels 3D personnalisés et des visuels fluides pilotés par le défilement.",
+        proj_portfolio_title: "Portfolio Digital Interactif",
+        proj_portfolio_desc: "Conception d'un hub multilingue haute performance avec des animations immersives et un contenu localisé en temps réel.",
+        proj_portfolio_sol: "Construit avec Vanilla JS et GSAP, avec des carrousels personnalisés et des visuels fluides pilotés par le défilement.",
         proj_portfolio_modal_desc: `
             <div style="margin-bottom: 2rem;">
                 <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
                     <i class="fas fa-bullseye"></i> Vision du Projet
                 </h3>
                 <p style="line-height: 1.6; color: var(--text-secondary);">
-                    Ce portfolio interactif 3D est un hub numérique haute performance conçu pour démontrer la maîtrise technique à travers des expériences utilisateur immersives. Il transcende la nature statique des portfolios traditionnels en intégrant des mathématiques 3D complexes, une gestion d'état localisée en temps réel et des animations conçues sur mesure qui répondent à chaque interaction de l'utilisateur.
+                    Ce portfolio digital interactif est un hub numérique haute performance conçu pour démontrer la maîtrise technique à travers des expériences utilisateur immersives. Il transcende la nature statique des portfolios traditionnels en intégrant une physique d'animation avancée, une gestion d'état localisée en temps réel et des visuels conçus sur mesure qui répondent à chaque interaction de l'utilisateur.
                 </p>
             </div>
 
@@ -1736,8 +1804,8 @@ const translations = {
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
                     <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
                         <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-cube"></i></div>
-                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Orbite Spatiale 3D</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Système orbital CSS/JS personnalisé avec des chemins de texte 3D tournants et des changements de perspective multi-couches.</p>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Système Orbital de Mouvement</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Système orbital CSS/JS personnalisé avec des chemins de texte dynamiques tournants et des changements de perspective multi-couches.</p>
                     </div>
                     <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
                         <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-globe"></i></div>
@@ -1783,6 +1851,73 @@ const translations = {
         proj_amee_title: "eCongé AMEE - Gestion RH",
         proj_amee_desc: "Modernisation des flux RH pour une agence nationale en automatisant le suivi des congés et la gestion documentaire.",
         proj_amee_sol: "Développement d'un portail full-stack PHP/MySQL avec notifications par e-mail, calendrier interactif et dashboards RH.",
+        proj_afriqai_title: "AfriqAI Feedback Analyzer",
+        proj_afriqai_desc: "Module IA spécialisé intégré à l'écosystème AfriqAI pour l'analyse des feedbacks et la maintenance de la plateforme.",
+        proj_afriqai_sol: "Développement d'un module microservice FastAPI (Python) et maintenance continue de l'application Spring Boot 3.4.",
+        proj_afriqai_modal_desc: `
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-bullseye"></i> Aperçu du Module
+                </h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Le Feedback Analyzer est un module critique ajouté à l'application web <strong>AfriqAI</strong>. Il automatise le traitement des retours participants via un microservice IA indépendant, tout en assurant la robustesse de la plateforme de gestion d'événements par une maintenance et une optimisation continues.
+                </p>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-tools"></i> Maintenance & Évolution
+                </h3>
+                <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-sync" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Support Legacy :</strong> Maintenance continue du cœur Spring Boot 3.4 pour garantir stabilité et sécurité sur tout l'écosystème.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-puzzle-piece" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Intégration Modulaire :</strong> Conçu comme un microservice séparé pour permettre l'ajout de fonctionnalités sans perturber les flux existants.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3 style="color: var(--accent-1); margin-bottom: 1rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-star"></i> Caractéristiques IA
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-brain"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Analyse de Sentiment</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Classification en temps réel via des modèles de langage de pointe (POSITIF/NÉGATIF/NEUTRE).</p>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="color: var(--accent-1); font-size: 1.5rem; margin-bottom: 0.8rem;"><i class="fas fa-tags"></i></div>
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Catégorisation</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Tri automatique par thèmes (LOGISTIQUE, INTERVENANT, CONTENU) pour des rapports ciblés.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-cogs"></i> Architecture Technique
+                </h3>
+                <div style="background: rgba(139, 92, 246, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-1);">
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>Spring Boot & Java 21 :</strong> Gère la sécurité et la persistance centralisée.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                            <i class="fas fa-check-circle" style="color: var(--accent-1); margin-top: 0.2rem;"></i>
+                            <span><strong>FastAPI & Python 3.11 :</strong> Microservice IA haute performance.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        `,
         proj_amee_modal_desc: `
             <div style="margin-bottom: 2rem;">
                 <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
@@ -1930,7 +2065,7 @@ const translations = {
         cli_ls_stockify: "Stockify - Inventory Hub | Pipeline de données analytiques pour la volatilité des stocks.\\n- Stack : Symfony 7, Doctrine, PHP, MySQL, CSS3.",
         cli_ls_soukify: "Soukify Marketplace | Application Android mobile géolocalisée avec interactions complexes.\\n- Stack : Java, Android SDK, Firebase, Pattern MVVM.",
         cli_ls_quiz: "Tech Quiz Pro | Moteur de quiz IT haute performance avec plus de 350 défis.\\n- Stack : Java, Room Database, Architecture MVVM.",
-        cli_ls_portfolio: "Portfolio Interactif | Showcase développeur 3D avec localisation en temps réel.\\n- Stack : Vanilla JS, Three.js, GSAP, CSS3 haut de gamme.",
+        cli_ls_portfolio: "Portfolio Interactif | Showcase développeur interactif avec localisation en temps réel.\\n- Stack : Vanilla JS, Three.js, GSAP, CSS3 haut de gamme.",
         proj_stockify_title: "Stockify - Hub d'Inventaire",
         proj_stockify_desc: `
             <h3 style="color: var(--text-primary); margin-bottom: 0.5rem; font-size: 1.2rem;">À propos du Projet</h3>

@@ -2692,13 +2692,28 @@ body.light-mode .folder-header {
     display: flex;
     flex-direction: column;
     min-height: 480px; /* Increased from 420px */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--accent-1);
+    transition: height 0.4s ease;
+    z-index: 5;
+}
+
+.project-card:hover::before {
+    height: 100%;
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     border-color: var(--accent-1);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
 }
 
 .project-img {

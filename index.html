@@ -14,7 +14,8 @@
     <meta property="og:title" content="Salma Barrak | Software Engineer">
     <meta property="og:description"
         content="Portfolio of a software engineering student and Full Stack developer building scalable systems, AI-driven automation, and interactive 3D experiences.">
-    <meta property="og:image" content="https://salmaskit.github.io/MyPortfolio/assets/images/Apps/Portfolio/portfolio_mockup.png">
+    <meta property="og:image"
+        content="https://salmaskit.github.io/MyPortfolio/assets/images/Apps/Portfolio/portfolio_mockup.png">
 
     <!-- Twitter Preview Cards -->
     <meta property="twitter:card" content="summary_large_image">
@@ -105,7 +106,7 @@
                 <div class="ticker-content">
                     <!-- Original Stream -->
                     <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A
-                            1-2 MONTH PFA INTERNSHIP</span></span>
+                            1, 2 OR 3 MONTH PFA INTERNSHIP</span></span>
                     <span class="ticker-separator"></span>
                     <span class="ticker-item"><i class="far fa-calendar-check"></i> <span
                             data-i18n="hero_status_p2">STARTING 01/07</span></span>
@@ -116,7 +117,7 @@
 
                     <!-- Duplicate Stream for Seamless Loop -->
                     <span class="ticker-item"><i class="fas fa-terminal"></i> <span data-i18n="hero_status_p1">SEEKING A
-                            1-2 MONTH PFA INTERNSHIP</span></span>
+                            1, 2 OR 3 MONTH PFA INTERNSHIP</span></span>
                     <span class="ticker-separator"></span>
                     <span class="ticker-item"><i class="far fa-calendar-check"></i> <span
                             data-i18n="hero_status_p2">STARTING 01/07</span></span>
@@ -313,12 +314,18 @@
                                     <div class="pr-attachments">
                                         <div class="pr-attach-title"><i class="fas fa-paperclip"></i> Certificate
                                             attached</div>
-                                        <a href="#"
-                                            onclick="openPdfViewer('exp_btn_cert', 'assets/docs/Certifs/Attestation de stage.pdf'); return false;"
-                                            class="pr-file">
-                                            <i class="fas fa-file-pdf" style="color: #da3633; font-size: 16px;"></i>
-                                            <span data-i18n="exp_btn_cert">View Certificate</span>
-                                        </a>
+                                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                            <a href="#"
+                                                onclick="openPdfViewer('exp_btn_cert', 'assets/docs/Certifs/Attestation de stage.pdf'); return false;"
+                                                class="pr-file">
+                                                <i class="fas fa-file-pdf" style="color: #da3633; font-size: 16px;"></i>
+                                                <span data-i18n="exp_btn_cert">View Certificate</span>
+                                            </a>
+                                            <a href="#" onclick="openProjectModal('amee'); return false;" class="pr-file">
+                                                <i class="fas fa-project-diagram" style="color: #2f81f7; font-size: 14px;"></i>
+                                                <span data-i18n="proj_btn_details">See Details</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -790,14 +797,18 @@
                                     <div class="tech-pills">
                                         <span class="pill">Spring Boot 3</span>
                                         <span class="pill">FastAPI</span>
+                                        <span class="pill">React</span>
                                         <span class="pill">Generative AI</span>
                                     </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
-                                        data-i18n="proj_afriqai_desc">A specialized AI module integrated into the AfriqAI ecosystem for real-time feedback analysis and platform maintenance.</span>
+                                        data-i18n="proj_afriqai_desc">A specialized AI module integrated into the
+                                        AfriqAI ecosystem for real-time feedback analysis and platform
+                                        maintenance.</span>
                                 </p>
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
-                                        data-i18n="proj_afriqai_sol">Developed a FastAPI (Python) microservice module while managing the core Spring Boot 3.4 application maintenance.</span>
+                                        data-i18n="proj_afriqai_sol">Developed a FastAPI (Python) microservice module
+                                        while managing the core Spring Boot 3.4 application maintenance.</span>
                                 </p>
                                 <div class="project-links"
                                     style="display: flex; justify-content: flex-end; margin-top: 1.5rem; align-items: center;">
@@ -896,7 +907,8 @@
                         <!-- Project 2: Chatbot -->
                         <div class="project-card glass reveal" data-category="ai">
                             <div class="project-img">
-                                <img src="assets/images/Apps/Chatbotmso/chatbot_mso.png" alt="Chatbot MSO - AI Assistant">
+                                <img src="assets/images/Apps/Chatbotmso/chatbot_mso.png"
+                                    alt="Chatbot MSO - AI Assistant">
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
@@ -1005,7 +1017,8 @@
                         <!-- Project 5: Vision -->
                         <div class="project-card glass reveal" data-category="ai">
                             <div class="project-img">
-                                <img src="assets/images/Apps/Mouvementdetection/MouvementDetection.png" alt="Vision Security Engine">
+                                <img src="assets/images/Apps/Mouvementdetection/MouvementDetection.png"
+                                    alt="Vision Security Engine">
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
@@ -1112,7 +1125,8 @@
                         <!-- Project AMEE (Internship) -->
                         <div class="project-card glass reveal" data-category="web">
                             <div class="project-img">
-                                <img src="assets/images/Apps/Econgeamee/eCongeAmee.png" alt="eCongé AMEE - HR Management Portal">
+                                <img src="assets/images/Apps/Econgeamee/eCongeAmee.png"
+                                    alt="eCongé AMEE - HR Management Portal">
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
@@ -1163,8 +1177,9 @@
                                         MySQL persistence and OpenPDF for medical reporting.</span></p>
                                 <div class="project-links"
                                     style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
-                                    <a href="https://github.com/SalmasKit/ShifaaApp" target="_blank" class="github-link" style="margin-top: 0;"><i
-                                            class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>
+                                    <a href="https://github.com/SalmasKit/ShifaaApp" target="_blank" class="github-link"
+                                        style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                            data-i18n="proj_source">Source</span></a>
                                     <button class="btn-details" onclick="openProjectModal('proj6')"
                                         style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
                                         onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
@@ -1178,7 +1193,8 @@
                         <!-- Project 8: Bayt Al Hikma -->
                         <div class="project-card glass reveal" data-category="desktop">
                             <div class="project-img">
-                                <img src="assets/images/Apps/Baytalhikma/bayt_al_hikma.png" alt="Bayt Al Hikma - Library Dashboard">
+                                <img src="assets/images/Apps/Baytalhikma/bayt_al_hikma.png"
+                                    alt="Bayt Al Hikma - Library Dashboard">
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
@@ -1231,6 +1247,7 @@
                     <button class="filter-btn" data-filter="dev" data-i18n="filter_dev">Development</button>
                     <button class="filter-btn" data-filter="infra" data-i18n="filter_infra">DevOps & Cloud</button>
                     <button class="filter-btn" data-filter="db" data-i18n="filter_db">Databases</button>
+                    <button class="filter-btn" data-filter="testing" data-i18n="filter_testing">QA & Testing</button>
                 </div>
 
                 <div class="gallery-container">
@@ -1436,11 +1453,39 @@
                                     class="github-link"><i class="fas fa-external-link-alt"></i> <span
                                         data-i18n="cert_show">Show
                                         Credential</span></a>
+                            </div>
                         </div> <!-- end cert-card -->
-                    </div> <!-- end cert-grid -->
-                    <button id="next-cert-page" class="side-nav-btn next"><i class="fas fa-chevron-right"></i></button>
-                </div> <!-- end gallery-container -->
-            </div> <!-- end content -->
+
+                        <!-- Cert: JUnit (Simplilearn) -->
+                        <div class="cert-card glass reveal" data-category="testing">
+                            <div class="cert-badge">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div class="cert-info">
+                                <span class="cert-org">Simplilearn</span>
+                                <h3 data-i18n="cert_junit_title">JUnit Essentials</h3>
+                                <p data-i18n="cert_junit_desc">Mastering unit testing, test-driven development (TDD), and Java code quality with JUnit.</p>
+                                <div class="cert-meta">
+                                    <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
+                                    <div class="meta-item">ID: 10152757</div>
+                                </div>
+                                <div class="tech-pills">
+                                    <span class="pill">JUnit</span>
+                                    <span class="pill">TDD</span>
+                                    <span class="pill">Java</span>
+                                </div>
+                                <a href="#"
+                                    onclick="openPdfViewer('cert_junit_title', 'assets/docs/Certifs/JUnit.pdf', 'fa-award'); return false;"
+                                    class="github-link"><i class="fas fa-external-link-alt"></i> <span
+                                        data-i18n="cert_show">Show
+                                        Credential</span></a>
+                            </div>
+                        </div> <!-- end cert-card -->
+                        </div> <!-- end cert-grid -->
+                        <button id="next-cert-page" class="side-nav-btn next"><i
+                                class="fas fa-chevron-right"></i></button>
+                    </div> <!-- end gallery-container -->
+                </div> <!-- end content -->
         </section>
 
         <!-- Contact Footer -->

@@ -911,11 +911,19 @@ const projectDetailsData = {
     },
     proj4: {
         tags: ["Python 3.9+", "OpenCV", "Streamlit", "NumPy", "Background Subtraction", "Real-time Processing"],
-        media: `<img src="assets/images/Apps/Mouvementdetection/MouvementDetection.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `
+            <div style="border-radius:12px; overflow:hidden; border:1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.6); background: #000;">
+                <video src="assets/images/Apps/Mouvementdetection/MOTIONDETECTIONDEMO.mp4" controls autoplay loop muted playsinline style="width:100%; display:block;"></video>
+            </div>
+        `
     },
     proj5: {
         tags: ["Python", "Streamlit", "OpenCV", "NumPy", "Scikit-learn", "CBIR Engine"],
-        media: `<img src="assets/images/Apps/Cbir/Cbir.png" style="width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">`
+        media: `
+            <div style="border-radius:12px; overflow:hidden; border:1px solid var(--glass-border); box-shadow: 0 4px 30px rgba(0,0,0,0.6); background: #000;">
+                <video src="assets/images/Apps/Cbir/CBIRDEMO.mp4" controls autoplay loop muted playsinline style="width:100%; display:block;"></video>
+            </div>
+        `
     },
     quiz: {
         tags: ["Java 8+", "Android SDK", "MVVM", "Room DB", "Retrofit 2", "Material Design 3"],

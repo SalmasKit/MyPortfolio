@@ -1,0 +1,87 @@
+/* --- 3. Volunteer (Impact Architecture) --- */
+.impact-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.arch-node {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  background: rgba(13, 17, 23, 0.4);
+  border-radius: 12px;
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-node:hover {
+  border-color: #58a6ff;
+  background: rgba(13, 17, 23, 0.7);
+  transform: translateY(-3px);
+}
+
+.arch-node-tab {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.8rem;
+  color: #8b949e;
+  transition: all 0.3s;
+}
+
+.arch-node:hover .arch-node-tab { border-color: #58a6ff; color: #58a6ff; }
+
+.arch-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
+
+.arch-logo {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.arch-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+.arch-title-wrapper h3 { margin: 0 0 4px 0; font-size: 1.3rem; color: #e6edf3; font-weight: 700; }
+.arch-title-wrapper h4 { margin: 0; font-size: 1rem; color: #a78bfa; font-weight: 500; }
+
+.arch-desc { list-style: none; padding: 0; margin: 0 0 2rem 0; color: #8b949e; flex-grow: 1; }
+.arch-desc li { margin-bottom: 10px; position: relative; padding-left: 1.5rem; line-height: 1.6; font-size: 14px; }
+.arch-desc li::before { content: '↳'; position: absolute; left: 0; color: #58a6ff; }
+
+.arch-footer { display: flex; gap: 1.5rem; border-top: 1px solid #30363d; padding-top: 1.2rem; }
+
+.arch-link {
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.arch-link:hover { gap: 10px; text-decoration: underline; }
+
+/* Light Mode Volunteer */
+body.light-mode .arch-node { background-color: #ffffff; border-color: #d0d7de; }
+body.light-mode .arch-node-tab { background-color: #f6f8fa; border-color: #d0d7de; }
+body.light-mode .arch-title-wrapper h3 { color: #24292f; }
+

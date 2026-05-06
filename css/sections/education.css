@@ -1,0 +1,247 @@
+/* --- 1. Education (GitHub Commit History) --- */
+.github-commit-history {
+  max-width: 900px;
+  margin: 3rem auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: #c9d1d9;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.commit-group {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 2rem;
+}
+
+.commit-group::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  bottom: -35px;
+  left: 7px;
+  width: 2px;
+  background-color: #30363d;
+  z-index: 0;
+}
+
+.commit-group:last-child::before {
+  bottom: 10px;
+}
+
+.commit-group-icon {
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #8b949e;
+  background-color: #0d1117;
+  z-index: 1;
+}
+
+.commit-group-title {
+  display: inline-block;
+  padding-left: 8px;
+  color: #8b949e;
+  font-size: 14px;
+  margin-bottom: 12px;
+  margin-top: 1px;
+}
+
+.commit-list.glass {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-color: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.commit-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid #30363d;
+  transition: background-color 0.2s;
+}
+
+.commit-item:last-child {
+  border-bottom: none;
+}
+
+.commit-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.commit-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.commit-title {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e6edf3;
+  transition: color 0.2s;
+}
+
+.commit-title:hover {
+  color: #2f81f7;
+  text-decoration: underline;
+  cursor: default;
+}
+
+.commit-meta {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #8b949e;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.commit-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.commit-author {
+  font-weight: normal;
+  color: inherit;
+}
+
+.commit-org {
+  font-weight: 800;
+  color: inherit;
+  font-size: 12px;
+}
+
+.commit-status .fa-check {
+  color: #3fb950;
+}
+
+.commit-desc {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #8b949e;
+}
+
+.commit-desc ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: circle;
+}
+
+.commit-desc ul li {
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.commit-actions {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 16px;
+}
+
+.commit-hash-group {
+  display: flex;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.commit-hash {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  color: #e6edf3;
+  padding: 4px 8px;
+  border-right: 1px solid #30363d;
+  background: transparent;
+}
+
+.commit-btn,
+.commit-code-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  color: #8b949e;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.commit-code-btn {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  margin-left: 8px;
+  padding: 4px 10px;
+}
+
+.commit-btn:hover,
+.commit-code-btn:hover {
+  color: #c9d1d9;
+  background: #30363d;
+}
+
+/* Light Mode Education */
+body.light-mode .github-commit-history {
+  color: #24292f;
+}
+
+body.light-mode .commit-group::before {
+  background-color: #d0d7de;
+}
+
+body.light-mode .commit-group-icon {
+  border-color: #57606a;
+  background-color: #ffffff;
+}
+
+body.light-mode .commit-group-title {
+  color: #57606a;
+}
+
+body.light-mode .commit-list.glass {
+  border-color: #d0d7de;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .commit-item {
+  border-color: #d0d7de;
+}
+
+body.light-mode .commit-title {
+  color: #24292f;
+}
+
+body.light-mode .commit-title:hover {
+  color: #2f81f7;
+  text-decoration: underline;
+}
+
+body.light-mode .commit-author {
+  color: inherit;
+  font-weight: normal;
+}
+
+body.light-mode .commit-status .fa-check {
+  color: #1f883d;
+}
+
+body.light-mode .commit-hash {
+  color: #24292f;
+  border-color: #d0d7de;
+  background-color: #f6f8fa;
+}
+
+body.light-mode .commit-org {
+  color: inherit;
+  font-weight: 800;
+}

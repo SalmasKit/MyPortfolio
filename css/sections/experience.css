@@ -1,0 +1,390 @@
+/* Professional Path - GitHub Pull Request UI */
+.github-pr-ui {
+  max-width: 800px;
+  /* Reduced from 950px */
+  margin: 2rem auto;
+  /* Reduced from 3rem */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: #c9d1d9;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+.pr-header {
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 1rem;
+  /* Reduced from 1.5rem */
+  margin-bottom: 1.5rem;
+  /* Reduced from 2rem */
+}
+
+.pr-title {
+  font-size: 1.6rem;
+  /* Reduced from 2rem */
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #e6edf3;
+}
+
+.pr-number {
+  color: #8b949e;
+  font-weight: 400;
+}
+
+.pr-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  /* slightly tighter */
+  font-size: 13px;
+  /* Reduced from 14px */
+  color: #8b949e;
+  line-height: 1.5;
+}
+
+.pr-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  /* Reduced padding */
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  /* Reduced from 14px */
+  color: white;
+}
+
+.pr-status.merged {
+  background-color: #8957e5;
+  /* GitHub Purple for Merged */
+}
+
+.pr-author {
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.pr-branch {
+  background-color: rgba(110, 118, 129, 0.4);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 12px;
+}
+
+.pr-org-logo-small {
+  height: 12px;
+  vertical-align: middle;
+  margin-right: 4px;
+  margin-bottom: 2px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background-color: white;
+}
+
+/* Timeline */
+.pr-timeline {
+  position: relative;
+  margin-left: 10px;
+}
+
+/* Vertical line behind comment */
+.pr-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 15px;
+  left: 17px;
+  /* Adjusted for smaller avatar */
+  width: 2px;
+  background-color: #30363d;
+  z-index: 0;
+}
+
+.pr-comment {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+
+.pr-avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #30363d;
+  background-color: #0d1117;
+  margin-top: 2px;
+}
+
+.pr-comment-box.glass {
+  flex: 1;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-color: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Arrow notch pointing to avatar */
+.pr-comment-box::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: -8px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #30363d;
+}
+
+.pr-comment-box::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: -7px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid rgba(22, 27, 34, 0.95);
+}
+
+.pr-comment-header {
+  padding: 8px 14px;
+  background-color: rgba(22, 27, 34, 0.5);
+  border-bottom: 1px solid #30363d;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #8b949e;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pr-comment-header strong {
+  color: #e6edf3;
+}
+
+.pr-comment-badge {
+  border: 1px solid #30363d;
+  border-radius: 20px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #8b949e;
+}
+
+.pr-comment-body {
+  padding: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #c9d1d9;
+}
+
+.pr-comment-body p {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.markdown-body {
+  padding-left: 20px;
+  margin-bottom: 16px;
+  color: #c9d1d9;
+}
+
+.markdown-body li {
+  margin-bottom: 4px;
+}
+
+.pr-attachments {
+  border-top: 1px solid #30363d;
+  padding-top: 12px;
+}
+
+.pr-attach-title {
+  font-size: 11px;
+  color: #8b949e;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.pr-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #2f81f7;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.pr-file:hover {
+  background-color: rgba(47, 129, 247, 0.1);
+  border-color: #2f81f7;
+}
+
+.pr-timeline-event {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  margin-left: 6px;
+}
+
+.pr-timeline-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: white;
+  box-shadow: 0 0 0 2px var(--bg-dark);
+}
+
+.pr-timeline-icon.merged {
+  background-color: #8957e5;
+  /* Purple */
+}
+
+/* The AMEE merge avatar */
+.pr-merge-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #30363d;
+  background-color: #ffffff;
+  /* White background specifically to pop the logo */
+  object-fit: contain;
+}
+
+.pr-timeline-desc {
+  font-size: 13px;
+  /* Reduced */
+  color: #8b949e;
+}
+
+.pr-timeline-desc strong {
+  color: #e6edf3;
+}
+
+.pr-commit-link {
+  font-family: ui-monospace, monospace;
+  color: #2f81f7;
+  text-decoration: none;
+}
+
+.pr-commit-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .pr-title {
+    font-size: 1.4rem;
+  }
+
+  .pr-comment {
+    flex-direction: column;
+  }
+
+  .pr-avatar {
+    margin-left: -5px;
+  }
+
+  .pr-comment-box::before,
+  .pr-comment-box::after {
+    display: none;
+  }
+
+  .pr-timeline::before {
+    left: 13px;
+  }
+}
+
+/* Light mode PR overrides */
+body.light-mode .github-pr-ui {
+  color: #24292f;
+}
+
+body.light-mode .pr-header {
+  border-color: #d0d7de;
+}
+
+body.light-mode .pr-title {
+  color: #24292f;
+}
+
+body.light-mode .pr-author,
+body.light-mode .pr-comment-header strong,
+body.light-mode .pr-timeline-desc strong {
+  color: #24292f;
+}
+
+body.light-mode .pr-branch {
+  background-color: rgba(175, 184, 193, 0.2);
+  color: #24292f;
+}
+
+body.light-mode .pr-timeline::before {
+  background-color: #d0d7de;
+}
+
+body.light-mode .pr-avatar img {
+  border-color: #d0d7de;
+  background-color: #ffffff;
+}
+
+body.light-mode .pr-comment-box.glass {
+  border-color: #d0d7de;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .pr-comment-box::before {
+  border-right-color: #d0d7de;
+}
+
+body.light-mode .pr-comment-box::after {
+  border-right-color: rgba(246, 248, 250, 0.95);
+}
+
+body.light-mode .pr-comment-header {
+  background-color: rgba(246, 248, 250, 0.7);
+  border-color: #d0d7de;
+}
+
+body.light-mode .pr-comment-badge {
+  border-color: #d0d7de;
+  color: #57606a;
+}
+
+body.light-mode .pr-comment-body {
+  color: #24292f;
+}
+
+body.light-mode .markdown-body {
+  color: #24292f;
+}
+
+body.light-mode .pr-attachments {
+  border-color: #d0d7de;
+}
+
+body.light-mode .pr-file {
+  border-color: #d0d7de;
+}
+
+body.light-mode .pr-timeline-icon {
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+

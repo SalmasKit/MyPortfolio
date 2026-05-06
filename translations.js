@@ -41,11 +41,11 @@ const translations = {
         vol_item1_title: "Mentor & Workshop Animator",
         vol_item1_org: "Oriental Science House",
         vol_item1_date: "09/2024",
-        vol_item1_desc: "<li>Facilitated immersive workshops in Artificial Intelligence, Deep Learning, and n8n automation.</li><li>Engineered physical models and \"maquettes\" to translate complex scientific theories into intuitive concepts for younger learners.</li>",
+        vol_item1_desc: "<li>Facilitated immersive workshops in Artificial Intelligence, Deep Learning, and n8n automation.</li><li>Built physical models and maquettes to simplify complex scientific theories for younger learners.</li>",
         vol_item2_title: "Technical Organization",
         vol_item2_org: "Club GI ENSAO",
         vol_item2_date: "09/2024",
-        vol_item2_desc: "<li>Orchestrated large-scale club events and high-stakes technical competitions.</li><li>Authored technical and promotional content for the club's digital presence.</li><li>Mentored junior students, guiding them through technical challenges and club integration.</li>",
+        vol_item2_desc: "<li>Coordinated large-scale events and technical competitions, and authored digital and promotional content.</li><li>Mentored junior students, guiding them through technical challenges and club integration.</li>",
         sec_tech: "Engineering Kit",
         tech_cat1: "Languages",
         tech_cat2: "Frameworks & Libraries",
@@ -182,8 +182,8 @@ const translations = {
             </div>
         `,
         stockify_title: "Stockify - Inventory Hub",
-        stockify_desc: "A professional inventory management system built with Symfony 7.4 for tracking products, transactions, and stock operations.",
-        stockify_sol: "Utilized Symfony 7, Doctrine ORM, and TailwindCSS 4 to create a sub-second analytical data pipeline.",
+        stockify_desc: "Managing real-time stock volatility and generating automated alert systems.",
+        stockify_sol: "Utilized Symfony 7 and Doctrine to create a sub-second analytical data pipeline.",
         stockify_modal_desc: `
             <div style="margin-bottom: 2rem;">
                 <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
@@ -890,6 +890,12 @@ const translations = {
             </div>
         `,
         sec_certs: "Validated Expertise",
+        filter_all: "All",
+        filter_ai: "AI & ML",
+        filter_dev: "Development",
+        filter_infra: "DevOps & Cloud",
+        filter_db: "Databases",
+        filter_testing: "QA & Testing",
         cert_docker_title: "Docker Essentials",
         cert_docker_desc: "In-depth understanding of Docker containers, images, layering, and container orchestration workflows.",
         cert1_title: "Relational Database",
@@ -1098,6 +1104,12 @@ const translations = {
         `,
         cert_junit_title: "JUnit Essentials",
         cert_junit_desc: "Mastering unit testing, test-driven development (TDD), and Java code quality with JUnit.",
+        cert_agentic_title: "Agentic Workflows",
+        cert_agentic_desc: "Designing autonomous AI systems using agentic patterns (Reflection, Planning, Multi-Agent), Tool Use & Function Calling, and LLM workflow evaluation.",
+        cert_java_inter_title: "Java Intermediate",
+        cert_java_inter_desc: "Mastery of advanced OOP (inheritance, abstraction, interfaces), the Collections Framework, Exception Handling, Multithreading & Concurrency, and File I/O.",
+        cert_testing_title: "Software Testing",
+        cert_testing_desc: "Comprehensive understanding of QA methodologies, including Black-box/White-box testing and Bug Lifecycle.",
         revolving_text: "BUILD • AUTOMATÉ • LEARN • DEPLOY • SOLVE • INNOVATE • BUILD • AUTOMATÉ • LEARN •"
     },
     fr: {
@@ -1142,11 +1154,11 @@ const translations = {
         vol_item1_title: "Mentor & Animateur d'Atelier",
         vol_item1_org: "Maison de Sciences de l'Oriental",
         vol_item1_date: "09/2024",
-        vol_item1_desc: "<li>Ateliers immersifs en IA, Deep Learning et automatisation n8n.</li><li>Conception de maquettes physiques pour vulgariser des théories complexes auprès des jeunes.</li>",
+        vol_item1_desc: "<li>Ateliers immersifs en IA, Deep Learning et automatisation n8n.</li><li>Conception de modèles physiques et de maquettes pour simplifier des théories scientifiques complexes pour les plus jeunes.</li>",
         vol_item2_title: "Organisation Technique",
         vol_item2_org: "Club GI ENSAO",
         vol_item2_date: "09/2024",
-        vol_item2_desc: "<li>Organisation d'événements et de compétitions techniques.</li><li>Rédaction de contenus techniques et promotionnels pour le club.</li><li>Mentorat des étudiants plus jeunes, les guidant à travers les défis techniques et l'intégration au club.</li>",
+        vol_item2_desc: "<li>Coordination d'événements à grande échelle et de compétitions techniques, et rédaction de contenus digitaux et promotionnels.</li><li>Mentorat des étudiants plus jeunes, les guidant à travers les défis techniques et l'intégration au club.</li>",
         sec_tech: "Kit d'Ingénierie",
         tech_cat1: "Langages",
         tech_cat2: "Frameworks & Bibliothèques",
@@ -1281,8 +1293,8 @@ const translations = {
             </div>
         `,
         stockify_title: "Stockify - Hub d'Inventaire",
-        stockify_desc: "Un système de gestion d'inventaire professionnel construit avec Symfony 7.4 pour le suivi des produits et des stocks.",
-        stockify_sol: "Utilisation de Symfony 7, Doctrine ORM et TailwindCSS 4 pour créer un pipeline de données analytiques rapide.",
+        stockify_desc: "Gérer la volatilité des stocks en temps réel et générer des systèmes d'alerte automatisés.",
+        stockify_sol: "Utilisation de Symfony 7 et Doctrine pour créer un pipeline de données analytiques ultra-rapide.",
         stockify_modal_desc: `
             <div style="margin-bottom: 2rem;">
                 <h3 style="color: var(--accent-1); margin-bottom: 0.8rem; font-size: 1.3rem; display: flex; align-items: center; gap: 0.5rem;">
@@ -1988,6 +2000,12 @@ const translations = {
             </div>
         `,
         sec_certs: "Expertise Validée",
+        filter_all: "Tous",
+        filter_ai: "IA & ML",
+        filter_dev: "Développement",
+        filter_infra: "DevOps & Cloud",
+        filter_db: "Bases de Données",
+        filter_testing: "QA & Tests",
         cert_docker_title: "Docker Fondamentaux",
         cert_docker_desc: "Compréhension approfondie des conteneurs, des images, des couches Docker et de l'orchestration.",
         cert1_title: "Base de Données Relationnelle",
@@ -2152,6 +2170,12 @@ const translations = {
         `,
         cert_junit_title: "JUnit Essentials",
         cert_junit_desc: "Maîtrise des tests unitaires, du développement piloté par les tests (TDD) et de la qualité du code Java avec JUnit.",
+        cert_agentic_title: "Flux de Travail Agentiques",
+        cert_agentic_desc: "Conception de systèmes d'IA autonomes utilisant des modèles agentiques (Réflexion, Planification, Multi-Agent), l'utilisation d'outils et l'évaluation des flux LLM.",
+        cert_java_inter_title: "Java Intermédiaire",
+        cert_java_inter_desc: "Maîtrise de la POO avancée (héritage, abstraction, interfaces), du Collections Framework, de la gestion des exceptions, du multithreading et des E/S de fichiers.",
+        cert_testing_title: "Tests Logiciels",
+        cert_testing_desc: "Compréhension approfondie des méthodologies QA, incluant les tests boîte noire/boîte blanche et le cycle de vie des bugs.",
         revolving_text: "CONSTRUIRE • AUTOMATISER • APPRENDRE • DÉPLOYER • RÉSOUDRE • INNOVER • CONSTRUIRE • AUTOMATISER •"
     }
 };

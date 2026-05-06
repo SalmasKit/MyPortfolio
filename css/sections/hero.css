@@ -1,0 +1,551 @@
+/* Hero Section - Split Console */
+/* World Split Layout */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.hero-world-split {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Ticker Banner - Global Anchor */
+.hero-ticker-banner {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background: rgba(5, 5, 16, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ticker-content {
+  display: flex;
+  white-space: nowrap;
+  animation: tickerScroll 25s linear infinite;
+  gap: 5rem;
+  padding-left: 0;
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-item {
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-transform: uppercase;
+}
+
+.ticker-item i {
+  color: var(--accent-2);
+  font-size: 0.9rem;
+}
+
+.ticker-separator {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Light Mode Overrides for Ticker */
+body.light-mode .hero-ticker-banner {
+  background: rgba(248, 250, 252, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .ticker-item {
+  color: #475569;
+}
+
+body.light-mode .ticker-separator {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* World Split Layout */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.hero-world-split {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-top: 0;
+  /* Absolute Top shift */
+  z-index: 10;
+}
+
+/* Human World (Left) */
+.world-human {
+  flex: 1.1;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 4rem 8% 0 10%;
+  position: relative;
+  z-index: 5;
+}
+
+.margin-rule {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--accent-2), transparent);
+  opacity: 0.5;
+}
+
+.human-content {
+  max-width: 650px;
+  text-align: left;
+}
+
+.human-content .hero-name {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.hero-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.hero-bio-minimal p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.hero-bio-minimal p span {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Machine World (Right) */
+.world-machine {
+  flex: 0.9;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* The Subtle Seam */
+.world-machine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+  box-shadow: -15px 0 50px var(--bg-deep);
+  z-index: 10;
+}
+
+.machine-content {
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 5rem 2rem 2rem 2rem;
+  width: 100%;
+}
+
+/* Light Mode Overrides for Buttons */
+body.light-mode .machine-actions .btn-secondary {
+  color: #1e293b;
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Orbital Ring */
+.orbit-planet {
+  position: relative;
+  width: clamp(200px, 20vw, 280px);
+  height: clamp(200px, 20vw, 280px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinning-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: conic-gradient(from 0deg,
+      var(--accent-2) 0deg,
+      var(--accent-1) 270deg,
+      transparent 290deg);
+  -webkit-mask: radial-gradient(transparent 69%, black 70%);
+  mask: radial-gradient(transparent 69%, black 70%);
+  opacity: 0.4;
+  animation: slowSpin 20s linear infinite;
+}
+
+.orbit-text-path {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  animation: slowOrbit 40s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes slowOrbit {
+  from {
+    transform: rotate(30deg);
+  }
+
+  to {
+    transform: rotate(-330deg);
+  }
+}
+
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.revolving-text {
+  fill: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.3;
+}
+
+.planet-core-wrapper {
+  position: relative;
+  width: clamp(120px, 13vw, 180px);
+  height: clamp(120px, 13vw, 180px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-dark);
+  /* More BG */
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  /* Clip everything inside */
+  animation: heartbeat 6s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+}
+
+/* Recessed effect overlay */
+.planet-core-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.planet-core-image {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+  /* Shift slightly up to center face better if it's a portrait */
+  filter: saturate(1.1) contrast(1.05);
+  position: relative;
+  z-index: 1;
+}
+
+.core-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.machine-stats {
+  opacity: 0.8;
+}
+
+.machine-actions {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.machine-actions button {
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--transition);
+}
+
+.machine-actions .btn-primary {
+  background: var(--accent-1);
+  color: white;
+  border: none;
+}
+
+.machine-actions .btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.machine-actions .btn-primary:hover {
+  background: white;
+  color: var(--accent-1);
+  transform: translateY(-3px);
+}
+
+.machine-actions .btn-secondary:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1024px) {
+  #hero {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 80px;
+    /* Space for nav */
+  }
+
+  .hero-world-split {
+    flex-direction: column;
+    padding-top: 60px;
+    /* Space for ticker */
+    height: auto;
+  }
+
+  .world-human {
+    flex: none;
+    padding: 4rem 8% 4rem 10%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .human-content .hero-name {
+    font-size: 2.8rem;
+    white-space: normal;
+  }
+
+  .margin-rule {
+    width: 100%;
+    height: 1px;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, transparent, var(--accent-2), transparent);
+  }
+
+  .world-machine {
+    flex: none;
+    padding: 4rem 2rem;
+  }
+
+  .machine-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .machine-info-stack {
+    align-items: center;
+    text-align: center;
+  }
+
+  .orbit-planet {
+    width: 220px;
+    height: 220px;
+  }
+
+  .world-machine::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    box-shadow: 0 -10px 30px var(--bg-deep);
+  }
+}
+
+/* Fluid Typography */
+h1 {
+  font-size: clamp(2.5rem, 9vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: clamp(1rem, 3vh, 2rem);
+  letter-spacing: -3px;
+}
+
+h2.section-title {
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: clamp(3px, 1vw, 6px);
+  color: var(--accent-2);
+  margin-bottom: clamp(2rem, 5vh, 4rem);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+h2.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent-2), transparent);
+}
+
+.emphasis {
+  display: block;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Smooth Sliding Text Carousel */
+.hero-stats-carousel {
+  margin-top: -0.8rem;
+  margin-bottom: 2rem;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 40px;
+  overflow: hidden;
+  /* Important for sliding effect */
+  position: relative;
+}
+
+.stats-icon {
+  margin-right: 12px;
+  color: var(--accent-1);
+  font-size: 1em;
+  background: var(--nav-overlay-bg);
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+#stat-text-carousel {
+  color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Career Status Line - Identity Stack */
+.c-intern-status-line {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  font-weight: 700;
+  color: var(--accent-2);
+  letter-spacing: 0.5px;
+  background: rgba(16, 185, 129, 0.05);
+  padding: 6px 14px;
+  border-radius: 4px;
+  width: fit-content;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  backdrop-filter: blur(5px);
+  margin-top: -0.2rem;
+}
+
+.s-intern-text {
+  text-transform: uppercase;
+}
+
+.s-divider {
+  opacity: 0.3;
+  font-weight: 300;
+  margin: 0 0.2rem;
+}
+
+.s-availability {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+body.light-mode .c-intern-status-line {
+  background: rgba(16, 185, 129, 0.08);
+}

@@ -33,7 +33,8 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Amiri:wght@400;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Amiri:wght@400;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -45,11 +46,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         (function () {
-            emailjs.init("VlUq8d67l7nntLksu");
+            emailjs.init("e5T8GntvgC38wx6su");
         })();
     </script>
     <!-- Translations -->
@@ -205,7 +206,8 @@
                                         <img src="https://github.com/SalmasKit.png" alt="SalmasKit"
                                             class="commit-avatar">
                                         <span class="commit-author">SalmasKit</span> committed at <span
-                                            data-i18n="edu_item1_org">National School of Applied Sciences - Oujda
+                                            class="commit-org" data-i18n="edu_item1_org">National School of Applied
+                                            Sciences - Oujda
                                             (ENSAO)</span>
                                         <span class="commit-separator">·</span>
                                         <span class="commit-status"><i class="fas fa-check"></i> 2/2</span>
@@ -248,9 +250,10 @@
                                         <img src="https://github.com/SalmasKit.png" alt="SalmasKit"
                                             class="commit-avatar">
                                         <span class="commit-author">SalmasKit</span> committed at <span
-                                            data-i18n="edu_item2_org">Hassan Ibn Tabit High School - Zaio</span>
+                                            class="commit-org" data-i18n="edu_item2_org">Hassan Ibn Tabit High School -
+                                            Zaio</span>
                                         <span class="commit-separator">·</span>
-                                        <span class="commit-status"><i class="fas fa-check"></i> 2/2</span>
+                                        <span class="commit-status"><i class="fas fa-check"></i> 1/2</span>
                                     </div>
                                     <div class="commit-desc">
                                         <ul data-i18n="edu_item2_desc">
@@ -280,70 +283,58 @@
         <section id="experience">
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_exp">Professional Path</h2>
-                <div class="github-pr-ui reveal">
-                    <!-- Pull Request Header -->
-                    <div class="pr-header">
-                        <h3 class="pr-title">
-                            <span data-i18n="exp_item1_title">Full-Stack Development Intern</span>
-                            <span class="pr-number">#1</span>
-                        </h3>
-                    </div>
+                <div class="github-commit-history reveal">
+                    <div class="commit-group">
+                        <div class="commit-group-icon"></div>
+                        <div class="commit-group-title">
+                            Commits on <span data-i18n="exp_item1_date">07/2025 - 08/2025</span>
+                        </div>
 
-                    <!-- Pull Request Timeline -->
-                    <div class="pr-timeline">
-                        <!-- Main Comment (The Experience Details) -->
-                        <div class="pr-comment">
-                            <div class="pr-avatar">
-                                <img src="https://github.com/SalmasKit.png" alt="Salma">
-                            </div>
-                            <div class="pr-comment-box glass">
-                                <div class="pr-comment-header">
-                                    <strong>SalmasKit</strong>
-                                    <span class="pr-comment-badge">Owner</span>
-                                </div>
-                                <div class="pr-comment-body">
-                                    <p>Implemented the following responsibilities during this mandate:</p>
-                                    <ul data-i18n="exp_item1_desc" class="markdown-body">
-                                        <li>Conceived and developed an HR management web app with real-time dashboards.
-                                        </li>
-                                        <li>Automated document flows.</li>
-                                        <li>Tech Stack: PHP, MySQL, JavaScript.</li>
-                                    </ul>
-
-                                    <!-- Attachments (Certificate) -->
-                                    <div class="pr-attachments">
-                                        <div class="pr-attach-title"><i class="fas fa-paperclip"></i> Certificate
-                                            attached</div>
-                                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <div class="commit-list glass">
+                            <div class="commit-item">
+                                <div class="commit-main">
+                                    <h3 class="commit-title" data-i18n="exp_item1_title">Full-Stack Development Intern
+                                    </h3>
+                                    <div class="commit-meta">
+                                        <img src="https://github.com/SalmasKit.png" alt="SalmasKit"
+                                            class="commit-avatar">
+                                        <span class="commit-author">SalmasKit</span> committed at <span
+                                            class="commit-org" data-i18n="exp_item1_org">AMEE - Rabat</span>
+                                        <span class="commit-separator">·</span>
+                                        <span class="commit-status"><i class="fas fa-check"></i> 1/1</span>
+                                    </div>
+                                    <div class="commit-desc">
+                                        <ul data-i18n="exp_item1_desc">
+                                            <li>Conceived and developed an HR management web app with real-time
+                                                dashboards.</li>
+                                            <li>Automated document flows.</li>
+                                            <li>Tech Stack: PHP, MySQL, JavaScript.</li>
+                                        </ul>
+                                        <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                                            <a href="#" onclick="openProjectModal('amee'); return false;"
+                                                style="color: var(--accent-1); text-decoration: none; font-size: 0.9rem; font-weight: 500;">
+                                                <i class="fas fa-project-diagram"></i> <span
+                                                    data-i18n="proj_btn_details">See Details</span>
+                                            </a>
                                             <a href="#"
                                                 onclick="openPdfViewer('exp_btn_cert', 'assets/docs/Certifs/Attestation de stage.pdf'); return false;"
-                                                class="pr-file">
-                                                <i class="fas fa-file-pdf" style="color: #da3633; font-size: 16px;"></i>
-                                                <span data-i18n="exp_btn_cert">View Certificate</span>
-                                            </a>
-                                            <a href="#" onclick="openProjectModal('amee'); return false;" class="pr-file">
-                                                <i class="fas fa-project-diagram" style="color: #2f81f7; font-size: 14px;"></i>
-                                                <span data-i18n="proj_btn_details">See Details</span>
+                                                style="color: var(--accent-1); text-decoration: none; font-size: 0.9rem; font-weight: 500;">
+                                                <i class="fas fa-file-pdf"></i> <span data-i18n="exp_btn_cert">View
+                                                    Certificate</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Timeline merge event -->
-                        <div class="pr-timeline-event">
-                            <div class="pr-timeline-icon merged"><i class="fas fa-code-merge"></i></div>
-                            <img src="assets/images/amee.png" alt="AMEE" class="pr-merge-avatar"
-                                onerror="this.style.display='none'">
-                            <div class="pr-timeline-desc">
-                                <strong data-i18n="exp_item1_org">AMEE - Rabat</strong> merged commit <a href="#"
-                                    class="pr-commit-link">amee825</a> into <code>professional-path</code>
-                                <span class="pr-date"
-                                    style="margin-left: 10px; background: rgba(255, 255, 255, 0.1); color: var(--text-primary); padding: 2px 8px; border-radius: 6px; font-weight: 600; font-size: 0.85em; border: 1px solid var(--glass-border); display: inline-flex; align-items: center; gap: 5px;">
-                                    <i class="far fa-calendar-alt"></i> <span data-i18n="exp_item1_date">07/2025 -
-                                        08/2025</span>
-                                </span>
+                                <div class="commit-actions">
+                                    <div class="commit-hash-group">
+                                        <span class="commit-hash">amee825</span>
+                                        <button class="commit-btn" title="Copy the full SHA"><i
+                                                class="far fa-copy"></i></button>
+                                    </div>
+                                    <button class="commit-code-btn"
+                                        title="Browse the repository at this point in the history"><i
+                                            class="fas fa-code"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -373,8 +364,8 @@
                         <ul class="arch-desc" data-i18n="vol_item1_desc">
                             <li>Facilitated immersive workshops in Artificial Intelligence, Deep Learning, and n8n
                                 automation.</li>
-                            <li>Engineered physical models to translate complex scientific theories into intuitive
-                                concepts.</li>
+                            <li>Built physical models and maquettes to simplify complex scientific theories for younger
+                                learners.</li>
                         </ul>
 
                         <div class="arch-footer">
@@ -401,9 +392,8 @@
                         </div>
 
                         <ul class="arch-desc" data-i18n="vol_item2_desc">
-                            <li>Orchestrated large-scale club events and high-stakes technical competitions.</li>
-                            <li>Authored high-impact technical and promotional content for the club's digital presence.
-                            </li>
+                            <li>Coordinated large-scale events and technical competitions, and authored digital and
+                                promotional content.</li>
                             <li>Mentored junior students, guiding them through technical challenges and club
                                 integration.</li>
                         </ul>
@@ -423,14 +413,17 @@
             <div class="content">
                 <h2 class="section-title reveal" data-i18n="sec_tech">Neural Engine</h2>
                 <div class="tech-ide-window reveal">
-                    <div class="mac-header">
-                        <div class="mac-buttons">
-                            <span class="btn close"></span>
-                            <span class="btn min"></span>
-                            <span class="btn max"></span>
+                    <div class="win-header">
+                        <div class="win-title">
+                            <i class="fas fa-code" style="color: #a855f7; margin-right: 8px;"></i>
+                            <span data-i18n="ide_folder">engineering_kit</span> — <span
+                                data-i18n="ide_workspace">Workspace</span>
                         </div>
-                        <div class="mac-title"><span data-i18n="ide_folder">engineering_kit</span> — <span
-                                data-i18n="ide_workspace">Workspace</span></div>
+                        <div class="win-buttons">
+                            <div class="win-btn"><i class="fas fa-minus"></i></div>
+                            <div class="win-btn"><i class="far fa-window-maximize"></i></div>
+                            <div class="win-btn win-close"><i class="fas fa-times"></i></div>
+                        </div>
                     </div>
 
                     <div class="ide-container">
@@ -784,22 +777,19 @@
                         <!-- Project: AfriqAI -->
                         <div class="project-card glass reveal" data-category="web">
                             <div class="project-img">
-                                <div
-                                    style="height: 100%; display: flex; align-items: center; justify-content: center; width: 100%;">
-                                    <span
-                                        style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px;"
-                                        data-i18n="proj_coming_soon">Coming Soon</span>
+                                <div class="coming-soon-wrapper">
+                                    <span data-i18n="proj_coming_soon">Coming Soon</span>
+                                </div>
+                                <div class="img-pills">
+                                    <span class="pill">Spring Boot 3</span>
+                                    <span class="pill">FastAPI</span>
+                                    <span class="pill">React</span>
+                                    <span class="pill">Generative AI</span>
                                 </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj_afriqai_title">AfriqAI Feedback Analyzer</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Spring Boot 3</span>
-                                        <span class="pill">FastAPI</span>
-                                        <span class="pill">React</span>
-                                        <span class="pill">Generative AI</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj_afriqai_desc">A specialized AI module integrated into the
@@ -810,14 +800,11 @@
                                         data-i18n="proj_afriqai_sol">Developed a FastAPI (Python) microservice module
                                         while managing the core Spring Boot 3.4 application maintenance.</span>
                                 </p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: flex-end; margin-top: 1.5rem; align-items: center;">
-                                    <button class="btn-details" onclick="openProjectModal('afriqai')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                <div class="project-links">
+                                    <button class="btn-details" onclick="openProjectModal('afriqai')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -827,15 +814,15 @@
                             <div class="project-img">
                                 <img src="assets/images/Apps/Portfolio/portfolio_mockup.png"
                                     alt="Interactive Digital Portfolio Showcase">
+                                <div class="img-pills">
+                                    <span class="pill">Vanilla JS</span>
+                                    <span class="pill">GSAP</span>
+                                    <span class="pill">CSS3</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj_portfolio_title">Interactive 3D Portfolio</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Vanilla JS</span>
-                                        <span class="pill">GSAP</span>
-                                        <span class="pill">CSS3</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj_portfolio_desc">Designing a high-performance, multilingual hub
@@ -845,17 +832,14 @@
                                         data-i18n="proj_portfolio_sol">Built with Vanilla JS and GSAP, featuring custom
                                         3D
                                         carousels and smooth scroll-driven visuals.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://github.com/SalmasKit/MyPortfolio" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('portfolio')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('portfolio')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -863,21 +847,18 @@
                         <!-- Project 1: Jira Clone -->
                         <div class="project-card glass reveal" data-category="web">
                             <div class="project-img">
-                                <div
-                                    style="height: 100%; display: flex; align-items: center; justify-content: center; width: 100%;">
-                                    <span
-                                        style="font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px;"
-                                        data-i18n="proj_coming_soon">Coming Soon</span>
+                                <div class="coming-soon-wrapper">
+                                    <span data-i18n="proj_coming_soon">Coming Soon</span>
+                                </div>
+                                <div class="img-pills">
+                                    <span class="pill">Spring Boot</span>
+                                    <span class="pill">React</span>
+                                    <span class="pill">PostgreSQL</span>
                                 </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj1_title">Jira Clone Pro</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Spring Boot</span>
-                                        <span class="pill">React</span>
-                                        <span class="pill">PostgreSQL</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj1_desc">Building
@@ -888,17 +869,14 @@
                                         data-i18n="proj1_sol">Implemented
                                         high test coverage (Mockito/JUnit) and scalable PostgreSQL architecture.</span>
                                 </p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://gitlab.com/formations2026/gera-back" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-gitlab"></i> <span
+                                        class="github-link"><i class="fab fa-gitlab"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('proj1')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('proj1')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -909,15 +887,15 @@
                             <div class="project-img">
                                 <img src="assets/images/Apps/Chatbotmso/chatbot_mso.png"
                                     alt="Chatbot MSO - AI Assistant">
+                                <div class="img-pills">
+                                    <span class="pill">FastAPI</span>
+                                    <span class="pill">Vite</span>
+                                    <span class="pill">Hugging Face</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj_chatbot_title">Chatbot-mso - Gov Assistant</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">FastAPI</span>
-                                        <span class="pill">Vite</span>
-                                        <span class="pill">Hugging Face</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj_chatbot_desc">Developing a multilingual RAG system to simplify
@@ -925,17 +903,14 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj_chatbot_sol">Full-stack FastAPI + Vite engine using Hugging Face
                                         LLMs, local vector storage, and Tesseract for document OCR.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://gitlab.com/chatbot-mso/Chatbot-mso" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-gitlab"></i> <span
+                                        class="github-link"><i class="fab fa-gitlab"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('chatbot')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('chatbot')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -946,15 +921,15 @@
                                 <img src="assets/images/Apps/Soukify/Soukify3.jpeg" alt="Soukify Mobile Screen 3">
                                 <img src="assets/images/Apps/Soukify/Soukify.jpeg" alt="Soukify Mobile Screen 1">
                                 <img src="assets/images/Apps/Soukify/Soukify2.jpeg" alt="Soukify Mobile Screen 2">
+                                <div class="img-pills">
+                                    <span class="pill">Android</span>
+                                    <span class="pill">Java</span>
+                                    <span class="pill">Firebase</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj3_title">Soukify - Marketplace</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Android</span>
-                                        <span class="pill">Java</span>
-                                        <span class="pill">Firebase</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj3_desc">Bridging the gap between traditional Moroccan artisans
@@ -963,17 +938,14 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj3_sol">Architected
                                         with Android SDK and Firebase using the MVVM design pattern.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://github.com/SalmasKit/SoukifyApp" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('soukify')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('soukify')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -982,34 +954,31 @@
                         <div class="project-card glass reveal" data-category="web">
                             <div class="project-img">
                                 <img src="assets/images/Apps/Stockify/Stockify.png" alt="Inventory Analytics">
+                                <div class="img-pills">
+                                    <span class="pill">Symfony 7</span>
+                                    <span class="pill">PHP 8.2</span>
+                                    <span class="pill">MySQL</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
-                                    <h3 data-i18n="proj2_title">Stockify - Inventory Hub</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Symfony 7</span>
-                                        <span class="pill">PHP 8.2</span>
-                                        <span class="pill">MySQL</span>
-                                    </div>
+                                    <h3 data-i18n="stockify_title">Stockify - Inventory Hub</h3>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
-                                        data-i18n="proj2_desc">Managing
+                                        data-i18n="stockify_desc">Managing
                                         real-time stock volatility and generating automated alert systems.</span></p>
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
-                                        data-i18n="proj2_sol">Utilized
+                                        data-i18n="stockify_sol">Utilized
                                         Symfony 7 and Doctrine to create a sub-second analytical data pipeline.</span>
                                 </p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://github.com/SalmasKit/StockifyApp" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('stockify')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('stockify')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1019,15 +988,15 @@
                             <div class="project-img">
                                 <img src="assets/images/Apps/Mouvementdetection/MouvementDetection.png"
                                     alt="Vision Security Engine">
+                                <div class="img-pills">
+                                    <span class="pill">Python</span>
+                                    <span class="pill">OpenCV</span>
+                                    <span class="pill">NumPy</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj4_title">Vision Security Engine</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Python</span>
-                                        <span class="pill">OpenCV</span>
-                                        <span class="pill">NumPy</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj4_desc">Real-time
@@ -1035,17 +1004,14 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj4_sol">Engineered
                                         an OpenCV-based pipeline in Python with Streamlit visuals.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://github.com/SalmasKit/MotionDetectionApp" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('proj4')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('proj4')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1054,15 +1020,15 @@
                         <div class="project-card glass reveal" data-category="ai">
                             <div class="project-img">
                                 <img src="assets/images/Apps/Cbir/Cbir.png" alt="QueryPix - CBIR">
+                                <div class="img-pills">
+                                    <span class="pill">Scikit-learn</span>
+                                    <span class="pill">Pandas</span>
+                                    <span class="pill">NumPy</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj5_title">QueryPix - CBIR</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Scikit-learn</span>
-                                        <span class="pill">Pandas</span>
-                                        <span class="pill">NumPy</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj5_desc">Content-Based Image Retrieval with contour and feature
@@ -1070,17 +1036,14 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj5_sol">Developed a
                                         similarity search engine using Dataset Corel 1000 and Scikit-learn.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://github.com/SalmasKit/QueryPix-CBIRApp" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('proj5')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('proj5')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1091,15 +1054,15 @@
                                 <img src="assets/images/Apps/Quiz/quiz3.jpeg" alt="System Build Analysis Screen">
                                 <img src="assets/images/Apps/Quiz/quiz.jpeg" alt="Tech Quiz Pro Home">
                                 <img src="assets/images/Apps/Quiz/quiz2.jpeg" alt="Quiz Tracks Screen">
+                                <div class="img-pills">
+                                    <span class="pill">Android</span>
+                                    <span class="pill">Java</span>
+                                    <span class="pill">Room DB</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj_quiz_title">Tech Quiz Pro: IT Mastery</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Android</span>
-                                        <span class="pill">Java</span>
-                                        <span class="pill">Room DB</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj_quiz_desc">Developing a high-performance Android quiz engine
@@ -1107,17 +1070,14 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj_quiz_sol">Built with Java using MVVM, Room Database for local
                                         persistence, and a 'System Build' analysis engine.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://github.com/SalmasKit/QuizApp.git" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('quiz')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('quiz')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1127,15 +1087,15 @@
                             <div class="project-img">
                                 <img src="assets/images/Apps/Econgeamee/eCongeAmee.png"
                                     alt="eCongé AMEE - HR Management Portal">
+                                <div class="img-pills">
+                                    <span class="pill">PHP</span>
+                                    <span class="pill">MySQL</span>
+                                    <span class="pill">JavaScript</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj_amee_title">eCongé AMEE - HR Management</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">PHP</span>
-                                        <span class="pill">MySQL</span>
-                                        <span class="pill">JavaScript</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj_amee_desc">Modernizing HR workflows for a government agency by
@@ -1143,14 +1103,11 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj_amee_sol">Developed a full-stack PHP/MySQL portal with automated
                                         email notifications, interactive calendars, and admin analytics.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: flex-end; margin-top: 1.5rem; align-items: center;">
-                                    <button class="btn-details" onclick="openProjectModal('amee')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                <div class="project-links">
+                                    <button class="btn-details" onclick="openProjectModal('amee')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1159,15 +1116,15 @@
                         <div class="project-card glass reveal" data-category="desktop">
                             <div class="project-img">
                                 <img src="assets/images/Apps/Shifaa/Shifaa.png" alt="Shifaa Healthcare Hub">
+                                <div class="img-pills">
+                                    <span class="pill">JavaFX 21</span>
+                                    <span class="pill">MySQL</span>
+                                    <span class="pill">OpenPDF</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj6_title">Shifaa - Healthcare Hub</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">JavaFX 21</span>
-                                        <span class="pill">MySQL</span>
-                                        <span class="pill">OpenPDF</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj6_desc">Managing complex relationships between patients, doctors,
@@ -1175,17 +1132,14 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj6_sol">Developed a full-stack JavaFX desktop suite using DAOs for
                                         MySQL persistence and OpenPDF for medical reporting.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
-                                    <a href="https://github.com/SalmasKit/ShifaaApp" target="_blank" class="github-link"
-                                        style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                <div class="project-links">
+                                    <a href="https://github.com/SalmasKit/ShifaaApp" target="_blank"
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('proj6')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('proj6')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1195,15 +1149,15 @@
                             <div class="project-img">
                                 <img src="assets/images/Apps/Baytalhikma/bayt_al_hikma.png"
                                     alt="Bayt Al Hikma - Library Dashboard">
+                                <div class="img-pills">
+                                    <span class="pill">Python</span>
+                                    <span class="pill">Streamlit</span>
+                                    <span class="pill">Pandas</span>
+                                </div>
                             </div>
                             <div class="project-info">
                                 <div class="project-header">
                                     <h3 data-i18n="proj7_title">Bayt Al Hikma - Library System</h3>
-                                    <div class="tech-pills">
-                                        <span class="pill">Python</span>
-                                        <span class="pill">Streamlit</span>
-                                        <span class="pill">Pandas</span>
-                                    </div>
                                 </div>
                                 <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span
                                         data-i18n="proj7_desc">Designing a unified library engine with triple interface
@@ -1211,17 +1165,14 @@
                                 <p><span class="label" data-i18n="proj_solution">Solution:</span> <span
                                         data-i18n="proj7_sol">Built with Python, Streamlit, and Tkinter, featuring
                                         real-time data visualization and persistent file storage.</span></p>
-                                <div class="project-links"
-                                    style="display: flex; justify-content: space-between; margin-top: 1.5rem; align-items: center;">
+                                <div class="project-links">
                                     <a href="https://github.com/SalmasKit/libraryBaytAlHikmaApp" target="_blank"
-                                        class="github-link" style="margin-top: 0;"><i class="fab fa-github"></i> <span
+                                        class="github-link"><i class="fab fa-github"></i> <span
                                             data-i18n="proj_source">Source</span></a>
-                                    <button class="btn-details" onclick="openProjectModal('proj7')"
-                                        style="background: transparent; border: none; color: var(--accent-1-light); cursor: pointer; display: flex; align-items: center; gap: 0.4rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0; transition: all 0.3s ease;"
-                                        onmouseover="this.style.color='var(--text-primary)'; this.style.transform='translateX(4px)';"
-                                        onmouseout="this.style.color='var(--accent-1-light)'; this.style.transform='translateX(0)';"><span
-                                            data-i18n="proj_btn_details">See Details</span> <i
-                                            class="fas fa-arrow-right"></i></button>
+                                    <button class="btn-details" onclick="openProjectModal('proj7')">
+                                        <span data-i18n="proj_btn_details">See Details</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1229,11 +1180,9 @@
                     <button id="proj-next" class="side-nav-btn next"><i class="fas fa-chevron-right"></i></button>
                 </div> <!-- end gallery-container -->
 
-
-
-            </div>
             </div>
         </section>
+
 
         <!-- Certifications -->
         <section id="certs">
@@ -1464,7 +1413,8 @@
                             <div class="cert-info">
                                 <span class="cert-org">Simplilearn</span>
                                 <h3 data-i18n="cert_junit_title">JUnit Essentials</h3>
-                                <p data-i18n="cert_junit_desc">Mastering unit testing, test-driven development (TDD), and Java code quality with JUnit.</p>
+                                <p data-i18n="cert_junit_desc">Mastering unit testing, test-driven development (TDD),
+                                    and Java code quality with JUnit.</p>
                                 <div class="cert-meta">
                                     <div class="meta-item"><i class="fas fa-calendar-alt"></i> Apr 2026</div>
                                     <div class="meta-item">ID: 10152757</div>
@@ -1481,11 +1431,10 @@
                                         Credential</span></a>
                             </div>
                         </div> <!-- end cert-card -->
-                        </div> <!-- end cert-grid -->
-                        <button id="next-cert-page" class="side-nav-btn next"><i
-                                class="fas fa-chevron-right"></i></button>
-                    </div> <!-- end gallery-container -->
-                </div> <!-- end content -->
+                    </div> <!-- end cert-grid -->
+                    <button id="next-cert-page" class="side-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div> <!-- end gallery-container -->
+            </div> <!-- end content -->
         </section>
 
         <!-- Contact Footer -->
@@ -1650,22 +1599,19 @@
     <div id="cli-overlay" class="cli-overlay" role="dialog" aria-modal="true" aria-label="Developer Console">
         <div class="cli-modal glass">
             <div class="cli-header">
+                <div class="cli-title">Salma Barrak — Developer Console</div>
                 <div class="cli-controls">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+                    <div class="win-btn"><i class="fas fa-minus"></i></div>
+                    <div class="win-btn"><i class="far fa-square"></i></div>
+                    <div class="win-btn close"><i class="fas fa-times"></i></div>
                 </div>
-                <div class="cli-title">salma-barrak ~ developer_console — 80x24</div>
-                <button class="cli-close" onclick="toggleCLI()">
-                    <i class="fas fa-times"></i>
-                </button>
             </div>
             <div class="cli-body" id="cli-body">
-                <div class="cli-line intro" data-i18n="cli_intro">Type 'help' to see available commands. Welcome to
-                    Salma's Interactive Lab.</div>
+                <div class="cli-line intro">Type 'help' to see available commands. Welcome to Salma's Interactive Lab.
+                </div>
                 <div id="cli-output"></div>
                 <div class="cli-input-line">
-                    <span class="cli-prompt">visitor@salma-barrak:~$</span>
+                    <span class="cli-prompt">PS C:\Users\Salma></span>
                     <input type="text" id="cli-input" autofocus autocomplete="off" spellcheck="false">
                 </div>
             </div>
@@ -1694,7 +1640,10 @@
 
     <!-- GSAP ScrollTo Plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
+
+    <!-- Modular Features -->
+
 </body>
 
 </html>

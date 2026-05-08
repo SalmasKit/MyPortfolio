@@ -45,52 +45,132 @@ window.openResumeModal = () => openModal('resume-modal');
 window.closeResumeModal = () => closeModal('resume-modal');
 window.closeConfirmModal = () => closeModal('confirm-modal');
 window.closeGalleryModal = () => closeModal('gallery-modal');
-window.closeProjectModal = () => closeModal('project-modal');
 
-/**
- * Specifically handles Project Detail Modals
- */
+
 export function openProjectModal(projectId) {
-    const modal = document.getElementById('project-modal');
-    const title = document.getElementById('project-modal-title');
-    const content = document.getElementById('project-modal-content');
-    if (!modal || !content || !projectDetailsData[projectId]) return;
     const data = projectDetailsData[projectId];
-    const lang = document.documentElement.lang || 'en';
-    const translatedTitle = translations[lang][`proj_${projectId}_title`] || translations[lang][`${projectId}_title`] || projectId;
-    const translatedDesc = translations[lang][`proj_${projectId}_modal_desc`] || translations[lang][`${projectId}_modal_desc`] || translations[lang][`proj_${projectId}_desc`] || translations[lang][`${projectId}_desc`] || "";
-    title.innerHTML = `<i class="fas fa-project-diagram"></i> <span>${translatedTitle}</span>`;
-    let tagsHtml = data.tags.map(tag => `<span class="pill" style="font-size: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; color: var(--text-primary);">${tag}</span>`).join('');
+    if (!data) return;
+
+    const overlay = document.getElementById('project-page-overlay');
+    if (!overlay) return;
+
+    const lang = document.documentElement.getAttribute('lang') || 'en';
+    const t = translations[lang];
+
+    // Title
+    const tTitle = t[`proj_${projectId}_title`] || t[`${projectId}_title`] || projectId;
+    document.getElementById('page-title').innerText = tTitle;
+
+    // Tags
+    const tagsHtml = data.tags.map(tag => `<span class="pill">${tag}</span>`).join('');
+    document.getElementById('page-tags').innerHTML = tagsHtml;
+
+    // Structured description keys
+    const vision        = t[`proj_${projectId}_vision`]          || t[`${projectId}_vision`];
+    const features      = t[`proj_${projectId}_features`]        || t[`${projectId}_features`];
+    const bpIntro       = t[`proj_${projectId}_blueprint_intro`] || t[`${projectId}_blueprint_intro`];
+    const bpItems       = t[`proj_${projectId}_blueprint_items`] || t[`${projectId}_blueprint_items`];
+
+    const visionLabel    = t['proj_vision_title']    || 'Project Vision';
+    const featuresLabel  = t['proj_features_title']  || 'Core Features';
+    const blueprintLabel = t['proj_blueprint_title'] || 'Technical Blueprint';
+
+    if (vision || features || bpItems) {
+        let html = '';
+
+        if (vision) {
+            html += `
+                <div class="proj-section">
+                    <h3 class="proj-subtitle"><i class="fas fa-bullseye"></i> ${visionLabel}</h3>
+                    <p class="proj-text">${vision}</p>
+                </div>`;
+        }
+
+        if (features && Array.isArray(features)) {
+            const cardsHtml = features.map(f => `
+                <div class="proj-feature-card">
+                    <div class="proj-feature-icon"><i class="${f.icon}"></i></div>
+                    <div class="proj-feature-body">
+                        <h4 class="proj-feature-title">${f.title}</h4>
+                        <p class="proj-feature-text">${f.text}</p>
+                    </div>
+                </div>`).join('');
+            html += `
+                <div class="proj-section">
+                    <h3 class="proj-subtitle"><i class="fas fa-star"></i> ${featuresLabel}</h3>
+                    <div class="proj-feature-grid">${cardsHtml}</div>
+                </div>`;
+        }
+
+        if (bpItems && Array.isArray(bpItems)) {
+            const itemsHtml = bpItems.map(item => `
+                <li class="proj-blueprint-item">
+                    <i class="fas fa-check-circle proj-blueprint-icon"></i>
+                    <span><strong>${item.title}:</strong> ${item.text}</span>
+                </li>`).join('');
+            html += `
+                <div class="proj-section">
+                    <h3 class="proj-subtitle"><i class="fas fa-cogs"></i> ${blueprintLabel}</h3>
+                    <div class="proj-blueprint">
+                        ${bpIntro ? `<p class="proj-blueprint-text">${bpIntro}</p>` : ''}
+                        <ul class="proj-blueprint-list">${itemsHtml}</ul>
+                    </div>
+                </div>`;
+        }
+
+        document.getElementById('page-desc').innerHTML = html;
+    } else {
+        // Legacy fallback for any project still using raw HTML desc
+        const tDesc = t[`proj_${projectId}_modal_desc`] || t[`${projectId}_modal_desc`]
+                   || t[`proj_${projectId}_desc`]       || t[`${projectId}_desc`]       || '';
+        document.getElementById('page-desc').innerHTML = tDesc;
+    }
+
+    // Media
     if (projectId === 'amee') {
-        let imagesHtml = '';
         const ameeImages = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10-1.png', '10.png', '11.png', '12.png', '13.png', '14.png', '15.png'];
         const basePath = 'assets/images/Apps/Econgeamee';
-        imagesHtml = ameeImages.map(img => `
+        const imagesHtml = ameeImages.map(img => `
             <div class="carousel-slide" onclick="window.open('${basePath}/${img}', '_blank')" style="cursor: pointer;">
                 <img src="${basePath}/${img}" alt="${projectId} UI">
-            </div>
-        `).join('');
+            </div>`).join('');
 
-        content.innerHTML = `
+        document.getElementById('page-media').innerHTML = `
             <div class="carousel-wrapper">
-                <div class="carousel-track" id="project-carousel-track">
-                    ${imagesHtml}
-                </div>
-                <button class="carousel-btn prev" onclick="const t = this.parentElement.querySelector('#project-carousel-track'); t.scrollBy({left: -t.offsetWidth, behavior: 'smooth'})">❮</button>
-                <button class="carousel-btn next" onclick="const t = this.parentElement.querySelector('#project-carousel-track'); t.scrollBy({left: t.offsetWidth, behavior: 'smooth'})">❯</button>
-            </div>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">${tagsHtml}</div>
-            <div class="project-modal-desc" style="width: 100%; text-align: left;">${translatedDesc}</div>
-        `;
+                <div class="carousel-track" id="project-carousel-track">${imagesHtml}</div>
+                <button class="carousel-btn prev" onclick="const t = document.getElementById('project-carousel-track'); t.scrollBy({left: -t.offsetWidth, behavior: 'smooth'})"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next" onclick="const t = document.getElementById('project-carousel-track'); t.scrollBy({left: t.offsetWidth, behavior: 'smooth'})"><i class="fas fa-chevron-right"></i></button>
+            </div>`;
     } else {
-        content.innerHTML = `${data.media}<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">${tagsHtml}</div>
-            <div class="project-modal-desc" style="margin-top: 1rem;">${translatedDesc}</div>`;
+        document.getElementById('page-media').innerHTML = data.media;
     }
-    modal.classList.add('active');
+
+    // Show overlay
+    overlay.style.display = 'block';
+    void overlay.offsetWidth;
+    overlay.style.opacity = '1';
     document.body.style.overflow = 'hidden';
+
+    // Reset scroll positions
+    const detailsContainer = overlay.querySelector('.split-details');
+    if (detailsContainer) detailsContainer.scrollTop = 0;
+    overlay.scrollTop = 0;
 }
 
+
 window.openProjectModal = openProjectModal;
+
+export function closeProjectOverlay() {
+    const overlay = document.getElementById('project-page-overlay');
+    if (!overlay) return;
+    
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+    }, 400); // match transition duration
+}
+window.closeProjectOverlay = closeProjectOverlay;
 
 export function openGallery(type) {
     const modal = document.getElementById('gallery-modal');
@@ -142,6 +222,10 @@ export function openGallery(type) {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Reset scroll position
+    const modalContent = modal.querySelector('.modal-content');
+    if (modalContent) modalContent.scrollTop = 0;
 }
 
 function closeGalleryModal() {
@@ -180,6 +264,10 @@ export function openPdfViewer(titleKey, pdfUrl, iconClass = 'fa-file-pdf') {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Reset scroll position
+    const modalContent = modal.querySelector('.modal-content');
+    if (modalContent) modalContent.scrollTop = 0;
 }
 
 window.openGallery = openGallery;

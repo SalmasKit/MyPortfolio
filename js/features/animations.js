@@ -115,6 +115,8 @@ export class PortfolioScene {
                 }
             });
         };
+        // Start the carousel immediately
+        window.playStatsCarousel();
     }
 
     setupEventListeners() {

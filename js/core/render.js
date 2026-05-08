@@ -3,13 +3,13 @@
  * Dynamic UI Rendering Engine
  */
 
-import { 
-    techStack, 
-    projectData, 
-    certData, 
-    educationData, 
-    experienceData, 
-    volunteerData 
+import {
+    techStack,
+    projectData,
+    certData,
+    educationData,
+    experienceData,
+    volunteerData
 } from './data.js';
 
 export function renderEducation() {
@@ -179,7 +179,7 @@ export function renderTechIDE() {
         const viewDiv = document.createElement('div');
         viewDiv.className = 'code-view';
         viewDiv.id = `view-${cat.id}`;
-        
+
         let contentHtml = '';
         if (cat.subCategories) {
             contentHtml = `<div class="line"><span class="num">1</span> <span class="kw">{</span></div>`;
@@ -187,7 +187,7 @@ export function renderTechIDE() {
             cat.subCategories.forEach((sub, subIdx) => {
                 contentHtml += `<div class="line"><span class="num">${lineNum++}</span> <span class="key" style="color: ${cat.color}">"<span data-i18n="${sub.key}">${sub.key}</span>"</span>: <span class="kw" style="color: ${cat.color}">[</span></div>`;
                 sub.items.forEach(item => {
-                    contentHtml += `<div class="line pl"><span class="num">${lineNum++}</span> <i class="${item.icon} code-icn"></i> <span class="str">"${item.name}"</span>${item === sub.items[sub.items.length-1] ? '' : ','}</div>`;
+                    contentHtml += `<div class="line pl"><span class="num">${lineNum++}</span> <i class="${item.icon} code-icn"></i> <span class="str">"${item.name}"</span>${item === sub.items[sub.items.length - 1] ? '' : ','}</div>`;
                 });
                 contentHtml += `<div class="line"><span class="num">${lineNum++}</span> <span class="kw">]</span>${subIdx === cat.subCategories.length - 1 ? '' : ','}</div>`;
             });
@@ -219,41 +219,51 @@ export function renderProjects() {
     grid.innerHTML = projectData.map(proj => {
         const techsHtml = proj.techs.map(t => `<span class="pill">${t}</span>`).join('');
         const pillsOverlay = `<div class="img-pills">${techsHtml}</div>`;
+        const sourceLinks = `
+            ${proj.github ? `<a href="${proj.github}" target="_blank" class="github-link"><i class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>` : ''}
+            ${proj.gitlab ? `<a href="${proj.gitlab}" target="_blank" class="github-link"><i class="fab fa-gitlab"></i> <span data-i18n="proj_source">Source</span></a>` : ''}
+        `;
+
+        const clickHint = `
+            <div class="click-hint">
+                <i class="fas fa-search-plus"></i>
+                <span data-i18n="proj_click_hint">Click to view details</span>
+            </div>
+        `;
 
         let imgHtml = '';
         if (proj.comingSoon) {
             imgHtml = `<div class="project-img">
                 <div class="coming-soon-wrapper"><span data-i18n="proj_coming_soon">Coming Soon</span></div>
                 ${pillsOverlay}
+                ${sourceLinks}
+                ${clickHint}
             </div>`;
         } else if (proj.imgs) {
             imgHtml = `<div class="project-img triple-img">
                 ${proj.imgs.map(img => `<img src="${img}" alt="${proj.id}">`).join('')}
                 ${pillsOverlay}
+                ${sourceLinks}
+                ${clickHint}
             </div>`;
         } else {
             imgHtml = `<div class="project-img">
                 <img src="${proj.img}" alt="${proj.id}">
                 ${pillsOverlay}
+                ${sourceLinks}
+                ${clickHint}
             </div>`;
         }
 
         return `
-            <div class="project-card glass reveal" data-category="${proj.category}">
-                ${imgHtml}
+            <div class="project-card glass reveal" data-category="${proj.category}" onclick="openProjectModal('${proj.id}')">
+                ${imgHtml.replace(/class="github-link"/g, 'class="github-link" onclick="event.stopPropagation()"')}
                 <div class="project-info">
                     <div class="project-header">
                         <h3 data-i18n="proj_${proj.id}_title">Title</h3>
                     </div>
                     <p><span class="label" data-i18n="proj_challenge">Challenge:</span> <span data-i18n="proj_${proj.id}_desc">Desc</span></p>
                     <p><span class="label" data-i18n="proj_solution">Solution:</span> <span data-i18n="proj_${proj.id}_sol">Sol</span></p>
-                    <div class="project-links">
-                        ${proj.github ? `<a href="${proj.github}" target="_blank" class="github-link"><i class="fab fa-github"></i> <span data-i18n="proj_source">Source</span></a>` : ''}
-                        ${proj.gitlab ? `<a href="${proj.gitlab}" target="_blank" class="github-link"><i class="fab fa-gitlab"></i> <span data-i18n="proj_source">Source</span></a>` : ''}
-                        <button class="btn-details" onclick="openProjectModal('${proj.id}')">
-                            <span data-i18n="proj_btn_details">See Details</span> <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         `;

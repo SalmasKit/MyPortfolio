@@ -437,6 +437,11 @@
     margin: 1.5rem 0 0;
   }
 
+  .ide-container {
+    flex-direction: column;
+    height: auto;
+  }
+
   /* Sidebar becomes a 4-column icon+label grid */
   .ide-sidebar {
     display: grid;
@@ -520,6 +525,12 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
+  }
+
+  .line {
+    white-space: normal;
+    word-break: break-all;
+    padding-left: 1.5rem;
   }
 
   /* Hide line numbers on very small screens */
@@ -658,4 +669,18 @@ body.light-mode .num {
 /* Neutral icons for stack items in light mode */
 body.light-mode .code-icn {
   color: #000000 !important;
+}
+
+/* --- Final Visibility Overrides (Ensures content shows on mobile) --- */
+#tab-lan:checked~.ide-editor .editor-content #view-lan,
+#tab-fw:checked~.ide-editor .editor-content #view-fw,
+#tab-db:checked~.ide-editor .editor-content #view-db,
+#tab-sys:checked~.ide-editor .editor-content #view-sys,
+#tab-ai:checked~.ide-editor .editor-content #view-ai,
+#tab-dev:checked~.ide-editor .editor-content #view-dev,
+#tab-soft:checked~.ide-editor .editor-content #view-soft {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  z-index: 50 !important;
 }

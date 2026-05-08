@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Salma Barrak</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="translations.js"></script>
+</head>
+
+<body>
+    <main class="project-split-layout">
+        <!-- Left Part: Fixed Media -->
+        <div class="split-media">
+            <div class="media-container" id="page-media"></div>
+        </div>
+
+        <!-- Right Part: Scrollable Details -->
+        <div class="split-details">
+            <a href="index.html#projects" class="back-link"
+                onclick="if(document.referrer.includes(window.location.host)) { event.preventDefault(); history.back(); }"><i
+                    class="fas fa-arrow-left"></i> <span data-i18n="btn_back">Back</span></a>
+
+            <h1 id="page-title">Loading...</h1>
+            <div class="project-tags" id="page-tags"></div>
+            <div class="project-desc" id="page-desc"></div>
+
+        </div>
+    </main>
+
+    <script type="module">
+        import { projectDetailsData } from './js/core/projects-data.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('id');
+            const data = projectDetailsData[projectId];
+
+            if (!projectId || !data) {
+                document.getElementById('page-title').innerText = "Project Not Found";
+                document.getElementById('page-desc').innerText = "The requested module could not be loaded or does not exist.";
+                return;
+            }
+
+            const lang = localStorage.getItem('portfolio_lang') || 'en';
+
+            const updateContent = (l) => {
+                const tTitle = translations[l][`proj_${projectId}_title`] || translations[l][`${projectId}_title`] || projectId;
+                
+                document.getElementById('page-title').innerText = tTitle;
+                document.title = `${tTitle} | Salma Barrak`;
+
+                // Handle Structured Description Sections
+                const vision = translations[l][`proj_${projectId}_vision`] || translations[l][`${projectId}_vision`];
+                const features = translations[l][`proj_${projectId}_features`] || translations[l][`${projectId}_features`];
+                const blueprintIntro = translations[l][`proj_${projectId}_blueprint_intro`] || translations[l][`${projectId}_blueprint_intro`];
+                const blueprintItems = translations[l][`proj_${projectId}_blueprint_items`] || translations[l][`${projectId}_blueprint_items`];
+
+                if (vision || features || blueprintItems) {
+                    let html = '';
+                    
+                    if (vision) {
+                        html += `
+                            <div class="proj-section">
+                                <h3 class="proj-subtitle"><i class="fas fa-bullseye"></i> <span data-i18n="proj_vision_title">${translations[l].proj_vision_title || 'Project Vision'}</span></h3>
+                                <p class="proj-text">${vision}</p>
+                            </div>
+                        `;
+                    }
+
+                    if (features && Array.isArray(features)) {
+                        const featuresHtml = features.map(f => `
+                            <div class="proj-feature-card">
+                                <div class="proj-feature-icon"><i class="${f.icon}"></i></div>
+                                <div class="proj-feature-body">
+                                    <h4 class="proj-feature-title">${f.title}</h4>
+                                    <p class="proj-feature-text">${f.text}</p>
+                                </div>
+                            </div>
+                        `).join('');
+                        
+                        html += `
+                            <div class="proj-section">
+                                <h3 class="proj-subtitle"><i class="fas fa-star"></i> <span data-i18n="proj_features_title">${translations[l].proj_features_title || 'Core Features'}</span></h3>
+                                <div class="proj-feature-grid">${featuresHtml}</div>
+                            </div>
+                        `;
+                    }
+
+                    if (blueprintItems && Array.isArray(blueprintItems)) {
+                        const itemsHtml = blueprintItems.map(item => `
+                            <li class="proj-blueprint-item">
+                                <i class="fas fa-check-circle proj-blueprint-icon"></i>
+                                <span><strong>${item.title}:</strong> ${item.text}</span>
+                            </li>
+                        `).join('');
+
+                        html += `
+                            <div class="proj-section">
+                                <h3 class="proj-subtitle"><i class="fas fa-cogs"></i> <span data-i18n="proj_blueprint_title">${translations[l].proj_blueprint_title || 'Technical Blueprint'}</span></h3>
+                                <div class="proj-blueprint">
+                                    ${blueprintIntro ? `<p class="proj-blueprint-text">${blueprintIntro}</p>` : ''}
+                                    <ul class="proj-blueprint-list">${itemsHtml}</ul>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    document.getElementById('page-desc').innerHTML = html;
+                } else {
+                    // Fallback to old behavior for raw HTML descriptions
+                    let tDesc = translations[l][`proj_${projectId}_modal_desc`] || translations[l][`${projectId}_modal_desc`] || translations[l][`proj_${projectId}_desc`] || translations[l][`${projectId}_desc`] || "";
+                    document.getElementById('page-desc').innerHTML = tDesc;
+                }
+
+                document.querySelectorAll('[data-i18n]').forEach(elem => {
+                    const key = elem.getAttribute('data-i18n');
+                    const translation = translations[l][key];
+                    if (translation && elem.id !== 'page-desc' && !elem.closest('.proj-section')) {
+                        elem.innerHTML = translation;
+                    }
+                });
+
+                document.querySelectorAll('.lang-switcher button').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('onclick')?.includes(`'${l}'`)) btn.classList.add('active');
+                });
+            };
+
+            const tagsHtml = data.tags.map(tag => `<span class="pill">${tag}</span>`).join('');
+            document.getElementById('page-tags').innerHTML = tagsHtml;
+
+            if (projectId === 'amee') {
+                const ameeImages = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10-1.png', '10.png', '11.png', '12.png', '13.png', '14.png', '15.png'];
+                const basePath = 'assets/images/Apps/Econgeamee';
+                const imagesHtml = ameeImages.map(img => `
+                    <div class="carousel-slide" onclick="window.open('${basePath}/${img}', '_blank')" style="cursor: pointer;">
+                        <img src="${basePath}/${img}" alt="${projectId} UI">
+                    </div>
+                `).join('');
+
+                document.getElementById('page-media').innerHTML = `
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track" id="project-carousel-track">
+                            ${imagesHtml}
+                        </div>
+                        <button class="carousel-btn prev" onclick="const t = document.getElementById('project-carousel-track'); t.scrollBy({left: -t.offsetWidth, behavior: 'smooth'})"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn next" onclick="const t = document.getElementById('project-carousel-track'); t.scrollBy({left: t.offsetWidth, behavior: 'smooth'})"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                `;
+            } else {
+                document.getElementById('page-media').innerHTML = data.media;
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -54,16 +54,16 @@ export function initMobileMenu() {
 export function initLanguageSwitcher() {
     window.switchLanguage = (lang) => {
         if (!translations[lang]) return;
-        
+
         localStorage.setItem('portfolio_lang', lang);
-        
+
         document.querySelectorAll('.lang-switcher button').forEach(btn => {
             btn.classList.remove('active');
             if (btn.getAttribute('onclick').includes(`'${lang}'`)) btn.classList.add('active');
         });
 
         document.documentElement.setAttribute('lang', lang);
-        
+
         document.querySelectorAll('[data-i18n]').forEach(elem => {
             const key = elem.getAttribute('data-i18n');
             const translation = translations[lang][key];
@@ -87,8 +87,8 @@ export function initLanguageSwitcher() {
             resBtn.setAttribute('download', translations[lang].resume_name);
         }
 
-        document.title = lang === 'fr' ? "Salma Barrak | Ingénieur Informatique" : "Salma Barrak | Software Engineer";
-        
+        document.title = lang === 'fr' ? "Salma Barrak | Étudiante en génie Informatique" : "Salma Barrak | Software Engineering Student";
+
         // Trigger Stats Carousel update
         if (typeof window.playStatsTyper === 'function') window.playStatsTyper();
         if (typeof window.playStatsCarousel === 'function') window.playStatsCarousel();
@@ -105,7 +105,11 @@ export function initSmoothScroll() {
             e.preventDefault();
             const target = e.currentTarget.getAttribute('href');
             if (target && target.startsWith('#')) {
-                gsap.to(window, { duration: 1.5, scrollTo: target, ease: "power4.inOut" });
+                const section = document.querySelector(target);
+                const title = section ? section.querySelector('.section-title') : null;
+                const scrollTarget = title ? title : target;
+
+                gsap.to(window, { duration: 1.5, scrollTo: { y: scrollTarget, offsetY: 100 }, ease: "power4.inOut" });
             }
         });
     });
@@ -138,4 +142,17 @@ export function initScrollSpy() {
     });
 
     sections.forEach(section => observer.observe(section));
+}
+
+export function initTechTabs() {
+    const radios = document.querySelectorAll('.ide-radio');
+    const editorContent = document.querySelector('.editor-content');
+
+    if (radios.length > 0 && editorContent) {
+        radios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                editorContent.scrollTop = 0;
+            });
+        });
+    }
 }

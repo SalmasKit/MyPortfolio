@@ -12,7 +12,8 @@ import {
     initMobileMenu,
     initLanguageSwitcher,
     initSmoothScroll,
-    initScrollSpy
+    initScrollSpy,
+    initTechTabs
 } from './js/features/ui.js';
 
 // Global Initialization
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initSmoothScroll();
     initScrollSpy();
+    initTechTabs();
 
     // 2. Initialize Core Systems (3D Scene, Loader)
     const scene = new PortfolioScene();

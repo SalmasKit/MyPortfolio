@@ -245,4 +245,40 @@ footer p {
   }
 }
 
+/* Shared Pill Styles (used in Certifications and other sections) */
+.tech-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.7rem 0;
+}
+
+.pill {
+  padding: 0.3rem 0.8rem;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--accent-1-light);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Shared Source/External Link Style */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.github-link:hover {
+  color: var(--accent-1);
+  transform: translateX(3px);
+}
+
 /* --- Interactive Terminal (CLI) Styles --- */

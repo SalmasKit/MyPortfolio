@@ -288,16 +288,35 @@
 }
 
 @media (max-width: 768px) {
+  .pr-header {
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
   .pr-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .pr-meta {
+    font-size: 11px;
   }
 
   .pr-comment {
     flex-direction: column;
+    gap: 0.8rem;
   }
 
   .pr-avatar {
-    margin-left: -5px;
+    margin-left: 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .pr-avatar img {
+    width: 32px;
+    height: 32px;
   }
 
   .pr-comment-box::before,
@@ -306,7 +325,36 @@
   }
 
   .pr-timeline::before {
-    left: 13px;
+    left: 15px;
+  }
+
+  .pr-timeline-event {
+    margin-left: 4px;
+    gap: 10px;
+  }
+
+  .pr-comment-header {
+    padding: 6px 10px;
+    font-size: 11px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .pr-comment-body {
+    padding: 10px;
+    font-size: 12.5px;
+  }
+
+  .pr-attachments {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pr-file {
+    width: 100%;
+    justify-content: center;
   }
 }
 

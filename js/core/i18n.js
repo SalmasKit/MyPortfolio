@@ -45,9 +45,9 @@ export function switchLanguage(lang) {
     }
 
     // Update Title
-    document.title = lang === 'fr' 
-        ? "Salma Barrak | Ingénieur Informatique" 
-        : "Salma Barrak | Software Engineer";
+    document.title = lang === 'fr'
+        ? "Salma Barrak | Étudiante en génie Informatique"
+        : "Salma Barrak | Software Engineering Student";
 
     // Trigger other UI updates if necessary
     if (typeof window.playStatsTyper === 'function') window.playStatsTyper();

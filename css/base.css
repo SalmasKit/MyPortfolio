@@ -79,6 +79,19 @@ body {
   /* Custom cursor implementation */
 }
 
+/* Hide custom cursor on devices that support touch */
+@media (hover: none) and (pointer: coarse) {
+
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+}
+
 /* Cinematic Grain Overlay */
 body::after {
   content: "";
@@ -141,10 +154,11 @@ body.modal-open .cursor-outline {
 /* Main Layout */
 section {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(5rem, 15vh, 12rem) 6%;
+  padding: clamp(4rem, 12vh, 10rem) 6%;
   position: relative;
 }
 
@@ -185,9 +199,10 @@ h2.section-title::after {
 
 /* Buttons & CTAs */
 .cta-group {
-  margin-top: 3rem;
+  margin-top: 2rem;
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .btn-primary {
@@ -283,12 +298,32 @@ footer p {
 /* Responsive Scaling */
 @media (max-width: 1024px) {
   h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 8vw, 4rem);
   }
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 6rem 5% 4rem;
+    padding: 5rem 5% 3rem;
+  }
+
+  h2.section-title {
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-group {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+
+  section {
+    padding: 4rem 4% 2rem;
   }
 }

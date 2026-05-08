@@ -196,4 +196,24 @@ nav {
     font-size: 1.5rem;
     color: var(--text-primary);
   }
+
+  nav {
+    padding: 0.8rem 5%;
+  }
+
+  .nav-actions {
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+  
+  .lang-switcher button {
+    width: 26px;
+    height: 26px;
+    font-size: 0.6rem;
+  }
 }

@@ -18,7 +18,7 @@ export const projectDetailsData = {
     soukify: {
         tags: ["Android SDK", "Java", "Firebase", "OpenStreetMap", "Cloudinary", "MVVM"],
         media: `
-            <div style="flex-shrink: 0; display: flex; justify-content: center;">
+            <div style="flex-shrink: 0; display: flex; justify-content: center; width: 100%;">
                 <div style="position: relative; width: 240px; background: linear-gradient(145deg, #1c1c2e, #12121f); border-radius: 36px; padding: 12px 8px 6px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 0 3px #0a0a14, 0 0 0 4px rgba(255,255,255,0.06), 0 24px 60px rgba(0,0,0,0.9);">
                     <div style="position:absolute;left:-3px;top:70px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
                     <div style="position:absolute;left:-3px;top:104px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
@@ -27,7 +27,7 @@ export const projectDetailsData = {
                         <div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:14px;background:#000;border-radius:20px;z-index:10;box-shadow:0 0 0 1px rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:flex-end;padding-right:6px;">
                             <div style="width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);"></div>
                         </div>
-                        <div style="overflow:hidden; max-height:480px;">
+                        <div style="overflow:hidden; max-height: 480px;">
                             <video src="assets/images/Apps/Soukify/SOUKIFY%20Demo.mp4" controls autoplay loop muted playsinline style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ export const projectDetailsData = {
     quiz: {
         tags: ["Java 8+", "Android SDK", "MVVM", "Room DB", "Retrofit 2", "Material Design 3"],
         media: `
-            <div style="flex-shrink: 0; display: flex; justify-content: center;">
+            <div style="flex-shrink: 0; display: flex; justify-content: center; width: 100%;">
                 <div style="position: relative; width: 240px; background: linear-gradient(145deg, #1c1c2e, #12121f); border-radius: 36px; padding: 12px 8px 6px; box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 0 3px #0a0a14, 0 0 0 4px rgba(255,255,255,0.06), 0 24px 60px rgba(0,0,0,0.9);">
                     <div style="position:absolute;left:-3px;top:70px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
                     <div style="position:absolute;left:-3px;top:104px;width:3px;height:24px;background:linear-gradient(to right,#0a0a14,#1c1c2e);border-radius:3px 0 0 3px;"></div>
@@ -82,7 +82,7 @@ export const projectDetailsData = {
                         <div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:14px;background:#000;border-radius:20px;z-index:10;box-shadow:0 0 0 1px rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:flex-end;padding-right:6px;">
                             <div style="width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);"></div>
                         </div>
-                        <div style="overflow:hidden; max-height:480px;">
+                        <div style="overflow:hidden; max-height: 480px;">
                             <video src="assets/images/Apps/Quiz/QUIZAPPDEMO.mp4" controls autoplay loop muted playsinline oncanplay="this.playbackRate = 1.75" onvolumechange="this.muted = true;" style="width:100%;display:block;object-fit:cover;margin-top:-20px;"></video>
                         </div>
                     </div>

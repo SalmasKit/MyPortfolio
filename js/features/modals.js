@@ -202,6 +202,8 @@ export function openGallery(type) {
         content.innerHTML = `
             <p style="color: var(--text-secondary); margin-bottom: 1rem;" data-i18n="gallery_events_desc">${t.gallery_events_desc || 'A showcase of large-scale club events and high-stakes technical competitions.'}</p>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: center;">
+                <img src="assets/images/Events/MIATHON'03.png" alt="MIATHON'03" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <img src="assets/images/Events/SEMIA'04.jpg" alt="SEMIA'04" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <img src="assets/images/Events/SEMIA'03.jpg" alt="SEMIA'03" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <img src="assets/images/Events/TechConnect2.png" alt="Tech Connect 2" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <img src="assets/images/Events/TechConnect.png" alt="Tech Connect" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px; border: 1px solid var(--glass-border); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">

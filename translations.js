@@ -469,7 +469,7 @@ const translations = {
             { title: "React Frontend", text: "Modern component-based layout simulating individual robot features like Voice Chat, Calendar, and Medications." },
             { title: "SQLite Storage", text: "Lightweight local persistence database storing simulated medication reports, game high-scores, and alerts." }
         ],
-        proj_cdg_capital_title: "Financial Analysis Terminal · AI Assistant (MIATHON'03)",
+        proj_cdg_capital_title: "Financial Analysis Terminal · AI Assistant",
         proj_cdg_capital_desc: "High-performance automated financial analysis terminal that processes Moroccan PCGE financial statements, extracts data using Claude 3.5, and provides an interactive financial chat assistant. Idea by CDG Capital for MIATHON'03 Hackathon.",
         proj_cdg_capital_sol: "Developed a FastAPI backend with pdfplumber and Claude 3.5 to parse dense PDF reports, paired with a React + Tailwind CSS v4 dashboard.",
         proj_cdg_capital_vision: "The CDG Capital Financial Intelligence Terminal is a cutting-edge platform designed to automate the analysis of financial statements (both individual and consolidated) according to Moroccan standards (PCGE). By integrating generative AI, it transforms complex PDF annual reports and financial declarations into strategic, actionable insights. The system also includes an AMMC web scraper that automatically collects and ingests public reports on a regular basis, saving hours of manual data entry.",
@@ -1034,7 +1034,7 @@ const translations = {
             { title: "Frontend React", text: "Composants React interactifs simulant les panneaux du robot (Voice Chat, Calendrier, Capteurs, Médicaments)." },
             { title: "Persistance SQLite", text: "Base de données locale SQLite stockant l'historique des alertes, les scores des devinettes et les plannings simulés." }
         ],
-        proj_cdg_capital_title: "Terminal d'Analyse Financière · Assistant IA (MIATHON'03)",
+        proj_cdg_capital_title: "Terminal d'Analyse Financière · Assistant IA",
         proj_cdg_capital_desc: "Terminal d'analyse financière automatisé à haute performance pour le traitement des états financiers marocains (PCGE) avec extraction par Claude 3.5 et assistant IA. Idée par CDG Capital pour le hackathon MIATHON'03.",
         proj_cdg_capital_sol: "Développement d'un backend FastAPI avec pdfplumber et Claude 3.5 pour parser les liasses fiscales et rapports denses, connecté à un tableau de bord React + Tailwind CSS v4.",
         proj_cdg_capital_vision: "Le Terminal d'Intelligence Financière CDG Capital est une plateforme de pointe conçue pour automatiser l'analyse des états financiers (comptes sociaux et consolidés) selon les normes marocaines (PCGE). Grâce à l'intégration de l'IA générative (Claude 3.5), il transforme des rapports PDF complexes en insights stratégiques actionnables. La solution intègre également un scraper AMMC asynchrone en arrière-plan qui collecte et traite automatiquement les nouveaux rapports officiels réguliers.",

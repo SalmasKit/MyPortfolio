@@ -18,8 +18,7 @@ const SOL = {
     querypix: ['proj5_sol', 'proj_querypix_sol'],
     amee: ['proj_amee_sol'],
     shifaa: ['proj6_sol', 'proj_shifaa_sol'],
-    bayt: ['proj7_sol', 'proj_bayt_sol'],
-    portfolio: ['proj_portfolio_sol']
+    bayt: ['proj7_sol', 'proj_bayt_sol']
 };
 
 const CAT_ICON = { web: 'fa-globe', ai: 'fa-brain', mobile: 'fa-mobile-screen', desktop: 'fa-desktop' };
@@ -38,8 +37,7 @@ const PROJ_ICONS = {
     querypix: 'fa-image',
     amee: 'fa-calendar-check',
     shifaa: 'fa-hospital',
-    bayt: 'fa-book-bookmark',
-    portfolio: 'fa-laptop-code'
+    bayt: 'fa-book-bookmark'
 };
 
 const getSol = id => {

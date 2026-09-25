@@ -46,7 +46,7 @@ if (typeof translations === 'undefined') window.translations = { en: {}, fr: {} 
             proj_shifaa_sol: 'JavaFX 21 MVC with multi-user roles, OpenPDF reporting and a fully relational MySQL backend.',
             proj_bayt_sol: 'Python + Streamlit UI with a Pandas data layer and dual web/CLI interfaces for library management.',
             proj_portfolio_sol: 'Modular vanilla JS with partial HTML loading, i18n, dark mode, EmailJS and a custom animation engine.',
-            stat_projects: '13+ Engineering Projects', stat_techs: '15+ Tools', stat_certs: '9 Certifications', stat_intern: '2 Internships',
+            stat_projects: '12+ Engineering Projects', stat_techs: '15+ Tools', stat_certs: '9 Certifications', stat_intern: '2 Internships',
             tech_cat_lan: 'Languages', tech_cat_fw: 'Frameworks', tech_cat_db: 'Databases', tech_cat_ai: 'AI & Data', tech_cat_sys_net: 'Systems & Networks', tech_cat4: 'Tools & IDEs', tech_cat7: 'Agile', tech_cat3: 'Soft skills', lang_label: 'Languages',
             soft_agile: 'Agile', soft_scrum: 'Scrum', soft_jira: 'Jira', soft_communication: 'Communication', soft_teamwork: 'Teamwork', soft_problem_solving: 'Problem Solving', soft_adaptability: 'Adaptability',
             lang_arabic: 'Arabic (Native)', lang_french: 'French (B2)', lang_english: 'English (C1)',
@@ -71,8 +71,7 @@ if (typeof translations === 'undefined') window.translations = { en: {}, fr: {} 
             ['querypix', 'ai', A + 'Cbir/Cbir.png', ['proj5_title', 'proj5_desc'], ['Scikit-learn', 'Pandas', 'NumPy'], 'https://github.com/SalmasKit/QueryPix-CBIRApp'],
             ['amee', 'web', A + 'Econgeamee/3.png', ['proj_amee_title', 'proj_amee_desc'], ['PHP', 'MySQL', 'JavaScript'], null],
             ['shifaa', 'desktop', A + 'Shifaa/Shifaa.png', ['proj6_title', 'proj6_desc'], ['JavaFX 21', 'MySQL', 'OpenPDF'], 'https://github.com/SalmasKit/ShifaaApp'],
-            ['bayt', 'desktop', A + 'Baytalhikma/bayt_al_hikma.png', ['proj7_title', 'proj7_desc'], ['Python', 'Streamlit', 'Pandas'], 'https://github.com/SalmasKit/libraryBaytAlHikmaApp'],
-            ['portfolio', 'web', A + 'Portfolio/portfolio_mockup.png', ['proj_portfolio_title', 'proj_portfolio_desc'], ['Vanilla JS', 'CSS3'], 'https://github.com/SalmasKit/MyPortfolio']
+            ['bayt', 'desktop', A + 'Baytalhikma/bayt_al_hikma.png', ['proj7_title', 'proj7_desc'], ['Python', 'Streamlit', 'Pandas'], 'https://github.com/SalmasKit/libraryBaytAlHikmaApp']
         ];
         const STACK = [
             ['tech_cat_lan', ['Java', 'Python', 'JavaScript', 'HTML5/CSS3', 'PHP', 'C#']],
@@ -111,6 +110,5 @@ if (typeof translations === 'undefined') window.translations = { en: {}, fr: {} 
             querypix: { k: 'proj5', v: 'Cbir/CBIRDEMO.mp4' },
             amee: { k: 'proj_amee', b: 'Econgeamee', i: [...rng(1, 9).map(n => n + '.png'), '10-1.png', ...rng(10, 15).map(n => n + '.png')] },
             shifaa: { k: 'proj6', v: 'Shifaa/SHIFAADEMO.mp4' },
-            bayt: { k: 'proj7', v: 'Baytalhikma/BAYTALHIKMADEMO.mp4' },
-            portfolio: { k: 'proj_portfolio' }
+            bayt: { k: 'proj7', v: 'Baytalhikma/BAYTALHIKMADEMO.mp4' }
         };

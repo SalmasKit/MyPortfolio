@@ -62,7 +62,7 @@ if (typeof translations === 'undefined') window.translations = { en: {}, fr: {} 
             ['afriqai', 'web', A + 'FeedbackAnalyzer/FeedbackAnalyzer.png', ['proj_afriqai_title', 'proj_afriqai_desc'], ['Spring Boot', 'FastAPI', 'Generative AI'], 'https://gitlab.com/pfa353013'],
             ['jira', 'web', A + 'Jira/jira_clone.png', ['proj1_title', 'proj1_desc'], ['Spring Boot', 'React', 'PostgreSQL'], 'https://gitlab.com/formations2026/gera-back'],
             ['stockify', 'web', A + 'Stockify/Stockify.png', ['stockify_title', 'stockify_desc'], ['Symfony 7', 'PHP 8.2', 'MySQL'], 'https://github.com/SalmasKit/StockifyApp'],
-            ['cdg', 'web', A + 'CDG/cdg.png', ['proj_cdg_capital_title', 'proj_cdg_capital_desc'], ['FastAPI', 'React', 'Generative AI'], 'https://github.com/SalmasKit/cdgc-financial-assistant'],
+            ['cdg', 'ai', A + 'CDG/cdg.png', ['proj_cdg_capital_title', 'proj_cdg_capital_desc'], ['FastAPI', 'React', 'Generative AI'], 'https://github.com/SalmasKit/cdgc-financial-assistant'],
             ['chatbot', 'ai', A + 'Chatbotmso/chatbot_mso.png', ['proj_chatbot_title', 'proj_chatbot_desc'], ['FastAPI', 'Vite', 'Hugging Face'], 'https://gitlab.com/chatbot-mso/Chatbot-mso'],
             ['sanad', 'ai', A + 'Sanad/sanad_cover.png', ['proj_miathon_title', 'proj_miathon_desc'], ['FastAPI', 'React', 'Whisper'], 'https://github.com/SalmasKit/sanad-elderly-helper'],
             ['soukify', 'mobile', A + 'Soukify/Soukify.jpeg', ['proj3_title', 'proj3_desc'], ['Android', 'Java', 'Firebase'], 'https://github.com/SalmasKit/SoukifyApp'],

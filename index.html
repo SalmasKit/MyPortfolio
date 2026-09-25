@@ -28,6 +28,33 @@
   <main id="main"></main>
   <div id="footer"></div>
   <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+  
+  <!-- Terminal/CLI System -->
+  <button id="cli-fab" class="cli-fab" aria-label="Open Terminal" title="Developer Console">
+    <i class="fas fa-terminal"></i>
+  </button>
+
+  <div id="cli-overlay" class="cli-overlay" role="dialog" aria-modal="true" aria-label="Developer Console">
+    <div class="cli-modal">
+      <div class="cli-header">
+        <div class="cli-title">Salma Barrak — Developer Console</div>
+        <div class="cli-controls">
+          <div class="win-btn" data-action="minimize"><i class="fas fa-minus"></i></div>
+          <div class="win-btn" data-action="maximize"><i class="far fa-square"></i></div>
+          <div class="win-btn close" data-action="close"><i class="fas fa-times"></i></div>
+        </div>
+      </div>
+      <div class="cli-body" id="cli-body">
+        <div class="cli-line intro" data-i18n="cli_intro"></div>
+        <div id="cli-output"></div>
+        <div class="cli-input-line">
+          <span class="cli-prompt">PS C:\Users\Salma></span>
+          <input type="text" id="cli-input" autofocus autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script src="js/loader.js"></script>
 </body>
 </html>

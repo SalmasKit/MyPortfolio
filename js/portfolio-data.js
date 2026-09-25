@@ -58,7 +58,7 @@ if (typeof translations === 'undefined') window.translations = { en: {}, fr: {} 
         const A = 'assets/images/Apps/';
         /* [id, category, image, [titleKey, descKey], tech tags, source url] */
         const PROJECTS = [
-            ['targetalent', 'web', A + 'Targetalent/targetalent.png', ['proj_targetalent_title', 'proj_targetalent_desc'], ['React 19', 'Spring Boot', 'LangGraph', 'FastAPI', 'pgvector'], 'https://github.com/SalmasKit/targetalent'],
+            ['targetalent', 'web', A + 'Targetalent/targetalent.png', ['proj_targetalent_title', 'proj_targetalent_desc'], ['React 19', 'Spring Boot', 'LangGraph', 'FastAPI', 'pgvector'], 'https://github.com/SalmasKit/sourcing-agent-digitalia'],
             ['afriqai', 'web', A + 'FeedbackAnalyzer/FeedbackAnalyzer.png', ['proj_afriqai_title', 'proj_afriqai_desc'], ['Spring Boot', 'FastAPI', 'Generative AI'], 'https://gitlab.com/pfa353013'],
             ['jira', 'web', A + 'Jira/jira_clone.png', ['proj1_title', 'proj1_desc'], ['Spring Boot', 'React', 'PostgreSQL'], 'https://gitlab.com/formations2026/gera-back'],
             ['stockify', 'web', A + 'Stockify/Stockify.png', ['stockify_title', 'stockify_desc'], ['Symfony 7', 'PHP 8.2', 'MySQL'], 'https://github.com/SalmasKit/StockifyApp'],

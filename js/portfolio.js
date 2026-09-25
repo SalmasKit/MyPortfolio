@@ -145,6 +145,12 @@ function applyLang(l) {
     $$('[data-lang]').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
     $('#resume').href = (translations[l] || {}).resume_file || $('#resume').href;
     renderStatic(); renderProjects(); if (typeof renderFeatured === 'function') renderFeatured(); revealAll();
+    
+    // Update terminal intro text
+    const introLine = document.querySelector('.cli-line.intro');
+    if (introLine) {
+        introLine.textContent = translations[l].cli_intro;
+    }
 }
 /* typed role line */
 const roles = () => lang === 'fr' ? ['Développeuse full-stack', 'Passionnée par l\'IA', 'Étudiante à l\'ENSA Oujda'] : ['Full-stack developer', 'AI enthusiast', 'Software engineering student @ ENSA Oujda'];
@@ -255,7 +261,7 @@ Object.assign(FB, { revolving_text: 'BUILD • AUTOMATE • LEARN • DEPLOY •
 {
     let busy = false; const nav = $('nav'), tp = $('#top'), mk = $('#mock');
     const on = () => {
-        busy = false; const h = innerHeight, y = scrollY; nav.classList.toggle('scrolled', y > 10); tp.classList.toggle('show', y > 700); if (y < h) mk.style.translate = `0 ${-y * .07}px`;
+        busy = false; const h = innerHeight, y = scrollY; nav.classList.toggle('scrolled', y > 10); tp.classList.toggle('show', y > 700); document.body.classList.toggle('has-back-to-top', y > 700); if (y < h) mk.style.translate = `0 ${-y * .07}px`;
         $$('.tl').forEach(t => { const b = t.getBoundingClientRect(); t.style.setProperty('--fill', Math.max(0, Math.min(1, (h * .65 - b.top) / b.height))) })
     };
     addEventListener('scroll', () => { if (!busy) { busy = true; requestAnimationFrame(on) } }, { passive: true }); on(); tp.onclick = () => scrollTo({ top: 0, behavior: 'smooth' })
@@ -301,4 +307,182 @@ renderFeatured = function () {
     addEventListener('scroll', () => { if (!b) { b = true; requestAnimationFrame(fx) } }, { passive: true }); addEventListener('resize', fx)
 }
 
+/* ===== Terminal/CLI Functionality ===== */
+function initTerminal() {
+    const cliInput = document.getElementById('cli-input');
+    const cliOutput = document.getElementById('cli-output');
+    const cliOverlay = document.getElementById('cli-overlay');
+    const cliFab = document.getElementById('cli-fab');
+
+    if (!cliInput || !cliOutput || !cliOverlay || !cliFab) return;
+
+    // Set initial intro text
+    const introLine = document.querySelector('.cli-line.intro');
+    if (introLine) {
+        introLine.textContent = translations[document.documentElement.lang || 'en'].cli_intro;
+    }
+
+    function toggleCLI(clearContent = false) {
+        const isVisible = cliOverlay.classList.contains('active');
+        cliOverlay.classList.toggle('active');
+        
+        if (!isVisible) {
+            cliInput.focus();
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+            if (clearContent) {
+                cliOutput.innerHTML = '';
+                cliInput.value = '';
+            }
+        }
+    }
+
+    function toggleMaximize() {
+        const modal = document.querySelector('.cli-modal');
+        if (!modal) return;
+        modal.classList.toggle('maximized');
+    }
+
+    cliFab.addEventListener('click', () => toggleCLI(false));
+
+    // Attach to Windows-style buttons
+    const winBtns = document.querySelectorAll('.win-btn');
+    winBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const action = btn.dataset.action;
+            if (action === 'minimize') toggleCLI(false);
+            else if (action === 'maximize') toggleMaximize();
+            else if (action === 'close') toggleCLI(true);
+        });
+    });
+
+    const commands = {
+        help: () => {
+            const lang = document.documentElement.lang || 'en';
+            const c = translations[lang];
+            return `${c.cli_help_title}<br><br>` +
+                `  <span class="cli-cmd">whoami</span>    ${c.cli_help_whoami}<br>` +
+                `  <span class="cli-cmd">status</span>    ${c.cli_help_status}<br>` +
+                `  <span class="cli-cmd">skills</span>    ${c.cli_help_skills}<br>` +
+                `  <span class="cli-cmd">projects</span>  ${c.cli_help_projects}<br>` +
+                `  <span class="cli-cmd">ls</span>        ${c.cli_help_ls}<br>` +
+                `  <span class="cli-cmd">contact</span>   ${c.cli_help_contact}<br>` +
+                `  <span class="cli-cmd">clear</span>     ${c.cli_help_clear}<br>` +
+                `  <span class="cli-cmd">exit</span>      ${c.cli_help_exit}`;
+        },
+        whoami: () => translations[document.documentElement.lang || 'en'].cli_whoami,
+        status: () => translations[document.documentElement.lang || 'en'].cli_status,
+        skills: () => translations[document.documentElement.lang || 'en'].cli_skills,
+        projects: () => {
+            const lang = document.documentElement.lang || 'en';
+            const c = translations[lang];
+            
+            const projects = [
+                { key: 'proj_targetalent_title' },
+                { key: 'proj1_title' },
+                { key: 'proj_chatbot_title' },
+                { key: 'stockify_title' },
+                { key: 'proj_soukify_title' },
+                { key: 'proj_quiz_title' },
+                { key: 'proj4_title' },
+                { key: 'proj_miathon_title' },
+                { key: 'proj_cdg_capital_title' }
+            ];
+            
+            return `Notable work:<br><br>` +
+                projects.map(p => `  • ${c[p.key] || p.key}`).join('<br>');
+        },
+        ls: (arg) => {
+            const lang = document.documentElement.lang || 'en';
+            const c = translations[lang];
+            
+            // Simple aliases for complex project names
+            const aliases = {
+                'cdg': 'cdg_capital',
+                'financial': 'cdg_capital',
+                'terminal': 'cdg_capital',
+                'sanad': 'miathon',
+                'robot': 'miathon',
+                'jira': 'jira',
+                'chatbot': 'chatbot',
+                'mso': 'chatbot',
+                'stockify': 'stockify',
+                'soukify': 'soukify',
+                'quiz': 'quiz',
+                'vision': 'vision',
+                'querypix': 'querypix',
+                'amee': 'amee',
+                'shifaa': 'shifaa',
+                'bayt': 'bayt',
+                'targetalent': 'targetalent',
+                'target': 'targetalent',
+                'portfolio': 'portfolio'
+            };
+            
+            if (!arg) {
+                // Show list of available projects with aliases
+                const projects = [
+                    { alias: 'targetalent', key: 'proj_targetalent_title' },
+                    { alias: 'jira', key: 'proj1_title' },
+                    { alias: 'chatbot', key: 'proj_chatbot_title' },
+                    { alias: 'stockify', key: 'stockify_title' },
+                    { alias: 'soukify', key: 'proj_soukify_title' },
+                    { alias: 'quiz', key: 'proj_quiz_title' },
+                    { alias: 'vision', key: 'proj4_title' },
+                    { alias: 'sanad', key: 'proj_miathon_title' },
+                    { alias: 'cdg', key: 'proj_cdg_capital_title' }
+                ];
+                
+                return `${c.cli_help_title}<br><br>` +
+                    `Available projects (use <span class="cli-cmd">ls &lt;alias&gt;</span>):<br><br>` +
+                    projects.map(p => `  <span class="cli-cmd">${p.alias}</span>    ${c[p.key] || p.key}`).join('<br>');
+            }
+            
+            const projectKey = `cli_ls_${aliases[arg.toLowerCase()] || arg.toLowerCase()}`;
+            return c[projectKey] || c.cli_not_found.replace('{cmd}', arg);
+        },
+        contact: () => translations[document.documentElement.lang || 'en'].cli_contact,
+        clear: () => { cliOutput.innerHTML = ''; return ''; },
+        exit: () => { toggleCLI(); return translations[document.documentElement.lang || 'en'].cli_exit; }
+    };
+
+    cliInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const fullInput = cliInput.value.trim().toLowerCase();
+            const parts = fullInput.split(' ');
+            const cmd = parts[0];
+            const arg = parts[1];
+
+            if (!fullInput) return;
+
+            const line = document.createElement('div');
+            line.className = 'cli-line user';
+            line.innerHTML = `<span class="cli-prompt">PS C:\\Users\\Salma></span> ${fullInput}`;
+            cliOutput.appendChild(line);
+
+            let response = "";
+            const lang = document.documentElement.lang || 'en';
+
+            if (commands[cmd]) response = commands[cmd](arg);
+            else response = translations[lang].cli_not_found.replace('{cmd}', cmd);
+
+            if (response) {
+                const outLine = document.createElement('div');
+                outLine.className = 'cli-line';
+                outLine.innerHTML = response.replace(/\\n/g, '<br>');
+                cliOutput.appendChild(outLine);
+            }
+
+            cliInput.value = '';
+            const cliBody = document.getElementById('cli-body');
+            if (cliBody) cliBody.scrollTop = cliBody.scrollHeight;
+        }
+    });
+
+}
+
 applyLang(lang);
+
+// Initialize terminal after everything is loaded
+setTimeout(initTerminal, 100);

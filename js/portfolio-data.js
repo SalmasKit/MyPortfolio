@@ -103,7 +103,7 @@ if (typeof translations === 'undefined') window.translations = { en: {}, fr: {} 
             sanad: { k: 'proj_miathon', b: 'Sanad', i: [...rng(369, 376), ...rng(378, 381)].map(n => `Screenshot (${n}).png`) },
             afriqai: { k: 'proj_afriqai', v: 'FeedbackAnalyzer/FeedbackAnalyzer.mp4' },
             chatbot: { k: 'proj_chatbot' }, jira: { k: 'proj1' },
-            stockify: { k: 'stockify', v: 'Stockify/STOCKIFY%20DEMO.mp4' },
+            stockify: { k: 'stockify', v: 'Stockify/STOCKIFY DEMO.mp4' },
             soukify: { k: 'soukify', v: 'Soukify/SOUKIFY%20Demo.mp4' },
             quiz: { k: 'proj_quiz', v: 'Quiz/QUIZAPPDEMO.mp4' },
             vision: { k: 'proj4', v: 'Mouvementdetection/MOTIONDETECTIONDEMO.mp4' },

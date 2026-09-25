@@ -98,7 +98,7 @@ if (typeof translations === 'undefined') window.translations = { en: {}, fr: {} 
         /* detail pages: translation prefix, demo video, screenshot folder + files */
         const rng = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
         const DET = {
-            targetalent: { k: 'proj_targetalent', v: 'Baytalhikma/TargetlantDemo.mp4' },
+            targetalent: { k: 'proj_targetalent', v: 'Targetalent/TargetlantDemo.mp4' },
             cdg: { k: 'proj_cdg_capital', v: 'CDG/CDGCapital_FinancialAssistant.mp4' },
             sanad: { k: 'proj_miathon', b: 'Sanad', i: [...rng(369, 376), ...rng(378, 381)].map(n => `Screenshot (${n}).png`) },
             afriqai: { k: 'proj_afriqai', v: 'FeedbackAnalyzer/FeedbackAnalyzer.mp4' },

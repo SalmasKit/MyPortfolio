@@ -122,13 +122,36 @@ function gallery(type) {
     openModal(`<div class="gal"><h2>${T(G[0])}</h2><p>${T(G[1])}</p>${G[2]}</div>`);
 }
 function pdf(url, tk) { openModal(`<div class="gal"><h2>${T(tk)}</h2><iframe src="${url}" title="PDF"></iframe><div><a class="btn p" href="${url}" download><i class="fas fa-download"></i> ${T('resume_download')}</a></div></div>`) }
+function openResumeModal() {
+    const enFile = 'assets/docs/Resumes/Resume_SalmaBARRAK_FullStack.pdf';
+    const frFile = 'assets/docs/Resumes/CV_SalmaBARRAK_FullStack.pdf';
+    openModal(`<div class="resume-pick">
+        <h2 class="resume-pick-title"><i class="fas fa-file-pdf"></i> ${T('resume_pick_title') || 'Choose a Version'}</h2>
+        <p class="resume-pick-sub">${T('resume_pick_sub') || 'Select the language version you\'d like to view.'}</p>
+        <div class="resume-pick-cards">
+            <button class="resume-lang-card" data-resume="${enFile}">
+                <span class="rlc-flag">EN</span>
+                <span class="rlc-lang">${T('resume_pick_en') || 'English'}</span>
+                <span class="rlc-label">${T('resume_pick_en_label') || 'Resume'}</span>
+                <span class="rlc-filename">Resume_SalmaBARRAK_FullStack.pdf</span>
+            </button>
+            <button class="resume-lang-card" data-resume="${frFile}">
+                <span class="rlc-flag">FR</span>
+                <span class="rlc-lang">${T('resume_pick_fr') || 'Fran\u00e7ais'}</span>
+                <span class="rlc-label">${T('resume_pick_fr_label') || 'Curriculum Vitae'}</span>
+                <span class="rlc-filename">CV_SalmaBARRAK_FullStack.pdf</span>
+            </button>
+        </div>
+    </div>`);
+}
 document.addEventListener('click', e => {
     if (e.target.id === 'modal' || e.target.closest('.x')) return closeModal();
     if (e.target.closest('.card a, .pcard a, .btn-pcard-src')) return;
-    const g = e.target.closest('[data-g]'), f = e.target.closest('[data-pdf]'), o = e.target.closest('[data-open]');
+    const g = e.target.closest('[data-g]'), f = e.target.closest('[data-pdf]'), o = e.target.closest('[data-open]'), r = e.target.closest('[data-resume]');
     if (g) { e.preventDefault(); gallery(g.dataset.g) }
     else if (f) { e.preventDefault(); pdf(f.dataset.pdf, f.dataset.t) }
     else if (o) { e.preventDefault(); openProject(o.dataset.open) }
+    else if (r) { e.preventDefault(); closeModal(); setTimeout(() => pdf(r.dataset.resume, 'resume_title'), 180); }
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal() });
 $('#cfilters').addEventListener('click', e => {

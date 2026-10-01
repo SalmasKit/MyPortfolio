@@ -380,26 +380,62 @@ function initTerminal() {
         });
     });
 
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function renderBarcaCard(lang) {
+        const c = translations[lang] || translations.en;
+        const note = c.cli_barca_note || "Salma's all-time favorite club! Força Barça! 💙❤️";
+        return `
+<div class="cli-barca-card">
+  <div class="cli-barca-media">
+    <img src="assets/images/barca.jpg" alt="FC Barcelona" class="cli-barca-img" loading="eager">
+  </div>
+  <div class="cli-barca-title">FC BARCELONA</div>
+  <div class="cli-barca-tagline">« MÉS QUE UN CLUB »</div>
+  <div class="cli-barca-stats">
+    🏆 <b>5×</b> Champions League &nbsp;•&nbsp; 🏆 <b>29×</b> La Liga &nbsp;•&nbsp; 🏆 <b>32×</b> Copa del Rey &nbsp;•&nbsp; 🏆 <b>3×</b> Club World Cup
+  </div>
+  <div class="cli-barca-quote">
+    ⚽ <i>"Tot el camp, és un clam, som la gent blaugrana, tant se val d'on venim, si del sud o del nord, ara estem d'acord, estem d'acord, una bandera ens agermana!"</i>
+  </div>
+  <div class="cli-barca-badge-footer">
+    💙❤️ <b>${note}</b>
+  </div>
+</div>`;
+    }
+
     const commands = {
         help: () => {
             const lang = document.documentElement.lang || 'en';
-            const c = translations[lang];
+            const c = translations[lang] || translations.en;
             return `${c.cli_help_title}<br><br>` +
-                `  <span class="cli-cmd">whoami</span>    ${c.cli_help_whoami}<br>` +
-                `  <span class="cli-cmd">status</span>    ${c.cli_help_status}<br>` +
-                `  <span class="cli-cmd">skills</span>    ${c.cli_help_skills}<br>` +
-                `  <span class="cli-cmd">projects</span>  ${c.cli_help_projects}<br>` +
-                `  <span class="cli-cmd">ls</span>        ${c.cli_help_ls}<br>` +
-                `  <span class="cli-cmd">contact</span>   ${c.cli_help_contact}<br>` +
-                `  <span class="cli-cmd">clear</span>     ${c.cli_help_clear}<br>` +
-                `  <span class="cli-cmd">exit</span>      ${c.cli_help_exit}`;
+                `  <span class="cli-cmd">whoami</span>        ${c.cli_help_whoami}<br>` +
+                `  <span class="cli-cmd">status</span>        ${c.cli_help_status}<br>` +
+                `  <span class="cli-cmd">skills</span>        ${c.cli_help_skills}<br>` +
+                `  <span class="cli-cmd">projects</span>      ${c.cli_help_projects}<br>` +
+                `  <span class="cli-cmd">ls</span>            ${c.cli_help_ls}<br>` +
+                `  <span class="cli-cmd">contact</span>       ${c.cli_help_contact}<br>` +
+                `  <span class="cli-cmd">clear</span>         ${c.cli_help_clear}<br>` +
+                `  <span class="cli-cmd">exit</span>          ${c.cli_help_exit}<br><br>` +
+                `<b>${c.cli_help_fun_title || 'Interactive Commands:'}</b><br><br>` +
+                `  <span class="cli-cmd">fav &lt;club&gt;</span>       ${c.cli_help_fav || 'Best football club'}<br>` +
+                `  <span class="cli-cmd">joke</span>             ${c.cli_help_joke || 'Tell a developer joke'}<br>` +
+                `  <span class="cli-cmd">hack</span>             ${c.cli_help_hack || 'Hollywood hacking simulator'}<br>` +
+                `  <span class="cli-cmd">neofetch</span>         ${c.cli_help_neofetch || 'Developer system specs'}<br>` +
+                `  <span class="cli-cmd">coffee</span>           ${c.cli_help_coffee || 'Order fresh coffee'}<br>` +
+                `  <span class="cli-cmd">weather</span>          ${c.cli_help_weather || 'Dev environment forecast'}<br>` +
+                `  <span class="cli-cmd">sudo</span>             ${c.cli_help_sudo || 'Admin privilege attempt'}<br>` +
+                `  <span class="cli-cmd">ping</span>             ${c.cli_help_ping || 'Ping the portfolio server'}`;
         },
         whoami: () => translations[document.documentElement.lang || 'en'].cli_whoami,
         status: () => translations[document.documentElement.lang || 'en'].cli_status,
         skills: () => translations[document.documentElement.lang || 'en'].cli_skills,
         projects: () => {
             const lang = document.documentElement.lang || 'en';
-            const c = translations[lang];
+            const c = translations[lang] || translations.en;
             
             const projects = [
                 { key: 'proj_targetalent_title' },
@@ -418,9 +454,8 @@ function initTerminal() {
         },
         ls: (arg) => {
             const lang = document.documentElement.lang || 'en';
-            const c = translations[lang];
+            const c = translations[lang] || translations.en;
             
-            // Simple aliases for complex project names
             const aliases = {
                 'cdg': 'cdg_capital',
                 'financial': 'cdg_capital',
@@ -444,7 +479,6 @@ function initTerminal() {
             };
             
             if (!arg) {
-                // Show list of available projects with aliases
                 const projects = [
                     { alias: 'targetalent', key: 'proj_targetalent_title' },
                     { alias: 'jira', key: 'proj1_title' },
@@ -463,32 +497,159 @@ function initTerminal() {
             }
             
             const projectKey = `cli_ls_${aliases[arg.toLowerCase()] || arg.toLowerCase()}`;
-            return c[projectKey] || c.cli_not_found.replace('{cmd}', arg);
+            return c[projectKey] || c.cli_not_found.replace('{cmd}', escapeHtml(arg));
         },
         contact: () => translations[document.documentElement.lang || 'en'].cli_contact,
         clear: () => { cliOutput.innerHTML = ''; return ''; },
-        exit: () => { toggleCLI(); return translations[document.documentElement.lang || 'en'].cli_exit; }
+        exit: () => { toggleCLI(); return translations[document.documentElement.lang || 'en'].cli_exit; },
+        
+        // Interactive Commands
+        fav: (arg) => {
+            const lang = document.documentElement.lang || 'en';
+            const c = translations[lang] || translations.en;
+            if (!arg) return c.cli_barca_hint;
+            
+            const cleanArg = arg.replace(/^club\s+/, '').trim().toLowerCase();
+            if (!cleanArg) return c.cli_barca_hint;
+            
+            if (cleanArg === 'barcelona' || cleanArg === 'barca' || cleanArg === 'barça' || cleanArg === 'fc barcelona' || cleanArg === 'fcb') {
+                return renderBarcaCard(lang);
+            }
+            return (c.cli_barca_other || "Club not found.").replace('{club}', escapeHtml(cleanArg));
+        },
+        club: (arg) => {
+            const lang = document.documentElement.lang || 'en';
+            const c = translations[lang] || translations.en;
+            if (!arg) return c.cli_barca_hint;
+            
+            const cleanArg = arg.trim().toLowerCase();
+            if (cleanArg === 'barcelona' || cleanArg === 'barca' || cleanArg === 'barça' || cleanArg === 'fc barcelona' || cleanArg === 'fcb') {
+                return renderBarcaCard(lang);
+            }
+            return (c.cli_barca_other || "Club not found.").replace('{club}', escapeHtml(cleanArg));
+        },
+        joke: () => {
+            const lang = document.documentElement.lang || 'en';
+            const c = translations[lang] || translations.en;
+            const jokes = c.cli_jokes || [
+                "Why do programmers prefer dark mode? Because light attracts bugs. 🐛",
+                "There are 10 types of people: those who understand binary and those who don't. 💻"
+            ];
+            const randomIndex = Math.floor(Math.random() * jokes.length);
+            return `😄 <b>${lang === 'fr' ? 'Blague de Développeur' : 'Developer Joke'} :</b><br>${jokes[randomIndex]}`;
+        },
+        hack: () => (translations[document.documentElement.lang || 'en'] || translations.en).cli_hack_msg,
+        sudo: () => (translations[document.documentElement.lang || 'en'] || translations.en).cli_sudo_msg,
+        coffee: () => {
+            const lang = document.documentElement.lang || 'en';
+            const isFr = lang === 'fr';
+            const id = 'coffee-' + Math.random().toString(36).substring(2, 9);
+            const brewingText = isFr ? "Infusion de l'espresso en cours..." : "Brewing fresh espresso...";
+            const readyText = isFr 
+                ? "☕ Votre espresso bien chaud est prêt ! (Caféine : 100% | Vitesse : +300%) Bon code ! ✨" 
+                : "☕ Fresh hot espresso is served! (Caffeine: 100% | Compilation : +300%) Enjoy coding! ✨";
+
+            setTimeout(() => {
+                const widget = document.getElementById(id);
+                if (!widget) return;
+                const percentEl = widget.querySelector('.cli-coffee-percent');
+                const msgEl = widget.querySelector('.cli-coffee-msg');
+                let count = 0;
+                const interval = setInterval(() => {
+                    count += 5;
+                    if (percentEl) percentEl.textContent = count + '%';
+                    if (count >= 100) {
+                        clearInterval(interval);
+                        if (msgEl) {
+                            msgEl.innerHTML = readyText;
+                            msgEl.style.color = 'var(--accent)';
+                        }
+                        const cliBody = document.getElementById('cli-body');
+                        if (cliBody) cliBody.scrollTop = cliBody.scrollHeight;
+                    }
+                }, 115);
+            }, 60);
+
+            return `
+<div class="cli-coffee-widget" id="${id}">
+  <div class="cli-coffee-visual">
+    <div class="cli-steam-container">
+      <span class="cli-steam steam-1"></span>
+      <span class="cli-steam steam-2"></span>
+      <span class="cli-steam steam-3"></span>
+    </div>
+    <div class="cli-cup-wrapper">
+      <div class="cli-cup">
+        <div class="cli-coffee-fill">
+          <div class="cli-coffee-cream"></div>
+        </div>
+      </div>
+      <div class="cli-cup-handle"></div>
+    </div>
+    <div class="cli-cup-saucer"></div>
+  </div>
+  <div class="cli-coffee-details">
+    <div class="cli-coffee-msg">${brewingText}</div>
+    <div class="cli-coffee-meter">
+      <div class="cli-coffee-meter-bar"></div>
+    </div>
+    <div class="cli-coffee-percent">0%</div>
+  </div>
+</div>`;
+        },
+        weather: () => (translations[document.documentElement.lang || 'en'] || translations.en).cli_weather_msg,
+        ping: () => (translations[document.documentElement.lang || 'en'] || translations.en).cli_ping_msg,
+        neofetch: () => {
+            const lang = document.documentElement.lang || 'en';
+            const isFr = lang === 'fr';
+            return `
+<div class="cli-neofetch">
+<pre class="cli-neofetch-logo">
+   _____       __                 
+  / ___/____ _/ /___ ___  ____ _
+  \\__ \\/ __ \`/ / __ \`__ \\/ __ \`/
+ ___/ / /_/ / / / / / / / /_/ / 
+/____/\\__,_/_/_/ /_/ /_/\\__,_/  
+</pre>
+<div class="cli-neofetch-info">
+  <span style="color:var(--accent); font-weight:bold;">salma@portfolio-os</span><br>
+  <span>-------------------</span><br>
+  <b>OS:</b> SalmaOS v2.5 (ENSA Oujda Eng. Edition) 🚀<br>
+  <b>Role:</b> Software & AI Engineering Student 👩‍💻<br>
+  <b>Stack:</b> Java, Spring Boot, Python, FastAPI, React<br>
+  <b>Database:</b> PostgreSQL, MySQL, pgvector, SQLite<br>
+  <b>Tools:</b> Docker, Git, n8n, LangGraph, Linux<br>
+  <b>Fav Club:</b> <span style="color:#facc15; font-weight:bold;">FC BARCELONA</span> 🔵🔴<br>
+  <b>Uptime:</b> 24/7 (Fueled by curiosity & coffee ☕)<br>
+  <b>Status:</b> ${isFr ? 'À la recherche d\'un stage PFE (Janv 2027) 🎯' : 'Seeking 6-month PFE Internship (Jan 2027) 🎯'}
+</div>
+</div>`;
+        }
     };
 
     cliInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            const fullInput = cliInput.value.trim().toLowerCase();
-            const parts = fullInput.split(' ');
-            const cmd = parts[0];
-            const arg = parts[1];
-
-            if (!fullInput) return;
+            const rawInput = cliInput.value.trim();
+            if (!rawInput) return;
 
             const line = document.createElement('div');
             line.className = 'cli-line user';
-            line.innerHTML = `<span class="cli-prompt">PS C:\\Users\\Salma></span> ${fullInput}`;
+            line.innerHTML = `<span class="cli-prompt">PS C:\\Users\\Salma&gt;</span> ${escapeHtml(rawInput)}`;
             cliOutput.appendChild(line);
+
+            const parts = rawInput.split(/\s+/);
+            const cmd = parts[0].toLowerCase();
+            const rest = parts.slice(1).join(' ').trim().toLowerCase();
 
             let response = "";
             const lang = document.documentElement.lang || 'en';
+            const c = translations[lang] || translations.en;
 
-            if (commands[cmd]) response = commands[cmd](arg);
-            else response = translations[lang].cli_not_found.replace('{cmd}', cmd);
+            if (commands[cmd]) {
+                response = commands[cmd](rest);
+            } else {
+                response = c.cli_not_found.replace('{cmd}', escapeHtml(cmd));
+            }
 
             if (response) {
                 const outLine = document.createElement('div');

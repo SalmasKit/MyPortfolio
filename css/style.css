@@ -3469,3 +3469,299 @@ body.has-back-to-top .cli-fab {
     .resume-pick-cards { gap: .8rem; }
     .resume-lang-card { padding: 1.2rem .8rem 1rem; }
 }
+
+/* ===== CLI Interactive Commands & FC Barcelona Card ===== */
+.cli-barca-card {
+    margin: 12px 0;
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 77, 152, 0.28) 0%, rgba(165, 0, 68, 0.28) 100%);
+    border: 1.5px solid #edbb00;
+    box-shadow: 0 8px 32px rgba(0, 77, 152, 0.35), 0 0 16px rgba(237, 187, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: inherit;
+    animation: cliBarcaGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes cliBarcaGlow {
+    from {
+        box-shadow: 0 6px 24px rgba(0, 77, 152, 0.3), 0 0 12px rgba(237, 187, 0, 0.2);
+    }
+    to {
+        box-shadow: 0 8px 36px rgba(165, 0, 68, 0.4), 0 0 24px rgba(237, 187, 0, 0.45);
+    }
+}
+
+.cli-barca-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.cli-barca-img {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(237, 187, 0, 0.35);
+    border: 1.5px solid #edbb00;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.cli-barca-img:hover {
+    transform: scale(1.02);
+}
+
+.cli-barca-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffeb3b;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cli-barca-tagline {
+    color: #38bdf8;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cli-barca-stats {
+    font-size: 0.85rem;
+    color: #f1f5f9;
+}
+
+.cli-barca-quote {
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    font-style: italic;
+    border-left: 3px solid #edbb00;
+    padding-left: 10px;
+    margin: 4px 0;
+}
+
+.cli-barca-badge-footer {
+    font-size: 0.88rem;
+    color: #4ade80;
+    font-weight: 600;
+}
+
+.cli-neofetch {
+    display: flex;
+    gap: 16px;
+    margin: 10px 0;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.cli-neofetch-logo {
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 0.78rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.cli-neofetch-info {
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* ===== CLI Interactive Coffee Cup Filling Animation ===== */
+.cli-coffee-widget {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 12px 0;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    max-width: 520px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cli-coffee-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 65px;
+    flex-shrink: 0;
+}
+
+.cli-steam-container {
+    height: 18px;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.cli-steam {
+    width: 3px;
+    height: 14px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.65), transparent);
+    border-radius: 3px;
+    opacity: 0;
+    animation: cliSteamRise 2s ease-in-out infinite;
+}
+
+.cli-steam.steam-1 {
+    animation-delay: 0.8s;
+}
+
+.cli-steam.steam-2 {
+    animation-delay: 1.2s;
+    height: 18px;
+}
+
+.cli-steam.steam-3 {
+    animation-delay: 1.6s;
+}
+
+@keyframes cliSteamRise {
+    0% {
+        transform: translateY(6px) scaleX(1);
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.75;
+    }
+    100% {
+        transform: translateY(-8px) scaleX(1.8);
+        opacity: 0;
+    }
+}
+
+.cli-cup-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cli-cup {
+    width: 44px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2.5px solid var(--accent);
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.cli-cup-handle {
+    width: 14px;
+    height: 22px;
+    border: 2.5px solid var(--accent);
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    margin-left: -1px;
+}
+
+.cli-cup-saucer {
+    width: 58px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 3px;
+    margin-top: 2px;
+    opacity: 0.9;
+}
+
+.cli-coffee-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0%;
+    background: linear-gradient(to top, #24140e, #532e1c, #6f3f26);
+    animation: cliFillCoffee 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    border-radius: 0 0 12px 12px;
+}
+
+.cli-coffee-cream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to bottom, #d4a373, #a9714b);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes cliFillCoffee {
+    0% {
+        height: 0%;
+    }
+    20% {
+        height: 15%;
+    }
+    60% {
+        height: 55%;
+    }
+    100% {
+        height: 84%;
+    }
+}
+
+.cli-coffee-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.cli-coffee-msg {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.3s;
+    line-height: 1.4;
+}
+
+.cli-coffee-meter {
+    height: 7px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--line);
+}
+
+.cli-coffee-meter-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d4a373, var(--accent));
+    border-radius: 4px;
+    animation: cliMeterFill 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cliMeterFill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.cli-coffee-percent {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: monospace;
+}
